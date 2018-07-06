@@ -51178,7 +51178,7 @@ exports = module.exports = __webpack_require__(53)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.fonf-bg[data-v-537662e5] {\r\n    background-color: black;\r\n    opacity: 0.6;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    position: absolute;\r\n    margin-top: -1.2em;\r\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));\r\n    background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);\r\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );\n}\r\n", ""]);
 
 // exports
 
@@ -51200,8 +51200,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {};
+    },
+    mounted: function mounted() {
+        document.querySelector('body').style.backgroundImage = 'url("/assets/merkel.jpg")';
+    }
+});
 
 /***/ }),
 /* 75 */
@@ -51211,9 +51229,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    fake or no fake\n")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "fonf" } }, [
+      _c("div", { staticClass: "fonf-bg" })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
