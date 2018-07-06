@@ -17,13 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v2')->group(function () {
+Route::prefix('v1')->group(function () {
     Route::apiResource('questions', 'QuestionController');
     Route::get('random', 'QuestionController@random');
     Route::get('getfive', 'QuestionController@getfive');
     Route::post('game/answer', 'GameController@answerquestion');
 });
-Route::prefix('v1')->group(function () {
+/*Route::prefix('v1')->group(function () {
     Route::get('questions/random', function () {
         $randomquestion = \App\Question::orderBy(\DB::raw('RAND()'))->with(['category','answers','source'])->first();
         return $randomquestion;
@@ -43,4 +43,4 @@ Route::prefix('v1')->group(function () {
         $question->save();
         return $question;
     });
-});
+});*/
