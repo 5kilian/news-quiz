@@ -14,7 +14,11 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('AID');
+            $table->unsignedInteger('qid');
+            $table->string('answertext');
+            $table->boolean('istrue');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

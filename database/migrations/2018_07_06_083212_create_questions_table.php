@@ -14,7 +14,11 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('QID');
+            $table->unsignedInteger('cid');
+            $table->unsignedInteger('sid');
+            $table->string('questiontext');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
