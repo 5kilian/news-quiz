@@ -8,15 +8,19 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 #mainNavigation {
-  position: fixed;
-  top: 0;
-  z-index: 100;
 }
 
 .main-navigation-header {
@@ -30,6 +34,7 @@
   align-items: center;
   color: white;
   font-size: 1.2em;
+  margin-bottom: 1em;
 }
 
 #sideMenu {
@@ -43,7 +48,7 @@
   width: 80%;
   transform: translateX(-50%);
   margin-left: 50%;
-  margin-top: 5em;
+  margin-top: 2em;
 }
 
 .big-btn {
