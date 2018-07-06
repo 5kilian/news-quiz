@@ -10519,7 +10519,9 @@ body {
   font-size: 2.5em;
 }
 
-a {
+a,
+a:hover {
   color: white;
+  text-decoration: none;
 }
 

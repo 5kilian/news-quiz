@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -28,40 +27,36 @@ import QuizPage from './components/QuizPage';
 import News from './components/News';
 import SideMenu from './components/SideMenu';
 import FakeOrNoFake from './components/FakeOrNoFake';
+import Solution from './components/Solution'
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/home', redirect: '/' },
-  { path: '/quiz', component: QuizPage },
-  { path: '/news', component: News },
-  { path: '/side-menu', component: SideMenu },
-  { path: '/fakeornofake', component: FakeOrNoFake },
+    {path: '/', component: Home},
+    {path: '/home', redirect: '/'},
+    {path: '/quiz', component: QuizPage},
+    {path: '/news', component: News},
+    {path: '/side-menu', component: SideMenu},
+    {path: '/fakeornofake', component: FakeOrNoFake},
+    {path: '/solution', name: 'Solution',component: Solution}
+    // {path: '/solution', component: Solution, props: (route) => ({ answerID: route.params.answerID })}
 ];
 
-const router = new VueRouter({ routes });
+const router = new VueRouter({routes});
 
 const store = new Vuex.Store({
-  state: {
-    backButton: false,
-    navigation: true
-  }
+    state: {
+        backButton: false,
+        navigation: true
+    }
 });
 
 const app = new Vue({
     el: '#app',
-    components: { App },
-    data: {
-        pages: {
-            home: true,
-            quiz: false
-        }
-    },
+    components: {App},
+    data: {},
     mounted() {
 
     },
-    methods: {
-
-    },
+    methods: {},
     store,
     router
 });

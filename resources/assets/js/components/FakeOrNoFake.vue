@@ -37,6 +37,8 @@ export default {
         bg.on('swipeleft', () => {
             alert("false")
         })
+        this.$store.state.backButton = true;
+        this.$store.state.navigation = false;
     }
 }
 </script>
@@ -91,5 +93,8 @@ export default {
     text-align: center;
     margin-top: 17vh;
     z-index: 1;
+    font-size: 1.3em;
+    font-family: serif;
+    letter-spacing: 0.2px;
 }
 </style>
