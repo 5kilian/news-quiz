@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Sources extends Model
+class Source extends Model
 {
     //
     use SoftDeletes;

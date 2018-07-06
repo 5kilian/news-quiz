@@ -17,4 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/123', function () {
+    $json = json_decode(file_get_contents("http://www.tagesschau.de/api2/"), true);
+
+    dd($json);
+});
+Route::any('/app/{any?}', 'HomeController@index')->where('any', '[\/\w\.-]*');

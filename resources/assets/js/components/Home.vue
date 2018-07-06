@@ -1,26 +1,19 @@
 <template>
     <div id="home">
         <div class="home-container">
-            <div class="big-btn" @click="startQuiz()">Start Quiz</div>
-            <div class="big-btn" @click="startQuiz()" style="margin-top: 2em;">Start Quiz v2</div>
+            <router-link to="/quiz" class="big-btn">Start Quiz</router-link>
+            <router-link to="/fakeornofake" class="big-btn" style="margin-top: 2em;">Fake or no Fake</router-link>
         </div> 
     </div>
 </template>
 
 <script>
-import {bus} from '../app.js'
 
 export default {
     data() 
     {
         return {
 
-        }
-    },
-    methods: {
-        startQuiz()
-        {
-            bus.$emit('changePage', 'quiz')
         }
     }
 }

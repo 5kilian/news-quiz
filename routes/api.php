@@ -17,9 +17,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::prefix('v2')->group(function () {
+    Route::apiResource('questions', 'QuestionController');
+    Route::get('random', 'QuestionController@random');
+});
 Route::prefix('v1')->group(function () {
     Route::get('questions/random', function () {
-        return 'Random post';
+        $randomquestion = \App\Question::orderBy(\DB::raw('RAND()'))->with(['category','answers','source'])->first();
+        return $randomquestion;
+        //$randomquestion);
     });
     Route::get('questions/{question}', function (App\Question $question) {
         return $question;
