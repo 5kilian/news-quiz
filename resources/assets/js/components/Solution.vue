@@ -1,12 +1,16 @@
 <template>
     <div class="color-gradient">
         <!--<div class="video" v-if="video != null">-->
-            <!--<video src="video"></video>-->
+        <!--<video src="video"></video>-->
         <!--</div>-->
         <div class="video">
-            <video src="https://media.tagesschau.de/video/2018/0706/TV-20180706-1654-0101.webm.h264.mp4" autoplay controls></video>
+            <video src="https://media.tagesschau.de/video/2018/0706/TV-20180706-1654-0101.webm.h264.mp4" autoplay
+                   controls></video>
         </div>
 
+        <h1>
+            {{ answerID }}
+        </h1>
 
         <div class="solution-result">
             <h2 v-if="correct" style="color: green">Richtig</h2>
@@ -31,6 +35,7 @@
 
     export default {
         name: "Solution",
+        props: ['answerID'],
         data() {
             return {
                 score: null,
@@ -42,8 +47,7 @@
         },
         mounted() {
             function setGradient() {
-                var element = document.getElementsByTagName("BODY")[0];
-                element.style.background = 'linear-gradient(to bottom, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8)';
+                document.querySelector('body').style.background = 'linear-gradient(to bottom, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8)';
             }
 
         }

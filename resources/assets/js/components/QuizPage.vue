@@ -7,9 +7,9 @@
                 </div>
 
                 <div class="quiz-answers">
-                        <div class="quiz-answer" @click="submit(answer.index)" v-for="answer in response.answers">
+                        <router-link :to="{name: 'Solution', params: { answerID: answer.index }}" class="quiz-answer"  @click="submit(answer.index)" v-for="answer in response.answers">
                             {{ answer.text }}
-                        </div>
+                        </router-link>
                 </div>
 
             </div>
@@ -51,7 +51,9 @@
 
         methods: {
             submit: function (index) {
-                console.log(index);
+                // console.log(index);
+                this.$router.push({path: "/solution", params: {answerID: index}})
+
                 // axios.post("localhost:2000/api/v1/questions/submit", {
                 //     headers: {
                 //         'Content-Type': 'application'
