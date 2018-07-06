@@ -1,4 +1,4 @@
-const CACHE_ID = 'news-duell-v1';
+const CACHE_ID = 'news-duell-v5';
 
 const FILES = [
   './',
@@ -15,6 +15,7 @@ const FILES = [
   'assets/icons/icon-512x512.png',
   'favicon.ico',
   'manifest.json',
+  'mix-manifest.json'
 ];
 
 const handleInstallation = async event => {
@@ -45,13 +46,22 @@ const updateCache = async (request, response) => {
 };
 
 const handleFetch = async event => {
-  console.log('Load from cache: ' + event.request);
+  console.log('Load from cachee', event.request);
 
-  const response = await caches.match(event.request);
-  if (response) {
-    return response;
+  const { pathname, searchParams } = new URL(event.request.url);
+
+  if (event.request.method === "POST" || pathname === '/login' || pathname === '/register') {
+    return fetch(event.request);
   }
-  return fetch(event.request).then(async response => updateCache(event.request, response));
+
+  const cache = await caches.open(CACHE_ID);
+  let response = await cache.match(event.request);
+
+  if (response) {
+    return response
+  }
+
+  return fetch(event.request);
 };
 
 self.addEventListener('fetch', event => event.respondWith(handleFetch(event)));
