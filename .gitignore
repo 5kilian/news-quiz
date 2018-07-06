@@ -16,3 +16,4 @@ package-lock.json
 yarn.lock
 public/js
 public/css
+public/js/app.js
