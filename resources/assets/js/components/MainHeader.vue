@@ -12,19 +12,17 @@
 <style scoped>
     .main-navigation-back {
         position: absolute;
-        margin-top: 0.5em;
+        margin-top: 0.55em;
         margin-left: 0.5em;
-        background-color: white;
+        background-color: #02559e;
         border-radius: 50%;
         width: 2.5em;
         height: 2.5em;
-        color: #484848;
+        color:white;
         display: flex;
         justify-content: center;
         align-items: center;
-        /* text-shadow: 0 3px 5px rgba(0,0,0,.4); */
         padding-right: 0.2em;
-        box-shadow: 0 3px 5px rgba(0,0,0,.4);
     }
 
     .main-navigation-back i {
