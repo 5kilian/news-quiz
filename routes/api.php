@@ -28,6 +28,11 @@ Route::prefix('v1')->group(function () {
         return $answer;
     });
     Route::post('questions/create', function () {
-        return 'Question created';
+        $question = new \App\Question();
+        $question->questiontext = 'Hello World?';
+        $question->cid = 1;
+        $question->sid = 1;
+        $question->save();
+        return $question;
     });
 });
