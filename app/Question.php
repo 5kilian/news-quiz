@@ -11,14 +11,14 @@ class Question extends Model
     use SoftDeletes;
     public function answers()
     {
-        return $this->hasMany('App\Answer', 'qid');
+        return $this->hasMany('App\Answer', 'qid','QID');
     }
 
     public function category() {
-        return $this->hasOne('App\Category', 'cid');
+        return $this->hasOne('App\Category', 'CID','cid');
     }
 
     public function source() {
-        return $this->hasOne('App\Sources', 'sid');
+        return $this->hasOne('App\Source', 'SID','sid');
     }
 }
