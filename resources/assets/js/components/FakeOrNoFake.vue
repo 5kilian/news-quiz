@@ -15,7 +15,38 @@
     </div>
 </template>
 
+<script>
+import hammerjs from 'hammerjs'
+
+export default {
+    data()
+    {
+        return {
+
+        }
+    },
+    mounted() 
+    {
+        document.querySelector('body').style.backgroundImage = 'url("/assets/merkel.jpg")'
+
+        var bg = new Hammer(document.querySelector('.fonf-bg'), {})
+        bg.on('swiperight', () => {
+            alert("true")
+        })
+
+        bg.on('swipeleft', () => {
+            alert("false")
+        })
+    }
+}
+</script>
+
+
 <style scoped>
+#fonf {
+    height: 100vh;
+}
+
 .fonf-bg {
     background-color: black;
     opacity: 0.6;
@@ -35,7 +66,7 @@
     position: absolute;
     width: 100vw;
     padding: 1em;
-    margin-top: 25vh;
+    margin-top: 32vh;
     z-index: 1;
 }
 
@@ -58,25 +89,7 @@
     position: absolute;
     margin-left: 50%;
     text-align: center;
-    margin-top: 15vh;
+    margin-top: 17vh;
     z-index: 1;
 }
 </style>
-
-
-<script>
-import hammerjs from 'hammerjs'
-
-export default {
-    data()
-    {
-        return {
-
-        }
-    },
-    mounted() 
-    {
-        document.querySelector('body').style.backgroundImage = 'url("/assets/merkel.jpg")'
-    }
-}
-</script>
