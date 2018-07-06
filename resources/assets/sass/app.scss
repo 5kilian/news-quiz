@@ -31,6 +31,7 @@
   width: 80%;
   transform: translateX(-50%);
   margin-left: 50%;
+  margin-top: 25vh;
 }
 
 .big-btn {
@@ -41,4 +42,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.big-btn:active {
+  background-color: #0367bf;
 }
