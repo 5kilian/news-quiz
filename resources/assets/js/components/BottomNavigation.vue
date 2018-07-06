@@ -1,5 +1,5 @@
 <template>
-    <div id="bottomNavigation">
+    <div id="bottomNavigation" v-if="navigation">
         <router-link to="pages" class="material-icons">pages</router-link>
         <router-link to="/poll">
             <div class="bottom-navigation-stats">100</div>
@@ -16,6 +16,9 @@ export default {
         return {
 
         }
+    },
+    computed: {
+        navigation () { return this.$store.state.navigation }
     }
 }
 </script>

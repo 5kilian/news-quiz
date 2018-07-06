@@ -9,10 +9,12 @@ require('./bootstrap');
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Vuex from 'vuex'
 
 import hammerjs from 'hammerjs'
 
 Vue.use(VueRouter);
+Vue.use(Vuex);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,6 +38,13 @@ const routes = [
 
 const router = new VueRouter({ routes });
 
+const store = new Vuex.Store({
+  state: {
+    backButton: false,
+    navigation: true
+  }
+});
+
 const app = new Vue({
     el: '#app',
     components: { App },
@@ -51,5 +60,6 @@ const app = new Vue({
     methods: {
 
     },
+    store,
     router
 });

@@ -37,7 +37,6 @@
 </style>
 
 <script>
-import {bus} from '../app.js'
 
 export default {
     name: 'MainNavigation',
@@ -50,16 +49,12 @@ export default {
     },
     mounted() 
     {
-        bus.$on('mainNavBackBtn', () => {
-            this.isShow = !this.isShow
-        })
+
     },
     methods: {
         back()
         {
-            bus.$emit('changePage', 'home')
-            bus.$emit('bottomNav')
-            bus.$emit('mainNavBackBtn')
+
         }
     }
 }
