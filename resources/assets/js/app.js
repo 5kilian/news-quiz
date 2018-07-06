@@ -5,11 +5,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import hammerjs from 'hammerjs'
-
 require('./bootstrap');
 
-window.Vue = require('vue');
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+import hammerjs from 'hammerjs'
+
+Vue.use(VueRouter);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17,40 +20,36 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('main-header', require('./components/MainHeader.vue'));
-Vue.component('bottom-nav', require('./components/ButtomNavigation.vue'));
-Vue.component('side-menu', require('./components/SideMenu.vue'));
-Vue.component('home', require('./components/Home.vue'));
-Vue.component('quiz-page', require('./components/QuizPage.vue'));
-Vue.component('fakeornofake-page', require('./components/FakeOrNoFake.vue'));
+import App from './components/App'
+import Home from './components/Home';
+import QuizPage from './components/QuizPage';
+import News from './components/News';
+import SideMenu from './components/SideMenu';
 
-export const bus = new Vue()
+const routes = [
+  { path: '/', component: Home },
+  { path: '/home', redirect: '/' },
+  { path: '/quiz', component: QuizPage },
+  { path: '/news', component: News },
+  { path: '/side-menu', component: SideMenu },
+];
+
+const router = new VueRouter({ routes });
 
 const app = new Vue({
     el: '#app',
+    components: { App },
     data: {
         pages: {
             home: true,
-            quiz: false,
-            fakeornofake: false
-        },
-        bottomNav: true
+            quiz: false
+        }
     },
     mounted() {
-        bus.$on('changePage', page => {
-            this.changePage(page)
-        })
 
-        bus.$on('bottomNav', () => {
-            this.bottomNav = !this.bottomNav
-        })
     },
     methods: {
-        changePage(page)
-        {
-            Object.entries(this.pages).forEach(([key, value]) => {
-                key == page ? this.pages[key] = true : this.pages[key] = false
-            })
-        }
-    }
+
+    },
+    router
 });

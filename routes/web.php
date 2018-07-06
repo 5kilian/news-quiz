@@ -22,4 +22,4 @@ Route::get('/123', function () {
 
     dd($json);
 });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::any('/app/{any?}', 'HomeController@index')->where('any', '[\/\w\.-]*');
