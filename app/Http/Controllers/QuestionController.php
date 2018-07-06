@@ -48,7 +48,8 @@ class QuestionController extends Controller
     public function show($id)
     {
         //
-        return QuestionResource::collection((Question::findOrFail($id)));
+        $showquestion = Question::where('QID', $id)->firstOrFail();
+        return new QuestionResource($showquestion);
 
     }
 
