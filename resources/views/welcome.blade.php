@@ -7,6 +7,9 @@
 
         <title>Laravel</title>
 
+        <!-- Manifest !-->
+        <link rel="manifest" href="/manifest.json">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -63,6 +66,16 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        <script>
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/worker.js').then(registration => {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, err => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+          }
+        </script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
