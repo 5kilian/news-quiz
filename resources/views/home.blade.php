@@ -7,7 +7,7 @@
 </div>
 
 <div v-if="pages.quiz">
-    <!-- Hier Quiz Component einfügen -->
+    <quiz-page></quiz-page>
 </div>
 
 @endsection
