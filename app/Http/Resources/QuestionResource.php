@@ -16,7 +16,7 @@ class QuestionResource extends JsonResource
     {
         return [
         'QuestionText' => $this->questiontext,
-        'Category' => $this->category->name,
+        //'Category' => $this->category->name,
         'Answers' => $this->Answers,
         'Source' => $this->source->url,
         'PicURL' => 'https://www.tagesschau.de/multimedia/bilder/kurz-seehofer-101~_v-videowebl.jpg',
