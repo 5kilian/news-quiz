@@ -12,6 +12,13 @@ class Question extends Model
     public function answers()
     {
         return $this->hasMany('App\Answer', 'qid');
+    }
 
+    public function category() {
+        return $this->hasOne('App\Category', 'cid');
+    }
+
+    public function source() {
+        return $this->hasOne('App\Sources', 'sid');
     }
 }
