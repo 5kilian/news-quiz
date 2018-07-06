@@ -26,7 +26,7 @@
     <div id="app">
         <main-header></main-header>
         @yield('content')
-        <bottom-nav></bottom-nav>
+        <bottom-nav v-if="bottomNav"></bottom-nav>
     </div>
 </body>
 </html>

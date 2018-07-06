@@ -21,6 +21,8 @@ export default {
         startQuiz()
         {
             bus.$emit('changePage', 'quiz')
+            bus.$emit('bottomNav')
+            bus.$emit('mainNavBackBtn')
         }
     }
 }

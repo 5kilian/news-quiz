@@ -10417,12 +10417,6 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-#mainNavigation {
-  position: fixed;
-  top: 0;
-  z-index: 100;
-}
-
 .main-navigation-header {
   height: 3em;
   background-color: #0367bf;
@@ -10441,6 +10435,7 @@ a.text-dark:focus {
           align-items: center;
   color: white;
   font-size: 1.2em;
+  margin-bottom: 1em;
 }
 
 #sideMenu {
@@ -10455,7 +10450,7 @@ a.text-dark:focus {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   margin-left: 50%;
-  margin-top: 5em;
+  margin-top: 2em;
 }
 
 .big-btn {

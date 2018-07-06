@@ -31,11 +31,16 @@ const app = new Vue({
         pages: {
             home: true,
             quiz: false
-        }
+        },
+        bottomNav: true
     },
     mounted() {
         bus.$on('changePage', page => {
             this.changePage(page)
+        })
+
+        bus.$on('bottomNav', () => {
+            this.bottomNav = !this.bottomNav
         })
     },
     methods: {

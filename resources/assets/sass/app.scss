@@ -14,9 +14,6 @@
 }
 
 #mainNavigation {
-  position: fixed;
-  top: 0;
-  z-index: 100;
 }
 
 .main-navigation-header {
@@ -30,6 +27,7 @@
   align-items: center;
   color: white;
   font-size: 1.2em;
+  margin-bottom: 1em;
 }
 
 #sideMenu {
@@ -43,7 +41,7 @@
   width: 80%;
   transform: translateX(-50%);
   margin-left: 50%;
-  margin-top: 5em;
+  margin-top: 2em;
 }
 
 .big-btn {

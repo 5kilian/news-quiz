@@ -656,13 +656,18 @@ var app = new Vue({
         pages: {
             home: true,
             quiz: false
-        }
+        },
+        bottomNav: true
     },
     mounted: function mounted() {
         var _this = this;
 
         bus.$on('changePage', function (page) {
             _this.changePage(page);
+        });
+
+        bus.$on('bottomNav', function () {
+            _this.bottomNav = !_this.bottomNav;
         });
     },
 
@@ -50139,6 +50144,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         startQuiz: function startQuiz() {
             __WEBPACK_IMPORTED_MODULE_0__app_js__["bus"].$emit('changePage', 'quiz');
+            __WEBPACK_IMPORTED_MODULE_0__app_js__["bus"].$emit('bottomNav');
+            __WEBPACK_IMPORTED_MODULE_0__app_js__["bus"].$emit('mainNavBackBtn');
         }
     }
 });
@@ -50774,17 +50781,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(68)
+}
 var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(63)
 /* template */
-var __vue_template__ = __webpack_require__(64)
+var __vue_template__ = __webpack_require__(70)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-46014d5d"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -50822,6 +50833,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_js__ = __webpack_require__(4);
 //
 //
 //
@@ -50830,45 +50842,66 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'MainNavigation',
     data: function data() {
         return {
-            title: "News-Quiz"
+            title: "News-Quiz",
+            isShow: false
         };
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        __WEBPACK_IMPORTED_MODULE_0__app_js__["bus"].$on('mainNavBackBtn', function () {
+            _this.isShow = !_this.isShow;
+        });
     },
 
     methods: {
-        openSideMenu: function openSideMenu() {}
+        back: function back() {
+            __WEBPACK_IMPORTED_MODULE_0__app_js__["bus"].$emit('changePage', 'home');
+            __WEBPACK_IMPORTED_MODULE_0__app_js__["bus"].$emit('bottomNav');
+            __WEBPACK_IMPORTED_MODULE_0__app_js__["bus"].$emit('mainNavBackBtn');
+        }
     }
 });
 
 /***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "mainNavigation" } }, [
-    _c("div", { staticClass: "main-navigation-header" }, [
-      _vm._v("\n        " + _vm._s(_vm.title) + "\n    ")
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-46014d5d", module.exports)
-  }
-}
-
-/***/ }),
+/* 64 */,
 /* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -50973,6 +51006,82 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-3a2cc11c", module.exports)
+  }
+}
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(69);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(54)("30df7436", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-46014d5d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainHeader.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-46014d5d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainHeader.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(53)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.main-navigation-back[data-v-46014d5d] {\n    position: absolute;\n    margin-top: 0.5em;\n    margin-left: 0.5em;\n    background-color: white;\n    border-radius: 50%;\n    width: 2.5em;\n    height: 2.5em;\n    color: #484848;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    /* text-shadow: 0 3px 5px rgba(0,0,0,.4); */\n    padding-right: 0.2em;\n    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.4);\n            box-shadow: 0 3px 5px rgba(0,0,0,.4);\n}\n.main-navigation-back i[data-v-46014d5d] {\n    font-size: 2em;\n}\n.main-navigation-header[data-v-46014d5d] {\n    text-shadow: 0 3px 5px rgba(0,0,0,.4);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "mainNavigation" } }, [
+    _vm.isShow
+      ? _c(
+          "div",
+          { staticClass: "main-navigation-back", on: { click: _vm.back } },
+          [
+            _c("i", { staticClass: "material-icons" }, [
+              _vm._v("keyboard_arrow_left")
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "main-navigation-header" }, [
+      _vm._v("\n        " + _vm._s(_vm.title) + "\n    ")
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-46014d5d", module.exports)
   }
 }
 
