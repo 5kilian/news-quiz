@@ -75,7 +75,6 @@
 
 <style scoped>
     .quiz-container {
-        padding-top: 5em; 
         position: absolute; 
         z-index:1; 
         width: 100vw; 
@@ -95,7 +94,7 @@
     }
     .container {
         height: 100vh;
-        margin-top: -4.8em;
+        margin-top: -1em;
         padding: 0;
     }
 
