@@ -1,19 +1,20 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+        <div class="row justify-content-center quiz-container">
+            <div class="col-md-8" style="padding-left: 2em; padding-right: 2em;">
                 <div class="quiz-question">
                     <span>{{ response.question }}</span>
                 </div>
 
                 <div class="quiz-answers">
-                        <router-link :to="{name: 'Solution', params: { answerID: answer.index }}" class="quiz-answer"  @click="submit(answer.index)" v-for="answer in response.answers">
+                        <router-link :to="{name: 'Solution', params: { answerID: answer.index }}" class="quiz-answer"  @click="submit(answer.index)" :key="index" v-for="(answer, index) in response.answers">
                             {{ answer.text }}
                         </router-link>
                 </div>
 
             </div>
         </div>
+        <div class="bg"></div>
     </div>
 </template>
 
@@ -62,6 +63,9 @@
             }
         },
         mounted() {
+            this.$store.state.backButton = true;
+            this.$store.state.navigation = false;
+            document.querySelector('body').style.backgroundImage = 'url("/assets/horst.jpg")'
             // axios
             //     .get("localhost:2000/api/v1/questions/random")
             //     .then(response => (this.response = response))
@@ -70,19 +74,46 @@
 </script>
 
 <style scoped>
+    .quiz-container {
+        padding-top: 5em; 
+        position: absolute; 
+        z-index:1; 
+        width: 100vw; 
+        margin: 0;
+    }
+
+    .bg {
+        background-color: black;
+        opacity: 0.6;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: -moz-linear-gradient(bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,.2) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(0,0,0,1) 20%,rgba(0,0,0,.2) 100%);
+        background: linear-gradient(to top, rgba(0,0,0,1) 20%,rgba(0,0,0,.2) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+    }
     .container {
         height: 100vh;
+        margin-top: -4.8em;
+        padding: 0;
     }
 
     .quiz-question {
         position: relative;
         display: flex;
         flex-wrap: wrap;
-        box-shadow: gray 0 3px 5px;
+        text-shadow: 0 3px 5px black;
         height: 35vh;
         margin: auto 10px auto 10px;
         border-radius: 10px;
-        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: serif;
+        font-size: 1.4em;
+        letter-spacing: 0.5px;
+        text-align: center
     }
 
     .quiz-question span {
@@ -102,7 +133,7 @@
     .quiz-answer {
         flex-grow: 1;
         margin: 10px;
-        box-shadow: gray 0 3px 5px;
+        box-shadow: 0 3px 5px rgba(0,0,0,.6);
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
@@ -110,6 +141,12 @@
         padding: 0.3em 0 0 0.5em;
         width: calc(100% * 1/2);
         border-radius: 10px;
+        background-color: white;
+        color: #2d2d2d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
     }
 
     .quiz-answer:hover {
