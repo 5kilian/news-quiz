@@ -22,6 +22,7 @@ Vue.component('bottom-nav', require('./components/ButtomNavigation.vue'));
 Vue.component('side-menu', require('./components/SideMenu.vue'));
 Vue.component('home', require('./components/Home.vue'));
 Vue.component('quiz-page', require('./components/QuizPage.vue'));
+Vue.component('fakeornofake-page', require('./components/FakeOrNoFake.vue'));
 
 export const bus = new Vue()
 
@@ -30,7 +31,8 @@ const app = new Vue({
     data: {
         pages: {
             home: true,
-            quiz: false
+            quiz: false,
+            fakeornofake: false
         },
         bottomNav: true
     },

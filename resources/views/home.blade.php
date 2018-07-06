@@ -6,6 +6,10 @@
     <home></home>
 </div>
 
+<div v-if="pages.fakeornofake">
+    <fakeornofake-page></fakeornofake-page>
+</div>
+
 <div v-if="pages.quiz">
     <quiz-page>
     </quiz-page>
