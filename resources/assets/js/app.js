@@ -19,7 +19,7 @@ window.Vue = require('vue');
 
 Vue.component('main-navigation', require('./components/MainNavigation.vue'));
 Vue.component('home', require('./components/Home.vue'));
-Vue.component('quiz-page', require('./components/QuizPage'));
+Vue.component('quiz-page', require('./components/QuizPage.vue'));
 
 export const bus = new Vue()
 

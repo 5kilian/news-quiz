@@ -7,7 +7,8 @@
 </div>
 
 <div v-if="pages.quiz">
-    <quiz-page></quiz-page>
+    <quiz-page>
+    </quiz-page>
 </div>
 
 @endsection
