@@ -14,6 +14,12 @@ export default {
         return {
             title: "News-Quiz"
         }
+    },
+    methods: {
+        openSideMenu()
+        {
+
+        }
     }
 }
 </script>

@@ -17,7 +17,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('main-navigation', require('./components/MainNavigation.vue'));
+Vue.component('main-header', require('./components/MainHeader.vue'));
+Vue.component('bottom-nav', require('./components/ButtomNavigation.vue'));
+Vue.component('side-menu', require('./components/SideMenu.vue'));
 Vue.component('home', require('./components/Home.vue'));
 Vue.component('quiz-page', require('./components/QuizPage.vue'));
 
