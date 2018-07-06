@@ -39,17 +39,22 @@
         data() {
             return {
                 score: null,
-                questionId: null,
-                index: null,
-                video: null,
-                correct: false
+                correct: false,
+                isTrue: null,
+                response: {}
             }
         },
         mounted() {
-            function setGradient() {
-                document.querySelector('body').style.background = 'linear-gradient(to bottom, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8)';
-            }
-
+        },
+        created() {
+            axios.post("localhost:2000/api/v1/questions/submit", {
+                data: {
+                    isTrue: this.isTrue,
+                    AID: this.AID
+                }.then(function(response) {
+                    this.response = response;
+                })
+            })
         }
     }
 </script>

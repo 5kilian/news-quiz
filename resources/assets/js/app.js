@@ -36,8 +36,8 @@ const routes = [
     {path: '/news', component: News},
     {path: '/side-menu', component: SideMenu},
     {path: '/fakeornofake', component: FakeOrNoFake},
-    {path: '/solution', name: 'Solution',component: Solution}
-    // {path: '/solution', component: Solution, props: (route) => ({ answerID: route.params.answerID })}
+    // {path: '/solution', name: 'Solution',component: Solution}
+    {path: '/solution', component: Solution, props: (route) => ({ answerID: route.query.answerID })}
 ];
 
 const router = new VueRouter({routes});

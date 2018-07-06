@@ -3,13 +3,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="quiz-question">
-                    <span>{{ response.question }}</span>
+                    <span>{{ response.QuestionText }}</span>
                 </div>
 
                 <div class="quiz-answers">
-                        <router-link :to="{name: 'Solution', params: { answerID: answer.index }}" class="quiz-answer"  @click="submit(answer.index)" v-for="answer in response.answers">
-                            {{ answer.text }}
-                        </router-link>
+                        <div class="quiz-answer" @click="submit(answer.AID)" v-for="answer in response.Answers">
+                            {{ answer.answertext }}
+                        </div>
                 </div>
 
             </div>
@@ -24,47 +24,23 @@
         name: "QuizPage",
         data() {
             return {
-                response: {
-                    question: "Wer ist Bundeskanzler/-in von Deutschland ? 🤔🤔🤔",
-                    answers: {
-                        answerA: {
-                            text: "Theresa May",
-                            index: 1
-                        },
-                        answerB: {
-                            text: "Donald Trump",
-                            index: 2
-                        },
-                        answerC: {
-                            text: "Angelo Mertel",
-                            index: 3
-                        },
-                        answerD: {
-                            text: "Kartoffel",
-                            index: 4
-                        }
-                    }
-                },
-                index: 0
+                response: {}
             }
         },
 
         methods: {
-            submit: function (index) {
-                // console.log(index);
-                this.$router.push({path: "/solution", params: {answerID: index}})
-
-                // axios.post("localhost:2000/api/v1/questions/submit", {
-                //     headers: {
-                //         'Content-Type': 'application'
-                //     }
-                // })
+            submit: function (answerID) {
+                this.$router.push({path: "/solution", query: {answerID: answerID}})
             }
         },
+        created() {
+            axios
+                .get("/api/v2/random")
+                .then(response => {
+                    console.log(response);
+                    this.response = response.data });
+        },
         mounted() {
-            // axios
-            //     .get("localhost:2000/api/v1/questions/random")
-            //     .then(response => (this.response = response))
         }
     }
 </script>
@@ -110,6 +86,7 @@
         padding: 0.3em 0 0 0.5em;
         width: calc(100% * 1/2);
         border-radius: 10px;
+        color: black;
     }
 
     .quiz-answer:hover {
