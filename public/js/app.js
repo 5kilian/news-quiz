@@ -51178,7 +51178,7 @@ exports = module.exports = __webpack_require__(53)(false);
 
 
 // module
-exports.push([module.i, "\n.fonf-bg[data-v-537662e5] {\r\n    background-color: black;\r\n    opacity: 0.6;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    position: absolute;\r\n    margin-top: -1.2em;\r\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));\r\n    background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);\r\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );\n}\r\n", ""]);
+exports.push([module.i, "\n.fonf-bg[data-v-537662e5] {\r\n    background-color: black;\r\n    opacity: 0.6;\r\n    width: 100vw;\r\n    height: 100vh;\r\n    position: absolute;\r\n    margin-top: -1.2em;\r\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));\r\n    background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);\r\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );\n}\n.fonf-controlls[data-v-537662e5] {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: justify;\r\n        -ms-flex-pack: justify;\r\n            justify-content: space-between;\r\n    position: absolute;\r\n    width: 100vw;\r\n    padding: 1em;\r\n    margin-top: 25vh;\r\n    z-index: 1;\n}\n.fonf-controll[data-v-537662e5] {\r\n    background-color: white;\r\n    border-radius: 50%;\r\n    width: 4em;\r\n    height: 4em;\r\n    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.4);\r\n            box-shadow: 0 3px 5px rgba(0,0,0,.4);\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\n}\n.fonf-questions[data-v-537662e5] {\r\n    color: white;\r\n    text-shadow: 0 2px 5px rgba(0,0,0,1);\r\n    width: 80%;\r\n    -webkit-transform: translateX(-50%);\r\n            transform: translateX(-50%);\r\n    position: absolute;\r\n    margin-left: 50%;\r\n    text-align: center;\r\n    margin-top: 15vh;\r\n    z-index: 1;\n}\r\n", ""]);
 
 // exports
 
@@ -51189,6 +51189,8 @@ exports.push([module.i, "\n.fonf-bg[data-v-537662e5] {\r\n    background-color: 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hammerjs__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hammerjs__);
 //
 //
 //
@@ -51211,6 +51213,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -51237,6 +51285,36 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { attrs: { id: "fonf" } }, [
+      _c("div", { staticClass: "fonf-controlls" }, [
+        _c("div", { staticClass: "fonf-controll" }, [
+          _c(
+            "i",
+            {
+              staticClass: "material-icons",
+              staticStyle: { color: "#c53838" }
+            },
+            [_vm._v("block")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "fonf-controll" }, [
+          _c(
+            "i",
+            {
+              staticClass: "material-icons",
+              staticStyle: { color: "#186518" }
+            },
+            [_vm._v("done_all")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "fonf-questions" }, [
+        _vm._v(
+          "\n        Die Bundesregierung verabschiedet während der WM-Spiele unliebsame Gesetze.\n    "
+        )
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "fonf-bg" })
     ])
   }
