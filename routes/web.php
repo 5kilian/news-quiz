@@ -201,4 +201,4 @@ Route::get('/123', function () {
     $Antworten->save();
 
 });
-Route::get('/home', 'HomeController@index')->name('home');
+Route::any('/app/{any?}', 'HomeController@index')->where('any', '[\/\w\.-]*');
