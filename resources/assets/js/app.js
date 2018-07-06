@@ -15,8 +15,30 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('main-navigation', require('./components/MainNavigation.vue'));
+Vue.component('home', require('./components/Home.vue'));
+
+export const bus = new Vue()
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        pages: {
+            home: true,
+            quiz: false
+        }
+    },
+    mounted() {
+        bus.$on('changePage', page => {
+            this.changePage(page)
+        })
+    },
+    methods: {
+        changePage(page)
+        {
+            Object.entries(this.pages).forEach(([key, value]) => {
+                key == page ? this.pages[key] = true : this.pages[key] = false
+            })
+        }
+    }
 });
