@@ -35,14 +35,12 @@
 </style>
 
 <script>
-
 export default {
     name: 'MainNavigation',
     data()
     {
         return {
-            title: "News-Quiz",
-            isShow: false
+            title: "News-Quiz"
         }
     },
     mounted() 
@@ -52,8 +50,17 @@ export default {
     methods: {
         back()
         {
-
+            document.querySelector('body').style.backgroundImage = ''
+            this.$store.state.backButton = false
+            this.$store.state.navigation = true
+            this.$router.push('/home')
         }
+    },
+    computed: {
+        isShow() 
+        {
+            return this.$store.state.backButton;
+        } 
     }
 }
 </script>
