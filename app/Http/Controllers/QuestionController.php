@@ -39,6 +39,15 @@ class QuestionController extends Controller
         //return QuestionResource::collection(($randomquestion));
 
     }
+    public function getfive()
+    {
+        //
+        $randomquestion = Question::orderBy(\DB::raw('RAND()'))->take(5)->get();
+        //dd($randomquestion);
+        //return new QuestionResource($randomquestion);
+        return QuestionResource::collection(($randomquestion));
+
+    }
     /**
      * Display the specified resource.
      *
