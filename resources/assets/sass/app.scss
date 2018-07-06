@@ -25,7 +25,7 @@ body {
 
 .main-navigation-header {
   height: 3em;
-  background-color: #0367bf;
+  background-color: #004179;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   z-index: 100;
   width: 100vw;
@@ -94,4 +94,8 @@ body {
 
 #bottomNavigation i {
   font-size: 2.5em;
+}
+
+a {
+  color: white;
 }

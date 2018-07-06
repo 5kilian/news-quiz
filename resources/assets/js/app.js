@@ -27,6 +27,7 @@ import Home from './components/Home';
 import QuizPage from './components/QuizPage';
 import News from './components/News';
 import SideMenu from './components/SideMenu';
+import FakeOrNoFake from './components/FakeOrNoFake';
 
 const routes = [
   { path: '/', component: Home },
@@ -34,6 +35,7 @@ const routes = [
   { path: '/quiz', component: QuizPage },
   { path: '/news', component: News },
   { path: '/side-menu', component: SideMenu },
+  { path: '/fakeornofake', component: FakeOrNoFake },
 ];
 
 const router = new VueRouter({ routes });
