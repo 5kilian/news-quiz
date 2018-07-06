@@ -10,6 +10,10 @@
 </template>
 
 <style scoped>
+    #mainNavigation {
+        position: relative;
+    }
+
     .main-navigation-back {
         position: absolute;
         margin-top: 0.55em;

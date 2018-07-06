@@ -12,7 +12,7 @@ class GameController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
     public function answerquestion(Request $request)
     {
@@ -21,7 +21,15 @@ class GameController extends Controller
         if($request->has('isTrue'))
         {
             //Fake or no Fake
-            dd($request->input('isTrue'));
+            $Answer = Answer::where('AID',$request->input('AID'))->firstOrFail();
+
+            if($Answer->istrue == true)
+            {
+                //return "Klasse, die Antwort war richtig!";
+                return response()->json(['Result' => true, 'Score' => 20, 'Text' => "Lorem ipsum" , 'Video' => "Lorem Ipsum"]);
+                //dd($request->user()->score =+ 10);
+            }
+
 
 
         }
@@ -33,7 +41,8 @@ class GameController extends Controller
             if($Answer->istrue == true)
             {
                 //return "Klasse, die Antwort war richtig!";
-                dd($request->user());
+                return response()->json(['Result' => true, 'Score' => 20, 'Text' => "Lorem ipsum" , 'Video' => "Lorem Ipsum"]);
+                //dd($request->user()->score =+ 10);
             }
         }
         else
