@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/456', function (\Illuminate\Http\Request $request) {
+   dd($request->session());
+});
+
 Route::get('/123', function () {
     $Quellen = new \App\Source();
     $Quellen->url = "";
