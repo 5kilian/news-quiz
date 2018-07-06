@@ -20,15 +20,17 @@ window.Vue = require('vue');
 Vue.component('main-navigation', require('./components/MainNavigation.vue'));
 Vue.component('home', require('./components/Home.vue'));
 Vue.component('quiz-page', require('./components/QuizPage.vue'));
+Vue.component('solution-page', require('./components/Solution.vue'));
 
-export const bus = new Vue()
+export const bus = new Vue();
 
 const app = new Vue({
     el: '#app',
     data: {
         pages: {
             home: true,
-            quiz: false
+            quiz: false,
+            solution: false
         }
     },
     mounted() {

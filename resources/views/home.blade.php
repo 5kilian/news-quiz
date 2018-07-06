@@ -11,4 +11,9 @@
     </quiz-page>
 </div>
 
+
+<div v-if="pages.solution">
+    <solution-page>
+    </solution-page>
+</div>
 @endsection
