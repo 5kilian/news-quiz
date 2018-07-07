@@ -1,15 +1,15 @@
 <template>
     <div id="fonf">
         <div class="fonf-controlls">
-            <div class="fonf-controll">
+            <div class="fonf-controll" @click="isfalse()">
                 <i class="material-icons" style="color: #c53838;">block</i>
             </div>
-            <div class="fonf-controll">
+            <div class="fonf-controll"  @click="istrue()">
                 <i class="material-icons" style="color: #186518;">done_all</i>
             </div>
         </div>
         <div class="fonf-questions">
-            Die Bundesregierung verabschiedet während der WM-Spiele unliebsame Gesetze.
+            {{ response.QuestionText }}
         </div>
         <div class="fonf-bg"></div>
     </div>
@@ -17,33 +17,43 @@
 
 <script>
 import hammerjs from 'hammerjs'
+import Axios from 'axios';
 
 export default {
     data()
     {
         return {
-
+            response: new Object()
         }
     },
     mounted()
     {
+        Axios.get('/api/v1/questions/10')
+        .then(response => {
+            this.response = response.data
+        })
         document.querySelector('body').style.backgroundImage = 'url("/assets/merkel.jpg")'
 
         var bg = new Hammer(document.querySelector('body'), {})
         bg.on('swiperight', () => {
-            // alert("true")
-            this.$router.push("/solution")
+            this.istrue()
         });
 
         bg.on('swipeleft', () => {
-            // alert("false")
-            this.$router.push("/solution")
+            this.isfalse()
         });
         this.$store.state.backButton = true;
         this.$store.state.navigation = false;
     },
     methods: {
-
+        istrue() 
+        {
+            this.$router.push({path: "/solution", query: {answerID: this.response.Answers[0].AID, isTrue: true}})
+        },
+        isfalse()
+        {
+            this.$router.push({path: "/solution", query: {answerID: this.response.Answers[0].AID, isTrue: false}})
+        }
     }
 }
 </script>
