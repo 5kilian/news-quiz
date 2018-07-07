@@ -9,40 +9,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>26</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>23</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>19</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Mark</td>
-                <td>16</td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Jacob</td>
-                <td>15</td>
-            </tr>
-            <tr>
-                <th scope="row">6</th>
-                <td>Larry</td>
-                <td>14</td>
-            </tr>
-            <tr>
-                <th scope="row">7</th>
-                <td>Mark</td>
-                <td>13</td>
+            <tr v-for="(user, i) in leadership">
+                <th scope="row">{{ increment(i) }}</th>
+                <td>{{ user.name }}</td>
+                <td>{{ user.score }}</td>
             </tr>
             </tbody>
         </table>
@@ -54,8 +24,21 @@
         data()
         {
             return {
-
+                leadership: [
+                    { name: 'BearyBoy', score: 26 },
+                    { name: 'beefster09', score: 23 },
+                    { name: 'LeeFogg', score: 22 },
+                    { name: 'KiranasOfRizon', score: 20 },
+                    { name: 'MaggotDiggo1', score: 17 },
+                    { name: 'mossywright1', score: 15 },
+                    { name: 'TheCraftinator', score: 14 },
+                    { name: 'pflynn12', score: 13 },
+                    { name: 'deathkiller008', score: 11 },
+                ]
             }
+        },
+        methods: {
+            increment (i) { return i+1; }
         }
     }
 </script>
