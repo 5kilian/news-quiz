@@ -8,9 +8,9 @@ require('./bootstrap');
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Vuex from 'vuex'
+import Vuex from 'vuex';
 
-import hammerjs from 'hammerjs'
+import hammerjs from 'hammerjs';
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -21,26 +21,27 @@ Vue.use(Vuex);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from './components/App'
+import App from './components/App';
 import Home from './components/Home';
 import QuizPage from './components/QuizPage';
 import News from './components/News';
 import SideMenu from './components/SideMenu';
 import FakeOrNoFake from './components/FakeOrNoFake';
-import Solution from './components/Solution'
+import Solution from './components/Solution';
+import Category from './components/Category';
 
 const routes = [
-    {path: '/', component: Home},
-    {path: '/home', redirect: '/'},
-    {path: '/quiz', component: QuizPage},
-    {path: '/news', component: News},
-    {path: '/side-menu', component: SideMenu},
-    {path: '/fakeornofake', component: FakeOrNoFake},
-    // {path: '/solution', name: 'Solution',component: Solution}
-    {path: '/solution', component: Solution, props: (route) => ({ answerID: route.query.answerID })}
+    { path: '/', component: Home },
+    { path: '/home', redirect: '/' },
+    { path: '/quiz', component: QuizPage },
+    { path: '/news', component: News },
+    { path: '/side-menu', component: SideMenu },
+    { path: '/fakeornofake', component: FakeOrNoFake },
+    { path: '/solution', component: Solution, props: (route) => ({ answerID: route.query.answerID }) },
+    { path: '/category', component: Category }
 ];
 
-const router = new VueRouter({routes});
+const router = new VueRouter({ routes });
 
 const store = new Vuex.Store({
     state: {
@@ -51,7 +52,7 @@ const store = new Vuex.Store({
 
 const app = new Vue({
     el: '#app',
-    components: {App},
+    components: { App },
     data: {},
     mounted() {
 
