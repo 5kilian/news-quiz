@@ -16963,16 +16963,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Home___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Home__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_QuizPage__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_QuizPage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_QuizPage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_News__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_News___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_News__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_SideMenu__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_SideMenu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_SideMenu__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_FakeOrNoFake__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_FakeOrNoFake___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_FakeOrNoFake__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Solution__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Solution___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_Solution__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_Category__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_Category___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_Category__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_SideMenu__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_SideMenu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_SideMenu__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_FakeOrNoFake__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_FakeOrNoFake___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_FakeOrNoFake__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Solution__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Solution___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_Solution__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Category__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Category___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_Category__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_TimeLine__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_TimeLine___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_TimeLine__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -17005,9 +17005,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 
 
 
-var routes = [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_5__components_Home___default.a }, { path: '/home', redirect: '/' }, { path: '/quiz', component: __WEBPACK_IMPORTED_MODULE_6__components_QuizPage___default.a }, { path: '/news', component: __WEBPACK_IMPORTED_MODULE_7__components_News___default.a }, { path: '/side-menu', component: __WEBPACK_IMPORTED_MODULE_8__components_SideMenu___default.a }, { path: '/fakeornofake', component: __WEBPACK_IMPORTED_MODULE_9__components_FakeOrNoFake___default.a }, { path: '/solution', component: __WEBPACK_IMPORTED_MODULE_10__components_Solution___default.a, props: function props(route) {
+var routes = [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_5__components_Home___default.a }, { path: '/home', redirect: '/' }, { path: '/quiz', component: __WEBPACK_IMPORTED_MODULE_6__components_QuizPage___default.a }, { path: '/news', component: __WEBPACK_IMPORTED_MODULE_11__components_TimeLine___default.a }, { path: '/side-menu', component: __WEBPACK_IMPORTED_MODULE_7__components_SideMenu___default.a }, { path: '/fakeornofake', component: __WEBPACK_IMPORTED_MODULE_8__components_FakeOrNoFake___default.a }, { path: '/solution', component: __WEBPACK_IMPORTED_MODULE_9__components_Solution___default.a, props: function props(route) {
         return { answerID: route.query.answerID };
-    } }, { path: '/category', component: __WEBPACK_IMPORTED_MODULE_11__components_Category___default.a }];
+    } }, { path: '/category', component: __WEBPACK_IMPORTED_MODULE_10__components_Category___default.a }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ routes: routes });
 
@@ -53855,17 +53855,21 @@ var index_esm = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(111)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(46)
 /* template */
-var __vue_template__ = __webpack_require__(58)
+var __vue_template__ = __webpack_require__(113)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-117390fa"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -54244,36 +54248,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 57 */,
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("main-header"),
-      _vm._v(" "),
-      _c("router-view"),
-      _vm._v(" "),
-      _c("bottom-navigation")
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-117390fa", module.exports)
-  }
-}
-
-/***/ }),
+/* 58 */,
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -54560,93 +54535,9 @@ if (false) {
 }
 
 /***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(70)
-/* template */
-var __vue_template__ = __webpack_require__(71)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\News.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2d26d74a", Component.options)
-  } else {
-    hotAPI.reload("data-v-2d26d74a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 70 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'News',
-  data: function data() {
-    return {};
-  }
-});
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n  Hello world\n")])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2d26d74a", module.exports)
-  }
-}
-
-/***/ }),
+/* 69 */,
+/* 70 */,
+/* 71 */,
 /* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55234,9 +55125,9 @@ var render = function() {
             [_vm._v("pages")]
           ),
           _vm._v(" "),
-          _c("router-link", { attrs: { to: "/poll" } }, [
+          _c("router-link", { attrs: { to: "/news" } }, [
             _c("div", { staticClass: "bottom-navigation-stats" }, [
-              _vm._v("5")
+              _vm._v("3")
             ]),
             _vm._v(" "),
             _c("i", { staticClass: "material-icons" }, [_vm._v("poll")])
@@ -55540,6 +55431,299 @@ exports.push([module.i, "\n#bottomNavigation {\n    z-index: 100;\n    position:
 
 // exports
 
+
+/***/ }),
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(108)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(106)
+/* template */
+var __vue_template__ = __webpack_require__(110)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-4fed5658"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\TimeLine.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4fed5658", Component.options)
+  } else {
+    hotAPI.reload("data-v-4fed5658", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 106 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            news: [{
+                title: 'Belgien stürmt ins Halbfinale',
+                img: 'http://cdn4.spiegel.de/images/image-1312487-860_poster_16x9-mtci-1312487.jpg',
+                source: {
+                    name: 'Spiegel-Online',
+                    url: 'http://www.spiegel.de/sport/fussball/a-1217170.html',
+                    logo: '/assets/logos/spiegel_online.svg'
+                }
+            }, {
+                title: 'Razzia in Gelsenkirchen: Polizei und Zoll durchsuchen Häuser',
+                img: 'https://img.wr.de/img/archiv-daten/crop214783955/4242222817-w940-cv23_11-q85/gelsenkirchenfotos.jpg',
+                source: {
+                    name: 'WR: Westfalische Rundschau',
+                    url: 'https://www.wr.de/staedte/gelsenkirchen/id214783789.html',
+                    logo: '/assets/logos/westfalische_rundschau.svg'
+                }
+            }, {
+                title: 'Eurojackpot geknackt!',
+                img: 'https://pbs.twimg.com/media/DhaGjZJX4AAlqV1.jpg',
+                source: {
+                    name: 'TAZ',
+                    url: 'https://www.tz.de/welt/zr-10014468.html',
+                    logo: '/assets/logos/dietageszeitung.svg'
+                }
+            }]
+        };
+    }
+});
+
+/***/ }),
+/* 107 */,
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(109);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("7f5f9039", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4fed5658\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./TimeLine.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4fed5658\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./TimeLine.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.timeline-news[data-v-4fed5658] {\n    max-width: 798px;\n    min-height: 162px;\n    margin: 10px auto 10px auto;\n    position: relative;\n}\n.timeline-image-top[data-v-4fed5658] {\n    width: 100%;\n}\n.timeline-news-title[data-v-4fed5658] {\n    padding: 5px;\n}\n.timeline-news-more[data-v-4fed5658] {\n    text-align: center;\n    padding: 5px;\n    cursor: pointer;\n    color: #004888;\n}\n.timeline-news-source-logo-img[data-v-4fed5658] {\n    padding: 5px;\n    height: 24px;\n}\n.timeline-news-tap-to-play[data-v-4fed5658] {\n    position: absolute;\n    color: white;\n    text-align: center;\n    width: 100%;\n    top: 40%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    font-size: 48px;\n    background-color: darkgray;\n    opacity: 0.6;\n    padding: 10px 0 10px 0;\n}\n.tap-svg[data-v-4fed5658] {\n    width: 48px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    _vm._l(_vm.news, function(recent) {
+      return _c("div", { staticClass: "card timeline-news" }, [
+        _c("div", { staticClass: "card-img-top" }, [
+          _vm._m(0, true),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "timeline-image-top",
+            attrs: { src: recent.img, alt: recent.title }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "timeline-news-source-logo" }, [
+          _c("img", {
+            staticClass: "timeline-news-source-logo-img",
+            attrs: { src: recent.source.logo, alt: recent.source.name }
+          })
+        ]),
+        _vm._v(" "),
+        _c("h4", { staticClass: "timeline-news-title card-title" }, [
+          _vm._v("\n            " + _vm._s(recent.title) + "\n        ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "timeline-news-more",
+            attrs: { href: recent.source.url }
+          },
+          [_vm._v("\n            >> Mehr zum Thema <<\n        ")]
+        )
+      ])
+    })
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "timeline-news-tap-to-play" }, [
+      _c("img", { staticClass: "tap-svg", attrs: { src: "/assets/tap.svg" } }),
+      _vm._v("\n                Tap to play!\n            ")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4fed5658", module.exports)
+  }
+}
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(112);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("fe97e0f0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-117390fa\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-117390fa\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.content[data-v-117390fa] {\n    margin-bottom: 70px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("main-header"),
+      _vm._v(" "),
+      _c("router-view", { staticClass: "content" }),
+      _vm._v(" "),
+      _c("bottom-navigation")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-117390fa", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

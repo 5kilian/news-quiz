@@ -13,6 +13,9 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .navbar-laravel {

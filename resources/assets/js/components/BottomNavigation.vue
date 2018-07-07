@@ -1,8 +1,8 @@
 <template>
     <div id="bottomNavigation" v-if="navigation">
         <router-link to="/category" class="material-icons">pages</router-link>
-        <router-link to="/poll">
-            <div class="bottom-navigation-stats">5</div>
+        <router-link to="/news">
+            <div class="bottom-navigation-stats">3</div>
             <i class="material-icons">poll</i>
         </router-link>
         <router-link to="/home" class="material-icons">home</router-link>
