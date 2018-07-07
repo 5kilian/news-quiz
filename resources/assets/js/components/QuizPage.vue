@@ -38,7 +38,7 @@
             }
         },
         created() {
-            const demoArray = [1, 2, 3];
+            const demoArray = [2];
             let source = "/api/v1/questions/" + demoArray[this.$store.state.demoCounter];
             axios
                 // .get('/api/v1/random')
