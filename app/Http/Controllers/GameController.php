@@ -48,7 +48,7 @@ class GameController extends Controller
 
             }
             $Fakeuser->save();
-            return response()->json(['Result' => $Rightanswer, 'Score' => $Fakeuser->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video]);
+            return response()->json(['Result' => $Rightanswer, 'Score' => $Fakeuser->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
 
 
 
@@ -70,7 +70,7 @@ class GameController extends Controller
                 $Fakeuser->score = $Fakeuser->score - 5;
             }
             $Fakeuser->save();
-            return response()->json(['Result' => $Rightanswer, 'Score' => $Fakeuser->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video]);
+            return response()->json(['Result' => $Rightanswer, 'Score' => $Fakeuser->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
         }
         else
         {
