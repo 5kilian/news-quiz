@@ -27,7 +27,8 @@ import QuizPage from './components/QuizPage';
 import News from './components/News';
 import SideMenu from './components/SideMenu';
 import FakeOrNoFake from './components/FakeOrNoFake';
-import Solution from './components/Solution'
+import Solution from './components/Solution';
+import ThankYou from './components/ThankYou'
 
 const routes = [
     {path: '/', component: Home},
@@ -37,7 +38,8 @@ const routes = [
     {path: '/side-menu', component: SideMenu},
     {path: '/fakeornofake', component: FakeOrNoFake},
     // {path: '/solution', name: 'Solution',component: Solution}
-    {path: '/solution', component: Solution, props: (route) => ({ answerID: route.query.answerID })}
+    {path: '/solution', component: Solution, props: (route) => ({ answerID: route.query.answerID })},
+    {path: '/thankyou', component: ThankYou}
 ];
 
 const router = new VueRouter({routes});
@@ -45,7 +47,8 @@ const router = new VueRouter({routes});
 const store = new Vuex.Store({
     state: {
         backButton: false,
-        navigation: true
+        navigation: true,
+        demoCounter: 1,
     }
 });
 
@@ -54,7 +57,6 @@ const app = new Vue({
     components: {App},
     data: {},
     mounted() {
-
     },
     methods: {},
     store,

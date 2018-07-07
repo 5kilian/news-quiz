@@ -29,18 +29,15 @@
             <span> {{ score }}</span>
         </div>
 
-        <div class="next-button">
+        <a  href="/app" class="next-button" @click="next()">
             Continue
-        </div>
-
+        </a>
     </div>
 
 
 </template>
 
 <script>
-    import {bus} from "../app.js"
-
     export default {
         name: "Solution",
         props: ['answerID'],
@@ -49,14 +46,20 @@
                 score: null,
                 correct: false,
                 isTrue: null,
-                response: {}
+                response: {},
+            }
+        },
+        methods: {
+            next: function () {
+                if (this.demoCounter() < 3) {
+                    this.demoCounterUp()
+                } else {
+                    this.$router.push("/thankyou")
+                    // console.log("Thank you!") //TODO: Thank you page!
+                }
             }
         },
         mounted() {
-            function setGradient() {
-                document.querySelector('body').style.background = 'linear-gradient(to bottom, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8)';
-            }
-
             this.$store.state.navigation = true;
             this.$store.state.backButton = false;
             document.querySelector('body').style.backgroundImage = ''
@@ -70,6 +73,14 @@
                     this.response = response;
                 })
             })
+        },
+        computed: {
+            demoCounter() {
+                return this.$store.state.demoCounter;
+            },
+            demoCounterUp() {
+                this.$store.state.demoCounter++;
+            }
         }
     }
 </script>

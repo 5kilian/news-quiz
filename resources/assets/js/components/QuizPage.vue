@@ -32,11 +32,14 @@
         methods: {
             submit: function (answerID) {
                 this.$router.push({path: "/solution", query: {answerID: answerID}})
+            },
+            demoCounterUp: function () {
+                this.$store.state.demoCounter++;
             }
         },
         created() {
             axios
-                .get("/api/v2/random")
+                .get("/api/v1/random")
                 .then(response => {
                     console.log(response);
                     this.response = response.data });
@@ -45,6 +48,14 @@
             this.$store.state.backButton = true;
             this.$store.state.navigation = false;
             document.querySelector('body').style.backgroundImage = 'url("/assets/horst.jpg")'
+        },
+        computed: {
+            demoCounter() {
+                return this.$store.state.demoCounter;
+            },
+            demoCounterUp() {
+                this.$store.state.demoCounter++;
+            }
         }
     }
 </script>
