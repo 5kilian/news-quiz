@@ -44,7 +44,6 @@
                 // .get('/api/v1/random')
                 .get(source)
                 .then(response => {
-                    console.log(response);
                     this.response = response.data;
                 });
         },
