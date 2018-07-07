@@ -40,7 +40,7 @@ Route::get('/456', function (\Illuminate\Http\Request $request) {
 Route::get('/123', function () {
     $Quellen = new \App\Source();
     $Quellen->url = "https://www.tagesschau.de/inland/einigung-asylstreit-101.html";
-    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/seehofer-657~_v-modPremium.jpg";
+    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/seehofer-657~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0705/TV-20180705-2225-5101.webxl.h264.mp4";
     $Quellen->Text = "Keine Lager, keine Zurückweisungen, keine nationalen Alleingänge - die Spitzen von CDU, CSU und SPD haben sich auf ein neues Asylpaket geeinigt. Von den \"Transitzentren\" ist keine Rede mehr - dennoch zeigte sich Seehofer zufrieden.
 Nach wochenlangem Streit hat die Große Koalition den Streit über die Zurückweisung von Flüchtlingen an der deutsch-österreichischen Grenze beigelegt. Die Spitzen von CDU, CSU und SPD einigten sich auf ein zweiseitiges Papier.
@@ -72,7 +72,7 @@ Dieses Verfahren sollen nur jene Flüchtlinge durchlaufen, die bereits einen Asy
 
     $Quellen = new \App\Source();
     $Quellen->url = "https://www.tagesschau.de/ausland/eu-plastikverbote-103.html";
-    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/strohhalme-101~_v-modPremium.jpg";
+    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/strohhalme-101~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0528/TV-20180528-2008-5601.webxl.h264.mp4";
     $Quellen->Text = "Schätzungsweise 37 Kilogramm Plastikmüll verursacht allein jeder Deutsche jedes Jahr. EU-weit ist der Müllberg gut 26 Millionen Tonnen schwer. Und ein nicht geringer Teil davon landet in der Umwelt, vor allem in den Meeren in Form gigantischer Müllstrudel von sogenanntem Mikroplastik. Die Folgen für Fische und Vögel, aber letztlich auch für den Menschen seien verheerend, betont EU-Kommissionsvize Frans Timmermans.
 Plastik in der Luft, Plastik in den Ozeanen, in der Nahrung und auch in unseren Körpern - der Missstand, den der Niederländer anprangert, wird zu einem ernsten Problem. Deshalb sagte die EU-Kommission auch schon vor längerer Zeit dem Plastikmüll den Kampf an. Eine Richtlinie gegen Einweg-Plastiktüten gibt es bereits; nun legt die Behörde weitere konkrete Vorschläge auf den Tisch.
@@ -102,7 +102,7 @@ Plastik in der Luft, Plastik in den Ozeanen, in der Nahrung und auch in unseren 
 
     $Quellen = new \App\Source();
     $Quellen->url = "https://www.tagesschau.de/wirtschaft/boerse/china-handelskrieg-101.html";
-    $Quellen->picURL = "https://www.tagesschau.de/ardimport/boerse/hr-boerse-image-8691~_v-modPremium.jpg";
+    $Quellen->picURL = "https://www.tagesschau.de/ardimport/boerse/hr-boerse-image-8691~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = null;
     $Quellen->Text = "Handelskriege seien einfach zu gewinnen, twitterte US-Präsident Donald Trump im März. Er macht Ernst und versucht es. Morgen werden Zölle der USA von 25 Prozent auf chinesische Importe im Wert von 34 Milliarden US-Dollar in Kraft treten. Das ist nicht alles. Insgesamt will Trump zunächst Waren im Volumen von 50 Milliarden US-Dollar mit Zöllen belegen.
 Die erste Reaktion Chinas ist praktisch ein Spiegel der Trump-Politik: Die Regierung verhängte im Gegenzug Zölle auf US-Waren in ähnlicher Höhe. Aber Chinas Möglichkeiten einer direkten Antwort sind begrenzt, denn Daten und Fakten der Handelsbeziehungen zwischen China und den USA scheinen in der Tat dafür zu sprechen, dass Trump ins Schwarze trifft.
@@ -130,7 +130,7 @@ Und Trump dreht die Eskalationsspirale weiter. Auf die Verkündung der chinesisc
 
     $Quellen = new \App\Source();
     $Quellen->url = "https://www.tagesschau.de/inland/deutschlandtrend/index.html";
-    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/deutschlandtrend-149~_v-modPremium.jpg";
+    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/deutschlandtrend-149~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0705/TV-20180705-2240-5001.webxl.h264.mp4";
     $Quellen->Text = "Eine deutliche Mehrheit der Deutschen findet, dass die Bundesregierung ihren Job nicht ordentlich macht: 78 Prozent der Bürger sind weniger oder gar nicht zufrieden mit der Arbeit der Bundesregierung - das sind 15 Punkte mehr im Vergleich zum Vormonat. Zufrieden mit der Arbeit des Kabinetts sind aktuell nur 21 Prozent. Das hat eine Umfrage von Infratest dimap für den ARD-DeutschlandTrend diese Woche ergeben. Ein solcher Einbruch bei der Zufriedenheit mit der Bundesregierung, von einem Monat auf den anderen, ist im DeutschlandTrend sehr selten gemessen worden.
 Als die Bundesregierung Mitte März die Arbeit aufnahm, startete sie auf einem vergleichsweise niedrigen Zustimmungsniveau: Im April waren 32 Prozent der Befragten mit der Arbeit der Bundesregierung sehr zufrieden oder zufrieden; 64 Prozent waren weniger zufrieden oder gar nicht zufrieden.";
@@ -186,7 +186,7 @@ Rekordweltmeister gegen Geheimfavorit: Brasilien trifft im zweiten Viertelfinale
 
     $Quellen = new \App\Source();
     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/gesetze-wahrend-wm-101.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/fussball-502~_v-modPremium.jpg";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/fussball-502~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = null;
     $Quellen->Text = "Während der öffentliche Blick sich auf die Fußball-Weltmeisterschaft richtet, kann die Regierung unpopuläre Gesetze verabschieden, ohne eine öffentliche Diskussion befürchten zu müssen - so lautet eine weit verbreitete Behauptung.
 Nachzulesen war sie beispielsweise beim \"Handelsblatt\", dem Deutschlandfunk, der \"Frankfurter Rundschau\", der \"Huffington Post\" und den \"Epoch Times\". Als Beispiele werden in vielen Artikeln die gleichen Fälle angeführt. Schlüssig sind aber nicht alle.
@@ -205,7 +205,7 @@ Auch die als Beispiel angeführte Erhöhung der Krankenkassenbeiträge bei der W
 
     $Quellen = new \App\Source();
     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/kriminalstatistik-pks-berlin-101.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/pks-111~_v-modPremium.jpg";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/pks-111~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = null;
     $Quellen->Text = "Die Diskussionen über die Entwicklung der Kriminalität in Deutschland stützt sich zumeist auf die Polizeiliche Kriminalstatistik (PKS). Doch allein in Berlin würden in dieser Statistik zehntausende Fälle fehlen, wird im Netz immer wieder behauptet. Grundlage für diese Behauptung ist unter anderem ein Bericht der \"Berliner Zeitung\" aus dem Februar 2018 über unbearbeitete Fälle beim Landeskriminalamt der Hauptstadt - Fälle, mit sogenannten Liegevermerken.
 Tatsächlich ist die Zahl der Liegevermerke in Berlin stark angestiegen, wie aus einer Antwort des Senats hervorgeht - vor allem bei Betrugsdelikten und Fällen der organisierten Kriminalität. Missverständlich ist hingegen die Formulierung, diese Fälle würden in Statistiken nicht ausgewiesen. Denn die Fälle tauchen sehr wohl in den Statistiken auf - und zwar, wenn sie ausermittelt sind. Dies stellte die Polizei Berlin nun noch einmal klar.";
@@ -222,7 +222,7 @@ Tatsächlich ist die Zahl der Liegevermerke in Berlin stark angestiegen, wie aus
 
     $Quellen = new \App\Source();
     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/fake-union-101.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/seehofer-merkel-175~_v-modPremium.jpg";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/seehofer-merkel-175~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0615/TV-20180615-1338-1001.webxl.h264.mp4";
     $Quellen->Text = "\"CSU-Chef Horst Seehofer hat nach einem Bericht des Hessischen Rundfunks das Unionsbündnis mit der CDU aufgekündigt.\" Das meldete die Nachrichtenagentur Reuters erst um 12:19 Uhr auf Englisch und um 12:21 Uhr auf Deutsch. Sie bezog sich dabei auf einen vermeintlichen Bericht des Senders, der sich wiederum auf eine interne E-Mail des hessischen Ministerpräsidenten Volker Bouffier (CDU) berufen habe.
 Basis für diese Eilmeldung war ein Tweet, in der Bouffier angeblich verkündet, man müsse sich darauf vorbereiten, bald eine Bayern-CDU aufzubauen. Veröffentlicht wurde dieser Tweet auf einem Profil, das sich zwischenzeitlich \"hr Tagesgeschehen\" nannte.";
@@ -238,7 +238,7 @@ Basis für diese Eilmeldung war ein Tweet, in der Bouffier angeblich verkündet,
 
     $Quellen = new \App\Source();
     $Quellen->url = "https://faktenfinder.tagesschau.de/inland/alkoholverbot-roth-ramadan-101.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/komasaufen104~_v-modPremium.jpg";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/komasaufen104~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = null;
     $Quellen->Text = "Die Vizepräsidentin des Bundestags, Claudia Roth, fordere \"mehr Entgegenkommen der Gesellschaft hinsichtlich der Muslime im Land\" ein. \"Ein Verkaufsverbot für Alkohol während des Ramadans sei ein 'wichtiges Zeichen für die Toleranz'.\" So beginnt ein Artikel der Satire-Seite \"Berlin Express\". Die Überschrift lautet: \"Claudia Roth: Im Ramadan soll ein Verkaufsverbot für Alkohol bestehen\".
 Mit einem Klick auf die Rubrik \"Über uns\" ist der Hintergrund der Seite zu erkennen. Dort heißt es: \"Wir finden auch, dass es zu wenig Online-Satire gibt. Dem wollen wir mit unserem \"Berliner Express\" entgegentreten.\" Der Herausgeber von \"Berlin Express\" verantwortet auch ein anderes Online-Projekt, das sich als Magazin gegen \"postfaktische Mainstreammedien\" bezeichnet.";
@@ -254,7 +254,7 @@ Mit einem Klick auf die Rubrik \"Über uns\" ist der Hintergrund der Seite zu er
 
     $Quellen = new \App\Source();
     $Quellen->url = "http://www.tagesschau.de/ausland/becker-diplomat-105.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/becker-129~_v-modPremium.jpg";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/becker-129~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = null;
     $Quellen->Text = "Der ehemalige Tennisstar Boris Becker hat auf der Echtheit seines Diplomatenpasses aus der Zentralafrikanischen Republik bestanden. \"Ich habe diesen Pass vom Botschafter erhalten, ich habe mit dem Präsidenten bei vielen Gelegenheiten gesprochen, es war eine offizielle Ernennung\", sagte Becker in einem Interview mit dem britischen Sender BBC.
 Becker hatte zuletzt versucht, in einem in Großbritannien gegen ihn laufenden Insolvenzverfahren diplomatische Immunität geltend zu machen, indem er auf seine Funktion als Sport-Attaché der Vertretung der Zentralafrikanischen Republik bei der EU in Brüssel verwies.";
