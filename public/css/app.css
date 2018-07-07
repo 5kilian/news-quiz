@@ -10483,44 +10483,6 @@ body {
   background-color: #0367bf;
 }
 
-#bottomNavigation {
-  z-index: 100;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 4em;
-  background-color: #1d2744;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: white;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-.bottom-navigation-stats {
-  position: absolute;
-  margin-top: -0.2em;
-  margin-left: 1.5em;
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
-  padding: 0em 0.2em;
-  border-radius: 5px;
-  background-color: white;
-  color: #232323;
-  font-size: 0.8em;
-}
-
-#bottomNavigation i {
-  font-size: 2.5em;
-}
-
 a,
 a:hover {
   color: white;

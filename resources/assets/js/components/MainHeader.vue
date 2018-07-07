@@ -22,11 +22,12 @@
         border-radius: 50%;
         width: 2.5em;
         height: 2.5em;
-        color:white;
+        color: white;
         display: flex;
         justify-content: center;
         align-items: center;
         padding-right: 0.2em;
+        cursor: pointer;
     }
 
     .main-navigation-back i {
@@ -34,37 +35,33 @@
     }
 
     .main-navigation-header {
-        text-shadow: 0 3px 5px rgba(0,0,0,.4);
+        text-shadow: 0 3px 5px rgba(0, 0, 0, .4);
     }
 </style>
 
 <script>
-export default {
-    name: 'MainNavigation',
-    data()
-    {
-        return {
-            title: "News-Quiz"
-        }
-    },
-    mounted() 
-    {
+    export default {
+        name: 'MainNavigation',
+        data() {
+            return {
+                title: 'News-Quiz'
+            };
+        },
+        mounted() {
 
-    },
-    methods: {
-        back()
-        {
-            document.querySelector('body').style.backgroundImage = ''
-            this.$store.state.backButton = false
-            this.$store.state.navigation = true
-            this.$router.push('/home')
+        },
+        methods: {
+            back() {
+                document.querySelector('body').style.backgroundImage = '';
+                this.$store.state.backButton = false;
+                this.$store.state.navigation = true;
+                this.$router.push('/home');
+            }
+        },
+        computed: {
+            isShow() {
+                return this.$store.state.backButton;
+            }
         }
-    },
-    computed: {
-        isShow() 
-        {
-            return this.$store.state.backButton;
-        } 
-    }
-}
+    };
 </script>

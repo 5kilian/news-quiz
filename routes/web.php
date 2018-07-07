@@ -17,6 +17,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/categories', 'CategoryController@all');
+Route::get('/category/{name}/subscribe', 'CategoryController@subscribe');
+Route::get('/category/{name}/unsubscribe', 'CategoryController@unsubscribe');
+
+// Route::redirect();
+
+Route::get('/7', function (\Illuminate\Http\Request $request) {
+    $categories = [ 'Schlagzeilen', 'Panorama', 'Unterhaltung', 'Wirtschaft', 'Sport', 'Technik', 'Digital', 'Politik', 'Fitness'];
+
+    foreach ($categories as $name) {
+        $category = new \App\Category();
+        $category->name = $name;
+        $category->save();
+    }
+});
+
 Route::get('/456', function (\Illuminate\Http\Request $request) {
    dd($request->session());
 });
