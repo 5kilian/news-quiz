@@ -5,8 +5,12 @@
             <span v-if="showTrue">Richtig</span>
         </div>
 
-        <div class="video">
+        <div class="video" v-if="mediaVideo">
             <video :src="mediaVideo" controls></video>
+        </div>
+
+        <div v-if="!mediaVideo" class="solution-image">
+            <img :src="mediaPicture" alt="Bild zur news">
         </div>
 
         <div class="solution-text">
@@ -40,7 +44,8 @@
                 showTrue: false,
                 mediaText: "",
                 mediaTitle: "",
-                mediaVideo: ""
+                mediaVideo: "",
+                mediaPicture: ""
             }
         },
         methods: {
@@ -83,6 +88,8 @@
 
                 text.slice(-1);
                 this.mediaText = text.join(".");
+
+                this.mediaPicture = response.data.Picture
             });
         },
         computed: {
@@ -175,5 +182,20 @@
     .solution-title {
         font-weight: bold; 
         margin-bottom: 0.5em;
+    }
+
+    .solution-image {
+        width: 100vw;
+        height: 30vh;
+        overflow: hidden;
+        margin-top: -1.2em;
+        margin-bottom: 1em;
+        box-shadow: 0 3px 5px rgba(0,0,0,.4);
+    }
+
+    .solution-image img {
+        width: 100%;
+        transform: translateY(-50%);
+        margin-top: 25%;
     }
 </style>
