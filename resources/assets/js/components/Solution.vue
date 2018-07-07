@@ -1,28 +1,20 @@
 <template>
     <div class="color-gradient">
-        <div class="solution-header wrong" :class="{'right': isTrue, 'wrong': !isTrue}">
-            <span v-if="!isTrue">Falsch</span>
-            <span v-if="isTrue">Richtig</span>
+        <div class="solution-header wrong" :class="{'right': showTrue, 'wrong': !showTrue}">
+            <span v-if="!showTrue">Falsch</span>
+            <span v-if="showTrue">Richtig</span>
         </div>
-        <!--<div class="video" v-if="video != null">-->
-        <!--<video src="video"></video>-->
-        <!--</div>-->
+
         <div class="video">
-            <video src="https://media.tagesschau.de/video/2018/0706/TV-20180706-1654-0101.webm.h264.mp4"
-                   controls></video>
+            <video :src="mediaVideo" controls></video>
         </div>
 
         <div class="solution-text">
-            <div style="font-weight: bold; margin-bottom: 0.5em;">
-                Keine Strohhalme, keine Teller und kein Besteck mehr aus Kunststoff - die EU-Pläne zum Plastikverbot sind ambitioniert.
-                Doch die Umsetzung könnte sich schwierig gestalten.</div>
-            Schätzungsweise 37 Kilogramm Plastikmüll verursacht allein jeder Deutsche jedes Jahr. EU-weit ist der Müllberg gut 26 Millionen Tonnen schwer. Und ein nicht geringer Teil davon landet in der Umwelt, vor allem in den Meeren in Form gigantischer Müllstrudel von sogenanntem Mikroplastik. Die Folgen für Fische und Vögel, aber letztlich auch für den Menschen seien verheerend, betont EU-Kommissionsvize Frans Timmermans.
-        </div>
-
-        <!-- <div class="solution-result">
-            <h2 v-if="correct" style="color: green">Richtig</h2>
-            <h2 v-else style="color: #e83535;">Falsch</h2>
-        </div> -->
+            <div class="solution-title">
+                {{ mediaTitle }}.
+            </div>
+                {{ mediaText }}
+            </div>
 
         <div class="score-board">
             <span> {{ score }}</span>
@@ -39,13 +31,16 @@
 <script>
     export default {
         name: "Solution",
-        props: ['answerID', 'isTrue'],
+        props: ['answerID', 'nofake'],
         data() {
             return {
-                score: null,
+                score: "",
                 correct: false,
                 isTrue: null,
-                response: {},
+                showTrue: false,
+                mediaText: "",
+                mediaTitle: "",
+                mediaVideo: ""
             }
         },
         methods: {
@@ -76,17 +71,25 @@
         created() {
             axios.post("/api/v1/game/answer",
                 JSON.stringify({
-                AID: this.answerID,
-                isTrue: this.isTrue})
-            ).then(function (response) {
-                this.response = response;
+                AID: this.answerID
+                // isTrue: this.isTrue
+                })
+            ).then(response => {
+                this.showTrue = response.data.Result;
+                this.mediaVideo = response.data.Video;
+
+                let text = response.data.Text.split(".");
+                this.mediaTitle = text[0];
+
+                text.slice(-1);
+                this.mediaText = text.join(".");
             });
-            console.log("response ------------" + this.response)
         },
         computed: {
             getDemoCounter() {
                 return this.$store.state.demoCounter;
-            }
+            },
+
         }
     }
 </script>
@@ -167,5 +170,10 @@
 
     .solution-header.right {
         background-color: #67bb1b;
+    }
+
+    .solution-title {
+        font-weight: bold; 
+        margin-bottom: 0.5em;
     }
 </style>
