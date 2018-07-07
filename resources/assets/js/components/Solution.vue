@@ -86,7 +86,7 @@
                 let text = response.data.Text.split(".");
                 this.mediaTitle = text[0];
 
-                text.slice(-1);
+                text.shift();
                 this.mediaText = text.join(".");
 
                 this.mediaPicture = response.data.Picture
