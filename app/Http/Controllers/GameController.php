@@ -54,7 +54,7 @@ class GameController extends Controller
 
 
         }
-        else if($request->has('AID'))
+        else if(isset($json->AID))
         {
             $Answer = Answer::where('AID',$json->AID)->firstOrFail();
             $Quelle = $Answer->question->source;
