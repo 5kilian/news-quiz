@@ -31,8 +31,8 @@ export default {
         Axios.get('/api/v1/questions/10')
         .then(response => {
             this.response = response.data
+            document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
         })
-        document.querySelector('body').style.backgroundImage = 'url("/assets/merkel.jpg")'
 
         var bg = new Hammer(document.querySelector('body'), {})
         bg.on('swiperight', () => {
