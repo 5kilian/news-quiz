@@ -18,7 +18,7 @@ class QuestionResource extends JsonResource
         'QuestionText' => $this->questiontext,
         'Answers' => $this->Answers,
         'Source' => $this->source->url,
-        'PicURL' => 'https://www.tagesschau.de/multimedia/bilder/kurz-seehofer-101~_v-videowebl.jpg',
+        'PicURL' => $this->source->picURL,
         ];
         //return parent::toArray($request);
     }
