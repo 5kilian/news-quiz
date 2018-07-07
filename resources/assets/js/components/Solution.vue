@@ -39,7 +39,7 @@
 <script>
     export default {
         name: "Solution",
-        props: ['answerID'],
+        props: ['answerID', 'isTrue'],
         data() {
             return {
                 score: null,
