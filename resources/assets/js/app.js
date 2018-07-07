@@ -24,7 +24,6 @@ Vue.use(Vuex);
 import App from './components/App';
 import Home from './components/Home';
 import QuizPage from './components/QuizPage';
-import News from './components/News';
 import SideMenu from './components/SideMenu';
 import FakeOrNoFake from './components/FakeOrNoFake';
 import Solution from './components/Solution';
