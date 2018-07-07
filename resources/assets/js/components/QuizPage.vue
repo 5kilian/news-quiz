@@ -45,12 +45,12 @@
                 .get(source)
                 .then(response => {
                     this.response = response.data;
+                    document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
                 });
         },
         mounted() {
             this.$store.state.backButton = true;
             this.$store.state.navigation = false;
-            document.querySelector('body').style.backgroundImage = 'url("/assets/horst.jpg")'
         },
         computed: {
             demoCounter() {

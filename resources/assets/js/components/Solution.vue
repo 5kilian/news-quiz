@@ -4,31 +4,17 @@
             <span v-if="!showTrue">Falsch</span>
             <span v-if="showTrue">Richtig</span>
         </div>
-        <!--<div class="video" v-if="video != null">-->
-        <!--<video src="video"></video>-->
-        <!--</div>-->
+
         <div class="video">
-            <!--<video src="https://media.tagesschau.de/video/2018/0706/TV-20180706-1654-0101.webm.h264.mp4"-->
-                   <!--controls></video>-->
             <video :src="mediaVideo" controls></video>
         </div>
 
         <div class="solution-text">
-            <!--<div style="font-weight: bold; margin-bottom: 0.5em;">-->
-                <!--Keine Strohhalme, keine Teller und kein Besteck mehr aus Kunststoff - die EU-Pläne zum Plastikverbot sind ambitioniert.-->
-                <!--Doch die Umsetzung könnte sich schwierig gestalten.-->
-            <!--</div>-->
-            <!--Schätzungsweise 37 Kilogramm Plastikmüll verursacht allein jeder Deutsche jedes Jahr. EU-weit ist der Müllberg gut 26 Millionen Tonnen schwer. Und ein nicht geringer Teil davon landet in der Umwelt, vor allem in den Meeren in Form gigantischer Müllstrudel von sogenanntem Mikroplastik. Die Folgen für Fische und Vögel, aber letztlich auch für den Menschen seien verheerend, betont EU-Kommissionsvize Frans Timmermans.-->
-        <!--</div>-->
-            <div style="font-weight: bold; margin-bottom: 0.5em;">
+            <div class="solution-title">
                 {{ mediaTitle }}.
             </div>
                 {{ mediaText }}
             </div>
-        <!-- <div class="solution-result">
-            <h2 v-if="correct" style="color: green">Richtig</h2>
-            <h2 v-else style="color: #e83535;">Falsch</h2>
-        </div> -->
 
         <div class="score-board">
             <span> {{ score }}</span>
@@ -45,7 +31,7 @@
 <script>
     export default {
         name: "Solution",
-        props: ['answerID', 'isTrue'],
+        props: ['answerID', 'nofake'],
         data() {
             return {
                 score: "",
@@ -184,5 +170,10 @@
 
     .solution-header.right {
         background-color: #67bb1b;
+    }
+
+    .solution-title {
+        font-weight: bold; 
+        margin-bottom: 0.5em;
     }
 </style>
