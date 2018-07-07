@@ -27,7 +27,7 @@ class GameController extends Controller
         $Userid = $Fakeuser->id;
 
 
-        if(!empty($json->isTrue))
+        if(!isset($json->isTrue))
         {
             //Fake or no Fake
 
