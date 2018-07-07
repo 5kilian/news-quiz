@@ -51,7 +51,7 @@ const store = new Vuex.Store({
     state: {
         backButton: false,
         navigation: true,
-        demoCounter: 1,
+        demoCounter: 0,
     }
 });
 

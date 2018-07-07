@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="quiz-answers">
-                    <div class="quiz-answer" @click="submit(answer.AID)" v-for="answer in response.Answers">
+                    <div class="quiz-answer" @click="submit(answer.AID)" :key="index" v-for="(answer, index) in response.Answers">
                         {{ answer.answertext }}
                     </div>
                 </div>
@@ -38,8 +38,11 @@
             }
         },
         created() {
+            const demoArray = [1, 2, 3];
+            let source = "/api/v1/questions/" + demoArray[this.$store.state.demoCounter];
             axios
-                .get('/api/v1/random')
+                // .get('/api/v1/random')
+                .get(source)
                 .then(response => {
                     console.log(response);
                     this.response = response.data;
@@ -54,9 +57,6 @@
             demoCounter() {
                 return this.$store.state.demoCounter;
             },
-            demoCounterUp() {
-                this.$store.state.demoCounter++;
-            }
         }
     };
 </script>
@@ -73,7 +73,7 @@
         background-color: black;
         opacity: 0.6;
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - 3.8em);
         position: absolute;
         background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, .2) 100%);
         background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, .2) 100%);

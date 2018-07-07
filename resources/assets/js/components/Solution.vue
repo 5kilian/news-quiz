@@ -11,9 +11,7 @@
                    controls></video>
         </div>
 
-        <h1>
-            {{ answerID }}
-        </h1>
+        <h1>{{ getDemoCounter }}</h1>
 
         <div class="solution-text">
             <div style="font-weight: bold; margin-bottom: 0.5em;">
@@ -31,9 +29,9 @@
             <span> {{ score }}</span>
         </div>
 
-        <a  href="/app" class="next-button" @click="next()">
+        <div class="next-button" @click="next()">
             Continue
-        </a>
+        </div>
     </div>
 
 
@@ -52,12 +50,22 @@
             }
         },
         methods: {
+            demoCounterUp: function () {
+                this.$store.state.demoCounter++;
+            },
             next: function () {
-                if (this.demoCounter() < 3) {
-                    this.demoCounterUp()
-                } else {
+                console.log("Democounter: " + this.getDemoCounter);
+                if (this.getDemoCounter < 3) {
+                    if (this.getDemoCounter < 2) {
+                        this.demoCounterUp();
+                        this.$router.push("/quiz")
+                    } else {
+                        this.demoCounterUp();
+                        this.$router.push("/fakeornofake")
+                    }
+                }
+                else {
                     this.$router.push("/thankyou")
-                    // console.log("Thank you!") //TODO: Thank you page!
                 }
             }
         },
@@ -77,11 +85,8 @@
             })
         },
         computed: {
-            demoCounter() {
+            getDemoCounter() {
                 return this.$store.state.demoCounter;
-            },
-            demoCounterUp() {
-                this.$store.state.demoCounter++;
             }
         }
     }
@@ -103,8 +108,7 @@
 
     .solution-text {
         width: 80%;
-        margin: 0 auto;
-        margin-bottom: 10em;
+        margin: 0 auto 10em;
     }
 
     .color-gradient {
