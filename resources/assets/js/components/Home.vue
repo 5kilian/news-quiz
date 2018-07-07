@@ -1,8 +1,8 @@
 <template>
     <div id="home">
         <div class="home-container">
+            <div class="stats"></div>
             <router-link to="/quiz" class="big-btn">Start Quiz</router-link>
-            <router-link to="/fakeornofake" class="big-btn" style="margin-top: 2em;">Fake or no Fake</router-link>
         </div> 
     </div>
 </template>

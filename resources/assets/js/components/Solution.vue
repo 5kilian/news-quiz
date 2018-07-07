@@ -1,7 +1,8 @@
 <template>
     <div class="color-gradient">
-        <div class="solution-header wrong">
-            Falsch
+        <div class="solution-header wrong" :class="{'right': isTrue, 'wrong': !isTrue}">
+            <span v-if="!isTrue">Falsch</span>
+            <span v-if="isTrue">Richtig</span>
         </div>
         <!--<div class="video" v-if="video != null">-->
         <!--<video src="video"></video>-->
