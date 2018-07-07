@@ -74,12 +74,11 @@
             document.querySelector('body').style.backgroundImage = ''
         },
         created() {
-            axios.post("/api/v1/game/answer",
-                JSON.stringify({
-                AID: this.answerID
-                // isTrue: this.isTrue
-                })
-            ).then(response => {
+            axios.post("/api/v1/game/answer", {
+                    AID: this.answerID,
+                    isTrue: this.$route.query.nofake ? Boolean(this.$route.query.nofake) : null
+            })
+            .then(response => {
                 this.showTrue = response.data.Result;
                 this.mediaVideo = response.data.Video;
 

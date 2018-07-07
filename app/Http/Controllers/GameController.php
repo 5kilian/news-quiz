@@ -26,16 +26,16 @@ class GameController extends Controller
 
         $Userid = $Fakeuser->id;
 
-
-        if(!isset($json->isTrue))
+        
+        if(isset($json->isTrue))
         {
             //Fake or no Fake
-
+            //dd($json->isTrue);
             $Answer = Answer::where('AID',$json->AID)->firstOrFail();
             $Quelle = $Answer->question->source;
 
 
-            if($Answer->istrue == true)
+            if($Answer->istrue == $json->isTrue)
             {
                 //return "Klasse, die Antwort war richtig!";
                 $Rightanswer = true;
