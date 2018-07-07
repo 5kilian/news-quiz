@@ -18,3 +18,13 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .stats {
+        width: 100%;
+        height: 50vh;
+        background-image: url(/assets/cat.png);
+        background-size: cover;
+        position: absolute;
+    }
+</style>
