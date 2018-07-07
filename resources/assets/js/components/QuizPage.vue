@@ -7,9 +7,9 @@
                 </div>
 
                 <div class="quiz-answers">
-                        <div class="quiz-answer" @click="submit(answer.AID)" v-for="answer in response.Answers">
-                            {{ answer.answertext }}
-                        </div>
+                    <div class="quiz-answer" @click="submit(answer.AID)" v-for="answer in response.Answers">
+                        {{ answer.answertext }}
+                    </div>
                 </div>
 
             </div>
@@ -19,14 +19,14 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import axios from 'axios';
 
     export default {
-        name: "QuizPage",
+        name: 'QuizPage',
         data() {
             return {
                 response: {}
-            }
+            };
         },
 
         methods: {
@@ -39,10 +39,11 @@
         },
         created() {
             axios
-                .get("/api/v1/random")
+                .get('/api/v1/random')
                 .then(response => {
                     console.log(response);
-                    this.response = response.data });
+                    this.response = response.data;
+                });
         },
         mounted() {
             this.$store.state.backButton = true;
@@ -57,13 +58,13 @@
                 this.$store.state.demoCounter++;
             }
         }
-    }
+    };
 </script>
 
 <style scoped>
     .quiz-container {
         position: absolute;
-        z-index:1;
+        z-index: 1;
         width: 100vw;
         margin: 0;
     }
@@ -74,11 +75,12 @@
         width: 100vw;
         height: 100vh;
         position: absolute;
-        background: -moz-linear-gradient(bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,.2) 100%);
-        background: -webkit-linear-gradient(bottom, rgba(0,0,0,1) 20%,rgba(0,0,0,.2) 100%);
-        background: linear-gradient(to top, rgba(0,0,0,1) 20%,rgba(0,0,0,.2) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+        background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, .2) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, .2) 100%);
+        background: linear-gradient(to top, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, .2) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
     }
+
     .container {
         height: 100vh;
         margin-top: -1em;
@@ -119,13 +121,13 @@
     .quiz-answer {
         flex-grow: 1;
         margin: 10px;
-        box-shadow: 0 3px 5px rgba(0,0,0,.6);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, .6);
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
         user-select: none;
         padding: 0.3em 0 0 0.5em;
-        width: calc(100% * 1/2);
+        width: calc(100% * 1 / 2);
         border-radius: 10px;
         background-color: white;
         color: #2d2d2d;
@@ -138,6 +140,7 @@
     .quiz-answer:hover {
         box-shadow: gray 0 5px 7px;
     }
+
     .quiz-answer:focus-within {
         transform: translateY(4px);
     }
