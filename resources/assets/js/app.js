@@ -30,7 +30,8 @@ import Solution from './components/Solution';
 import Category from './components/Category';
 import TimeLine from './components/TimeLine';
 import QuestionCreator from './components/QuestionCreator';
-import ThankYou from './components/ThankYou'
+import ThankYou from './components/ThankYou';
+import Leaderboard from './components/Leaderboard';
 
 const routes = [
     { path: '/', component: Home },
