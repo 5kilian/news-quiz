@@ -22,7 +22,7 @@
 
 <style scoped>
 .thankyou-text {
-    font-size: 2em;
+    font-size: 1.7em;
     text-align: center;
     /* margin-top: -0.7em; */
     width: 80%;
