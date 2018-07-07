@@ -29,6 +29,7 @@ import FakeOrNoFake from './components/FakeOrNoFake';
 import Solution from './components/Solution';
 import Category from './components/Category';
 import TimeLine from './components/TimeLine';
+import QuestionCreator from './components/QuestionCreator';
 
 const routes = [
     { path: '/', component: Home },
@@ -38,7 +39,8 @@ const routes = [
     { path: '/side-menu', component: SideMenu },
     { path: '/fakeornofake', component: FakeOrNoFake },
     { path: '/solution', component: Solution, props: (route) => ({ answerID: route.query.answerID }) },
-    { path: '/category', component: Category }
+    { path: '/category', component: Category },
+    { path: '/admin/question', component: QuestionCreator }
 ];
 
 const router = new VueRouter({ routes });

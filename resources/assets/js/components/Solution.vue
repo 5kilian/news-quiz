@@ -16,7 +16,9 @@
         </h1>
 
         <div class="solution-text">
-            <div style="font-weight: bold; margin-bottom: 0.5em;">Keine Strohhalme, keine Teller und kein Besteck mehr aus Kunststoff - die EU-Pläne zum Plastikverbot sind ambitioniert. Doch die Umsetzung könnte sich schwierig gestalten.</div>
+            <div style="font-weight: bold; margin-bottom: 0.5em;">
+                Keine Strohhalme, keine Teller und kein Besteck mehr aus Kunststoff - die EU-Pläne zum Plastikverbot sind ambitioniert.
+                Doch die Umsetzung könnte sich schwierig gestalten.</div>
             Schätzungsweise 37 Kilogramm Plastikmüll verursacht allein jeder Deutsche jedes Jahr. EU-weit ist der Müllberg gut 26 Millionen Tonnen schwer. Und ein nicht geringer Teil davon landet in der Umwelt, vor allem in den Meeren in Form gigantischer Müllstrudel von sogenanntem Mikroplastik. Die Folgen für Fische und Vögel, aber letztlich auch für den Menschen seien verheerend, betont EU-Kommissionsvize Frans Timmermans.
         </div>
 
@@ -29,9 +31,9 @@
             <span> {{ score }}</span>
         </div>
 
-        <div class="next-button">
+        <router-link to="/" class="next-button">
             Continue
-        </div>
+        </router-link>
 
     </div>
 
@@ -39,8 +41,6 @@
 </template>
 
 <script>
-    import {bus} from "../app.js"
-
     export default {
         name: "Solution",
         props: ['answerID'],
