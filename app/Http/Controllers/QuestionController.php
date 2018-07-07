@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
+use App\Category;
+use App\Source;
 use Illuminate\Http\Request;
 use App\Question;
 use App\Http\Resources\QuestionResource;
@@ -13,9 +16,35 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         return QuestionResource::collection((Question::all()));
+    }
+
+    public function createQuestion(Request $request)  {
+        $content = json_decode($request->getContent());
+
+        $source = new Source();
+        $source->url = $content->src;
+        $source->picURL = $content->img;
+        // $source->Video = $content->video;
+        $source->Text = $content->srctext;
+
+
+        $question = new Question();
+        $question->questiontext = $content->QuestionText;
+        // $question->category = Category::where('name', $content->category);
+        $question->save();
+
+        foreach ($content->answers as $raw) {
+            if (empty($raw->text)) continue;
+            $answer = new Answer();
+            $answer->answertext = $raw->text;
+            $answer->istrue = $raw->correct;
+            $answer->qid = $question->QID;
+            $answer->save();
+        }
+
+        return $question;
     }
 
     /**

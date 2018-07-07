@@ -42,7 +42,8 @@ const routes = [
     { path: '/solution', component: Solution, props: (route) => ({ answerID: route.query.answerID }) },
     { path: '/category', component: Category },
     { path: '/admin/question', component: QuestionCreator },
-    { path: '/thankyou', component: ThankYou}
+    { path: '/thankyou', component: ThankYou},
+    { path: '/leaderboard', component: Leaderboard}
 ];
 
 const router = new VueRouter({ routes });

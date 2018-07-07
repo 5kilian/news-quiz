@@ -21,6 +21,8 @@ Route::get('/categories', 'CategoryController@all');
 Route::get('/category/{name}/subscribe', 'CategoryController@subscribe');
 Route::get('/category/{name}/unsubscribe', 'CategoryController@unsubscribe');
 
+Route::post('/api/v1/question/create', 'QuestionController@createQuestion');
+
 // Route::redirect();
 
 Route::get('/7', function (\Illuminate\Http\Request $request) {
