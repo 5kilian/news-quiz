@@ -22,7 +22,7 @@
 .thankyou-text {
     font-size: 2em;
     text-align: center;
-    margin-top: -0.7em;
+    /* margin-top: -0.7em; */
     width: 80%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
