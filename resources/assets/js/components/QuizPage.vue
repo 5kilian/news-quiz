@@ -138,7 +138,11 @@
     }
 
     .quiz-answer:hover {
-        box-shadow: gray 0 5px 7px;
+        background-color: lightgray;
+    }
+
+    .quiz-answer:active {
+        background-color: lightgray;
     }
 
     .quiz-answer:focus-within {
