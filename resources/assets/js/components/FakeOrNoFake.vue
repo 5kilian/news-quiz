@@ -29,7 +29,7 @@ export default {
     {
         document.querySelector('body').style.backgroundImage = 'url("/assets/merkel.jpg")'
 
-        var bg = new Hammer(document.querySelector('.fonf-bg'), {})
+        var bg = new Hammer(document.querySelector('body'), {})
         bg.on('swiperight', () => {
             alert("true")
         })
@@ -39,23 +39,23 @@ export default {
         })
         this.$store.state.backButton = true;
         this.$store.state.navigation = false;
+    },
+    methods: {
+
     }
 }
 </script>
 
 
 <style scoped>
-#fonf {
-    height: 100vh;
-}
 
 .fonf-bg {
     background-color: black;
     opacity: 0.6;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 3.8em);
     position: absolute;
-    margin-top: -1.2em;
+    margin-top: -1em;
     background: -moz-linear-gradient(bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
     background: -webkit-linear-gradient(bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
     background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);

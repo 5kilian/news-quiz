@@ -65,6 +65,15 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .logo {
+                background-image: url('/assets/icons/icon-384x384.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                height: 5em;
+                width: 5em;
+                margin: 0 auto;
+            }
         </style>
     </head>
     <body>
@@ -81,7 +90,8 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md" style="font-size: 2.5em;">
+                <div class="logo"></div>
+                <div class="title m-b-md" style="font-size: 2.5em; margin-top: 0.5em;">
                     News-Quiz
                 </div>
             </div>
