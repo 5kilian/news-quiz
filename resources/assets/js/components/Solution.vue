@@ -16,9 +16,11 @@
         </h1>
 
         <div class="solution-text">
-            <div style="font-weight: bold; margin-bottom: 0.5em;">Keine Strohhalme, keine Teller und kein Besteck mehr aus Kunststoff - die EU-Pläne zum Plastikverbot sind ambitioniert. Doch die Umsetzung könnte sich schwierig gestalten.</div>
+            <div style="font-weight: bold; margin-bottom: 0.5em;">
+                Keine Strohhalme, keine Teller und kein Besteck mehr aus Kunststoff - die EU-Pläne zum Plastikverbot sind ambitioniert.
+                Doch die Umsetzung könnte sich schwierig gestalten.</div>
             Schätzungsweise 37 Kilogramm Plastikmüll verursacht allein jeder Deutsche jedes Jahr. EU-weit ist der Müllberg gut 26 Millionen Tonnen schwer. Und ein nicht geringer Teil davon landet in der Umwelt, vor allem in den Meeren in Form gigantischer Müllstrudel von sogenanntem Mikroplastik. Die Folgen für Fische und Vögel, aber letztlich auch für den Menschen seien verheerend, betont EU-Kommissionsvize Frans Timmermans.
-        </div>  
+        </div>
 
         <!-- <div class="solution-result">
             <h2 v-if="correct" style="color: green">Richtig</h2>
@@ -29,39 +31,58 @@
             <span> {{ score }}</span>
         </div>
 
-        <div class="next-button">
+        <a  href="/app" class="next-button" @click="next()">
             Continue
-        </div>
-
+        </a>
     </div>
 
 
 </template>
 
 <script>
-    import {bus} from "../app.js"
-
     export default {
         name: "Solution",
         props: ['answerID'],
         data() {
             return {
                 score: null,
-                questionId: null,
-                index: null,
-                video: null,
-                correct: false
+                correct: false,
+                isTrue: null,
+                response: {},
+            }
+        },
+        methods: {
+            next: function () {
+                if (this.demoCounter() < 3) {
+                    this.demoCounterUp()
+                } else {
+                    this.$router.push("/thankyou")
+                    // console.log("Thank you!") //TODO: Thank you page!
+                }
             }
         },
         mounted() {
-            function setGradient() {
-                document.querySelector('body').style.background = 'linear-gradient(to bottom, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8)';
-            }
-
             this.$store.state.navigation = true;
             this.$store.state.backButton = false;
             document.querySelector('body').style.backgroundImage = ''
-
+        },
+        created() {
+            axios.post("localhost:2000/api/v1/questions/submit", {
+                data: {
+                    isTrue: this.isTrue,
+                    AID: this.AID
+                }.then(function(response) {
+                    this.response = response;
+                })
+            })
+        },
+        computed: {
+            demoCounter() {
+                return this.$store.state.demoCounter;
+            },
+            demoCounterUp() {
+                this.$store.state.demoCounter++;
+            }
         }
     }
 </script>

@@ -15,9 +15,6 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
-
-        //return QuestionResource::collection(Question::with(['category','answers','source']));
         return QuestionResource::collection((Question::all()));
     }
 

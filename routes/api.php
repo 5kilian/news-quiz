@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::apiResource('questions', 'QuestionController');
+    Route::apiResource('category', 'CategoryController');
     Route::get('random', 'QuestionController@random');
     Route::get('getfive', 'QuestionController@getfive');
     Route::get('game/answer', 'GameController@answerquestion');
