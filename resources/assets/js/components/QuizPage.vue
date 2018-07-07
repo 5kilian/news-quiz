@@ -134,6 +134,7 @@
         justify-content: center;
         align-items: center;
         font-weight: bold;
+        text-align: center;
     }
 
     .quiz-answer:hover {

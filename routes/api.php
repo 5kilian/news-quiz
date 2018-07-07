@@ -22,7 +22,7 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('category', 'CategoryController');
     Route::get('random', 'QuestionController@random');
     Route::get('getfive', 'QuestionController@getfive');
-    Route::get('game/answer', 'GameController@answerquestion');
+    Route::post('game/answer', 'GameController@answerquestion');
 });
 /*Route::prefix('v1')->group(function () {
     Route::get('questions/random', function () {
