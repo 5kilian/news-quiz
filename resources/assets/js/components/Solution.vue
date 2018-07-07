@@ -12,8 +12,6 @@
                    controls></video>
         </div>
 
-        <h1>{{ getDemoCounter }}</h1>
-
         <div class="solution-text">
             <div style="font-weight: bold; margin-bottom: 0.5em;">
                 Keine Strohhalme, keine Teller und kein Besteck mehr aus Kunststoff - die EU-Pläne zum Plastikverbot sind ambitioniert.
@@ -76,15 +74,15 @@
             document.querySelector('body').style.backgroundImage = ''
         },
         created() {
-            axios.post("/api/v1/questions/submit", {
+            axios.post("/api/v1/game/answer", {
                 data: {
                     isTrue: this.isTrue,
                     AID: this.AID
                 }
-            })
-            .then(function(response) {
+            }).then(function (response) {
                 this.response = response;
-            })
+            });
+            console.log(this.response)
         },
         computed: {
             getDemoCounter() {

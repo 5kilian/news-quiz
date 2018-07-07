@@ -14,6 +14,8 @@
             document.querySelector('body').style.backgroundImage = ''
             this.$store.state.backButton = false;
             this.$store.state.navigation = true;
+
+            this.$store.state.demoCounter = 0;
         }
     }
 </script>
