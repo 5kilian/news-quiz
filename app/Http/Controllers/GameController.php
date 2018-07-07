@@ -18,6 +18,8 @@ class GameController extends Controller
     public function answerquestion(Request $request)
     {
         //
+        $json = json_decode($request->getContent());
+
         $Fakeuser = User::where('id', 1)->firstorfail();
         $Fakeuser->score;
         $Rightanswer = null;
@@ -25,11 +27,11 @@ class GameController extends Controller
         $Userid = $Fakeuser->id;
 
 
-        if($request->has('isTrue'))
+        if(!isset($json->isTrue))
         {
             //Fake or no Fake
 
-            $Answer = Answer::where('AID',$request->input('AID'))->firstOrFail();
+            $Answer = Answer::where('AID',$json->AID)->firstOrFail();
             $Quelle = $Answer->question->source;
 
 
@@ -52,9 +54,9 @@ class GameController extends Controller
 
 
         }
-        else if($request->has('AID'))
+        else if(isset($json->AID))
         {
-            $Answer = Answer::where('AID',$request->input('AID'))->firstOrFail();
+            $Answer = Answer::where('AID',$json->AID)->firstOrFail();
             $Quelle = $Answer->question->source;
             if($Answer->istrue == true)
             {

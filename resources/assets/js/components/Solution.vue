@@ -74,15 +74,14 @@
             document.querySelector('body').style.backgroundImage = ''
         },
         created() {
-            axios.post("/api/v1/game/answer", {
-                data: {
-                    isTrue: this.isTrue,
-                    AID: this.AID
-                }
-            }).then(function (response) {
+            axios.post("/api/v1/game/answer",
+                JSON.stringify({
+                AID: this.answerID,
+                isTrue: this.isTrue})
+            ).then(function (response) {
                 this.response = response;
             });
-            console.log(this.response)
+            console.log("response ------------" + this.response)
         },
         computed: {
             getDemoCounter() {
