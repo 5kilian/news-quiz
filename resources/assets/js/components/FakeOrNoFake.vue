@@ -25,18 +25,20 @@ export default {
 
         }
     },
-    mounted() 
+    mounted()
     {
         document.querySelector('body').style.backgroundImage = 'url("/assets/merkel.jpg")'
 
-        var bg = new Hammer(document.querySelector('.fonf-bg'), {})
+        let bg = new Hammer(document.querySelector('.fonf-bg'), {});
         bg.on('swiperight', () => {
-            alert("true")
-        })
+            // alert("true")
+            this.$router.push("/solution")
+        });
 
         bg.on('swipeleft', () => {
-            alert("false")
-        })
+            // alert("false")
+            this.$router.push("/solution")
+        });
         this.$store.state.backButton = true;
         this.$store.state.navigation = false;
     }

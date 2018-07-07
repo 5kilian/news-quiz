@@ -38,8 +38,11 @@
             }
         },
         created() {
+            const demoArray = [1, 2, 3];
+            let source = "/api/v1/questions/" + demoArray[this.$store.state.demoCounter];
             axios
-                .get('/api/v1/random')
+                // .get('/api/v1/random')
+                .get(source)
                 .then(response => {
                     console.log(response);
                     this.response = response.data;
@@ -54,9 +57,6 @@
             demoCounter() {
                 return this.$store.state.demoCounter;
             },
-            demoCounterUp() {
-                this.$store.state.demoCounter++;
-            }
         }
     };
 </script>
