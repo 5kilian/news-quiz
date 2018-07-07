@@ -146,7 +146,7 @@
     }
 
     .next-button {
-        width: auto;
+        /*width: auto;*/
         text-align: center;
         background-color: rgb(19, 92, 144);
         padding: 0 5px 0 5px;
@@ -161,7 +161,7 @@
     }
 
     .solution-header.wrong {
-        position: absolute;
+        /*position: absolute;*/
         top: 0;
         height: 3.7em;
         background-color: #bb1b1b;
@@ -180,7 +180,7 @@
     }
 
     .solution-title {
-        font-weight: bold; 
+        font-weight: bold;
         margin-bottom: 0.5em;
     }
 
