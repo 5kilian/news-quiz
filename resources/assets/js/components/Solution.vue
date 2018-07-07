@@ -75,13 +75,14 @@
             document.querySelector('body').style.backgroundImage = ''
         },
         created() {
-            axios.post("localhost:2000/api/v1/questions/submit", {
+            axios.post("/api/v1/questions/submit", {
                 data: {
                     isTrue: this.isTrue,
                     AID: this.AID
-                }.then(function(response) {
-                    this.response = response;
-                })
+                }
+            })
+            .then(function(response) {
+                this.response = response;
             })
         },
         computed: {
