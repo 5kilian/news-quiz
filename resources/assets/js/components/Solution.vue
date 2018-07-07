@@ -54,8 +54,8 @@
             },
             next: function () {
                 console.log("Democounter: " + this.getDemoCounter);
-                if (this.getDemoCounter < 3) {
-                    if (this.getDemoCounter < 2) {
+                if (this.getDemoCounter < 1) {
+                    if (this.getDemoCounter = 0) {
                         this.demoCounterUp();
                         this.$router.push("/quiz")
                     } else {
