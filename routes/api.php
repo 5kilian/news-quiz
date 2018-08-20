@@ -13,11 +13,22 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});*/
+
+Route::middleware('auth:web')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
+Route::prefix('v1')->group(function () {
+    Route::apiResource('questions', 'QuestionController');
+    Route::apiResource('category', 'CategoryController');
+    Route::get('random', 'QuestionController@random');
+    Route::get('getfive', 'QuestionController@getfive');
+    Route::post('game/answer', 'GameController@answerquestion');
+});
 /*Route::prefix('v1')->group(function () {
     Route::get('questions/random', function () {
         $randomquestion = \App\Question::orderBy(\DB::raw('RAND()'))->with(['category','answers','source'])->first();

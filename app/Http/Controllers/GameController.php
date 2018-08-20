@@ -33,6 +33,7 @@ class GameController extends Controller
             //dd($json->isTrue);
             $Answer = Answer::where('AID',$json->AID)->firstOrFail();
             $Quelle = $Answer->question->source;
+            $beantwortefragen = new user_question()
 
 
             if($Answer->istrue == $json->isTrue)
