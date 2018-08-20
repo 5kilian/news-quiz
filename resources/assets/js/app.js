@@ -32,6 +32,7 @@ import TimeLine from './components/TimeLine';
 import QuestionCreator from './components/QuestionCreator';
 import ThankYou from './components/ThankYou';
 import Leaderboard from './components/LeaderBoard';
+import Axios from 'axios';
 
 const routes = [
     { path: '/', component: Home },
@@ -57,6 +58,30 @@ const store = new Vuex.Store({
     }
 });
 
+const mix = Vue.mixin({
+    methods: {
+        getQuestion: function()
+        {
+            Axios
+            .get("/api/v1/random")
+            .then(res => {
+                if(res.data.Answers.length > 1)
+                {
+                    this.$router.push({path: "/quiz", query: {
+                        response: res.data
+                    }})
+                }
+                else
+                {
+                    this.$router.push({path: "/fakeornofake", query: {
+                        response: res.data
+                    }})
+                }
+            })
+        }
+    }
+})
+
 const app = new Vue({
     el: '#app',
     components: { App },
@@ -64,7 +89,6 @@ const app = new Vue({
     mounted() {
 
     },
-    methods: {},
     store,
     router
 });

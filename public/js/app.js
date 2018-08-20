@@ -16977,8 +16977,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_QuestionCreator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_QuestionCreator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_ThankYou__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_ThankYou___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_ThankYou__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_LeaderBoard__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_LeaderBoard__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_LeaderBoard___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_LeaderBoard__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_axios__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_axios__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -17014,6 +17016,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 
 
 
+
 var routes = [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_5__components_Home___default.a }, { path: '/home', redirect: '/' }, { path: '/quiz', component: __WEBPACK_IMPORTED_MODULE_6__components_QuizPage___default.a }, { path: '/news', component: __WEBPACK_IMPORTED_MODULE_11__components_TimeLine___default.a }, { path: '/side-menu', component: __WEBPACK_IMPORTED_MODULE_7__components_SideMenu___default.a }, { path: '/fakeornofake', component: __WEBPACK_IMPORTED_MODULE_8__components_FakeOrNoFake___default.a }, { path: '/solution', component: __WEBPACK_IMPORTED_MODULE_9__components_Solution___default.a, props: function props(route) {
         return { answerID: route.query.answerID };
     } }, { path: '/category', component: __WEBPACK_IMPORTED_MODULE_10__components_Category___default.a }, { path: '/admin/question', component: __WEBPACK_IMPORTED_MODULE_12__components_QuestionCreator___default.a }, { path: '/thankyou', component: __WEBPACK_IMPORTED_MODULE_13__components_ThankYou___default.a }, { path: '/leaderboard', component: __WEBPACK_IMPORTED_MODULE_14__components_LeaderBoard___default.a }];
@@ -17028,13 +17031,32 @@ var store = new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
     }
 });
 
+var mix = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin({
+    methods: {
+        getQuestion: function getQuestion() {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/random").then(function (res) {
+                if (res.data.Answers.length > 1) {
+                    _this.$router.push({ path: "/quiz", query: {
+                            response: res.data
+                        } });
+                } else {
+                    _this.$router.push({ path: "/fakeornofake", query: {
+                            response: res.data
+                        } });
+                }
+            });
+        }
+    }
+});
+
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     components: { App: __WEBPACK_IMPORTED_MODULE_4__components_App___default.a },
     data: {},
     mounted: function mounted() {},
 
-    methods: {},
     store: store,
     router: router
 });
@@ -54299,7 +54321,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#bottomNavigation {\n    z-index: 100;\n    position: fixed;\n    bottom: 0;\n    width: 100%;\n    height: 4em;\n    background-color: #1d2744;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: white;\n    -webkit-box-pack: space-evenly;\n        -ms-flex-pack: space-evenly;\n            justify-content: space-evenly;\n    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);\n}\n.bottom-navigation-stats {\n    position: absolute;\n    margin-top: -0.2em;\n    margin-left: 1.5em;\n    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.5);\n            box-shadow: 0 3px 5px rgba(0,0,0,0.5);\n    padding: 0 0.2em;\n    border-radius: 5px;\n    background-color: white;\n    color: #232323;\n    font-size: 0.8em;\n}\n#bottomNavigation i {\n}\n", ""]);
+exports.push([module.i, "\n#bottomNavigation {\n    z-index: 100;\n    position: fixed;\n    bottom: 0;\n    width: 100%;\n    height: 4em;\n    background-color: #1d2744;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: white;\n    -webkit-box-pack: space-evenly;\n        -ms-flex-pack: space-evenly;\n            justify-content: space-evenly;\n    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);\n}\n.bottom-navigation-stats {\n    position: absolute;\n    margin-top: -0.2em;\n    margin-left: 1.5em;\n    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.5);\n            box-shadow: 0 3px 5px rgba(0,0,0,0.5);\n    padding: 0 0.2em;\n    border-radius: 5px;\n    background-color: white;\n    color: #232323;\n    font-size: 0.8em;\n}\n", ""]);
 
 // exports
 
@@ -54353,7 +54375,7 @@ var render = function() {
             [_vm._v("pages")]
           ),
           _vm._v(" "),
-          _c("router-link", { attrs: { to: "/news" } }, [
+          _c("router-link", { attrs: { to: "/leaderboard" } }, [
             _c("div", { staticClass: "bottom-navigation-stats" }, [
               _vm._v("3")
             ]),
@@ -54394,7 +54416,7 @@ var render = function() {
     [
       _c("main-header"),
       _vm._v(" "),
-      _c("router-view", { staticClass: "content" }),
+      _c("router-view"),
       _vm._v(" "),
       _c("bottom-navigation")
     ],
@@ -54497,7 +54519,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.home-container[data-v-85ef4954] {\n    width: 80%;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%);\n    margin-left: 50%;\n    margin-top: 2em;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n}\n.stats[data-v-85ef4954] {\n    width: 100%;\n    height: 50vh;\n    background-image: url(/assets/cat.png);\n    background-size: cover;\n    position: relative;\n}\n.leaderboard[data-v-85ef4954] {\n    width: 100%;\n    text-align: center;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n    border-radius: 10px;\n    border: 1px #004888;\n    margin: 15px 0;\n    padding: 10px 0;\n}\n.loaderboard-text[data-v-85ef4954] {\n    color: #004888;\n}\n.big-btn[data-v-85ef4954] {\n    width: 100%;\n    height: 5em;\n    background-color: #004888;\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n    border-radius: 10px;\n    position: relative;\n}\n.big-btn[data-v-85ef4954]:active {\n    background-color: #0367bf;\n}\n", ""]);
+exports.push([module.i, "\n.home-container[data-v-85ef4954] {\n    width: 80%;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%);\n    margin-left: 50%;\n    margin-top: 2em;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n}\n.stats[data-v-85ef4954] {\n    background-image: url(/assets/cat.png);\n    background-size: cover;\n    position: relative;\n    height: 23em;\n    width: 21em;\n    margin: 0 auto;\n    background-position: center;\n}\n@media screen and (max-width: 23em)\n{\n.stats[data-v-85ef4954] {\n        width: 100% !important;\n        height: 19em;\n}\n}\n.leaderboard[data-v-85ef4954] {\n    width: 100%;\n    text-align: center;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n    border-radius: 10px;\n    border: 1px #004888;\n    margin: 15px 0;\n    padding: 10px 0;\n}\n.loaderboard-text[data-v-85ef4954] {\n    color: #004888;\n}\n.big-btn[data-v-85ef4954] {\n    width: 100%;\n    height: 5em;\n    background-color: #004888;\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n    border-radius: 10px;\n    position: relative;\n}\n.big-btn[data-v-85ef4954]:active {\n    background-color: #0367bf;\n}\n", ""]);
 
 // exports
 
@@ -54526,7 +54548,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            rang: 1
+        };
     }
 });
 
@@ -54539,34 +54563,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "home" } }, [
-    _c(
-      "div",
-      { staticClass: "home-container" },
-      [
-        _c("div", { staticClass: "stats" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "leaderboard" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "loaderboard-text",
-                attrs: { to: "/LeaderBoard" }
-              },
-              [_vm._v("Du bist auf Platz 6")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("router-link", { staticClass: "big-btn", attrs: { to: "/quiz" } }, [
-          _vm._v("Start Quiz")
-        ])
-      ],
-      1
-    )
+    _c("div", { staticClass: "home-container" }, [
+      _c("div", { staticClass: "stats" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "leaderboard" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "loaderboard-text", attrs: { to: "/LeaderBoard" } },
+            [_vm._v("Du bist auf Rang " + _vm._s(_vm.rang))]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "big-btn", on: { click: _vm.getQuestion } }, [
+        _vm._v("Start Quiz")
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -54665,7 +54681,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.quiz-container[data-v-78690afb] {\n    position: absolute;\n    z-index: 1;\n    width: 100vw;\n    margin: 0;\n}\n.bg[data-v-78690afb] {\n    background-color: black;\n    opacity: 0.6;\n    width: 100vw;\n    height: calc(100vh - 3.8em);\n    position: absolute;\n    background: -webkit-gradient(linear, left bottom, left top, color-stop(20%, rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, .2)));\n    background: linear-gradient(to top, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, .2) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);\n}\n.container[data-v-78690afb] {\n    height: 100vh;\n    margin-top: -1em;\n    padding: 0;\n}\n.quiz-question[data-v-78690afb] {\n    position: relative;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    text-shadow: 0 3px 5px black;\n    height: 35vh;\n    margin: auto 10px auto 10px;\n    border-radius: 10px;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: white;\n    font-family: serif;\n    font-size: 1.4em;\n    letter-spacing: 0.5px;\n    text-align: center\n}\n.quiz-question span[data-v-78690afb] {\n    width: auto;\n    height: auto;\n    /*position: absolute;*/\n    /*bottom: 0;*/\n}\n.quiz-answers[data-v-78690afb] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    height: 50vh;\n}\n.quiz-answer[data-v-78690afb] {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    margin: 10px;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .6);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, .6);\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    padding: 0.3em 0 0 0.5em;\n    width: calc(100% * 1 / 2);\n    border-radius: 10px;\n    background-color: white;\n    color: #2d2d2d;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-weight: bold;\n    text-align: center;\n}\n.quiz-answer[data-v-78690afb]:hover {\n    background-color: lightgray;\n}\n.quiz-answer[data-v-78690afb]:active {\n    background-color: lightgray;\n}\n.quiz-answer[data-v-78690afb]:focus-within {\n    -webkit-transform: translateY(4px);\n            transform: translateY(4px);\n}\n\n\n", ""]);
+exports.push([module.i, "\n.quiz-container[data-v-78690afb] {\n    position: absolute;\n    z-index: 1;\n    width: 100vw;\n    margin: 0;\n}\n.bg[data-v-78690afb] {\n    background-color: black;\n    opacity: 0.6;\n    width: 100vw;\n    height: calc(100vh - 3.8em);\n    position: absolute;\n    background: -webkit-gradient(linear, left bottom, left top, color-stop(20%, rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, .2)));\n    background: linear-gradient(to top, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, .2) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);\n}\n.container[data-v-78690afb] {\n    height: 100vh;\n    margin-top: -1em;\n    padding: 0;\n}\n.quiz-question[data-v-78690afb] {\n    position: relative;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    text-shadow: 0 3px 5px black;\n    height: 35vh;\n    margin: auto 10px auto 10px;\n    border-radius: 10px;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: white;\n    font-family: serif;\n    font-size: 1.4em;\n    letter-spacing: 0.5px;\n    text-align: center\n}\n.quiz-question span[data-v-78690afb] {\n    width: auto;\n    height: auto;\n    /*position: absolute;*/\n    /*bottom: 0;*/\n}\n.quiz-answers[data-v-78690afb] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    height: 50vh;\n}\n.quiz-answer[data-v-78690afb] {\n    -webkit-box-flex: 1;\n        -ms-flex-positive: 1;\n            flex-grow: 1;\n    margin: 10px;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .4);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, .4);\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    padding: 0.3em 0 0 0.5em;\n    width: calc(100% * 1 / 2);\n    border-radius: 10px;\n    background-color: #eaeaea;\n    color: #2d2d2d;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-weight: bold;\n    text-align: center;\n}\n.quiz-answer[data-v-78690afb]:hover {\n    background-color: lightgray;\n}\n.quiz-answer[data-v-78690afb]:active {\n    background-color: lightgray;\n}\n.quiz-answer[data-v-78690afb]:focus-within {\n    -webkit-transform: translateY(4px);\n            transform: translateY(4px);\n}\n\n\n", ""]);
 
 // exports
 
@@ -54705,7 +54721,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: 'QuizPage',
     data: function data() {
         return {
-            response: {}
+            response: this.$route.query.response
         };
     },
 
@@ -54719,20 +54735,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
-        var _this = this;
-
-        var demoArray = [2];
-        var source = "/api/v1/questions/" + demoArray[this.$store.state.demoCounter];
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a
-        // .get('/api/v1/random')
-        .get(source).then(function (response) {
-            _this.response = response.data;
-            document.querySelector('body').style.backgroundImage = 'url(' + _this.response.PicURL + ')';
-        });
+        // const demoArray = [1];
+        // let source = "/api/v1/questions/" + demoArray[this.$store.state.demoCounter];
+        // axios
+        //     // .get('/api/v1/random')
+        //     .get(source)
+        //     .then(response => {
+        //         this.response = response.data;
+        //         document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
+        //     });
     },
     mounted: function mounted() {
         this.$store.state.backButton = true;
         this.$store.state.navigation = false;
+        document.querySelector('body').style.backgroundImage = 'url(' + this.response.PicURL + ')';
     },
 
     computed: {
@@ -54750,14 +54766,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center quiz-container" }, [
+  return _c("div", { staticStyle: { "margin-top": "-1em" } }, [
+    _c("div", { staticClass: "quiz-container" }, [
       _c(
         "div",
-        {
-          staticClass: "col-md-8",
-          staticStyle: { "padding-left": "2em", "padding-right": "2em" }
-        },
+        { staticStyle: { "padding-left": "2em", "padding-right": "2em" } },
         [
           _c("div", { staticClass: "quiz-question" }, [
             _c("span", [_vm._v(_vm._s(_vm.response.QuestionText))])
@@ -55043,16 +55056,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            response: new Object()
+            response: this.$route.query.response
         };
     },
     mounted: function mounted() {
         var _this = this;
 
-        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/v1/questions/10').then(function (response) {
-            _this.response = response.data;
-            document.querySelector('body').style.backgroundImage = 'url(' + _this.response.PicURL + ')';
-        });
+        // Axios.get('/api/v1/questions/14')
+        // .then(response => {
+        //     this.response = response.data
+        //     document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
+        // })
 
         var bg = new Hammer(document.querySelector('body'), {});
         bg.on('swiperight', function () {
@@ -55064,6 +55078,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
         this.$store.state.backButton = true;
         this.$store.state.navigation = false;
+        document.querySelector('body').style.backgroundImage = 'url(' + this.response.PicURL + ')';
     },
 
     methods: {
@@ -55090,6 +55105,7 @@ var render = function() {
         "div",
         {
           staticClass: "fonf-controll",
+          attrs: { draggable: "true" },
           on: {
             click: function($event) {
               _vm.isfalse()
@@ -55112,6 +55128,7 @@ var render = function() {
         "div",
         {
           staticClass: "fonf-controll",
+          attrs: { draggable: "true" },
           on: {
             click: function($event) {
               _vm.istrue()
@@ -55234,7 +55251,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg[data-v-52f80f70] {\n    background-color: black;\n    opacity: 0.6;\n    width: 100vw;\n    height: 100vh;\n    position: absolute;\n    margin-top: -1.2em;\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));\n    background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );\n}\n.solution-text[data-v-52f80f70] {\n    width: 80%;\n    margin: 0 auto 10em;\n}\n.color-gradient[data-v-52f80f70] {\n    /*width: 100%;*/\n    /*height: 100%;*/\n    /*background: linear-gradient(to bottom, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8))*/\n}\n.video[data-v-52f80f70] {\n    width: 100%;\n    /*width: 30px;*/\n    /* padding: 0 10px 0 10px; */\n    height: auto;\n    max-height: 100%;\n    margin-top: -1.2em;\n}\nvideo[data-v-52f80f70] {\n    width: 100%;\n    height: auto;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n}\n.solution-result[data-v-52f80f70] {\n    text-align: center;\n}\n.next-button[data-v-52f80f70] {\n    /*width: auto;*/\n    text-align: center;\n    background-color: rgb(19, 92, 144);\n    padding: 0 5px 0 5px;\n    color: white;\n    bottom: 4em;\n    position: fixed;\n    width: 100%;\n    height: 5em;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.solution-header.wrong[data-v-52f80f70] {\n    /*position: absolute;*/\n    top: 0;\n    height: 3.7em;\n    background-color: #bb1b1b;\n    width: 100%;\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    z-index: 1;\n    position: fixed;\n    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);\n}\n.solution-header.right[data-v-52f80f70] {\n    background-color: #67bb1b;\n}\n.solution-title[data-v-52f80f70] {\n    font-weight: bold;\n    margin-bottom: 0.5em;\n}\n.solution-image[data-v-52f80f70] {\n    width: 100vw;\n    height: 30vh;\n    overflow: hidden;\n    margin-top: -1.2em;\n    margin-bottom: 1em;\n    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.4);\n            box-shadow: 0 3px 5px rgba(0,0,0,.4);\n}\n.solution-image img[data-v-52f80f70] {\n    width: 100%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    margin-top: 25%;\n}\n", ""]);
+exports.push([module.i, "\n.bg[data-v-52f80f70] {\n    background-color: black;\n    opacity: 0.6;\n    width: 100vw;\n    height: 100vh;\n    position: absolute;\n    margin-top: -1.2em;\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));\n    background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );\n}\n.solution-text[data-v-52f80f70] {\n    width: 80%;\n    margin: 0 auto 10em;\n}\n.color-gradient[data-v-52f80f70] {\n    /*width: 100%;*/\n    /*height: 100%;*/\n    /*background: linear-gradient(to bottom, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8))*/\n}\n.video[data-v-52f80f70] {\n    width: 100%;\n    /*width: 30px;*/\n    /* padding: 0 10px 0 10px; */\n    height: auto;\n    max-height: 100%;\n    margin-top: -1.2em;\n}\nvideo[data-v-52f80f70] {\n    width: 100%;\n    height: auto;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n}\n.solution-result[data-v-52f80f70] {\n    text-align: center;\n}\n.next-button[data-v-52f80f70] {\n    /*width: auto;*/\n    text-align: center;\n    background-color: rgb(19, 92, 144);\n    padding: 0 5px 0 5px;\n    color: white;\n    bottom: 4em;\n    position: fixed;\n    width: 100%;\n    height: 5em;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.solution-header.wrong[data-v-52f80f70] {\n    /*position: absolute;*/\n    top: 0;\n    height: 3.7em;\n    background-color: #bb1b1b;\n    width: 100%;\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    z-index: 1;\n    position: fixed;\n    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n}\n.solution-header.right[data-v-52f80f70] {\n    background-color: #67bb1b;\n}\n.solution-title[data-v-52f80f70] {\n    font-weight: bold;\n    margin-bottom: 0.5em;\n}\n.solution-image[data-v-52f80f70] {\n    width: 100vw;\n    height: 30vh;\n    overflow: hidden;\n    margin-top: -1.2em;\n    margin-bottom: 1em;\n    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.4);\n            box-shadow: 0 3px 5px rgba(0,0,0,.4);\n}\n.solution-image img[data-v-52f80f70] {\n    width: 100%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    margin-top: 25%;\n}\n", ""]);
 
 // exports
 
@@ -55301,18 +55318,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$store.state.demoCounter++;
         },
         next: function next() {
-            console.log("Democounter: " + this.getDemoCounter);
-            if (this.getDemoCounter < 1) {
-                if (this.getDemoCounter = 0) {
-                    this.demoCounterUp();
-                    this.$router.push("/quiz");
-                } else {
-                    this.demoCounterUp();
-                    this.$router.push("/fakeornofake");
-                }
-            } else {
-                this.$router.push("/thankyou");
-            }
+            this.getQuestion();
+            // console.log("Democounter: " + this.getDemoCounter);
+            // if (this.getDemoCounter < 1) {
+            //     if (this.getDemoCounter = 0) {
+            //         this.demoCounterUp();
+            //         this.$router.push("/quiz")
+            //     } else {
+            //         this.demoCounterUp();
+            //         this.$router.push("/fakeornofake")
+            //     }
+            // }
+            // else {
+            //     this.$router.push("/thankyou")
+            // }
         }
     },
     mounted: function mounted() {
@@ -55574,10 +55593,11 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "category-list category-width" },
-    _vm._l(_vm.categories, function(category) {
+    _vm._l(_vm.categories, function(category, i) {
       return _c(
         "div",
         {
+          key: i,
           staticClass: "category-tile",
           on: {
             click: function($event) {
@@ -55776,54 +55796,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    _vm._l(_vm.news, function(recent) {
-      return _c("div", { staticClass: "card timeline-news" }, [
-        _c("div", { staticClass: "card-img-top" }, [
-          _vm._m(0, true),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "timeline-image-top",
-            attrs: { src: recent.img, alt: recent.title }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "timeline-news-source-logo" }, [
-          _c("img", {
-            staticClass: "timeline-news-source-logo-img",
-            attrs: { src: recent.source.logo, alt: recent.source.name }
-          })
-        ]),
-        _vm._v(" "),
-        _c("h4", { staticClass: "timeline-news-title card-title" }, [
-          _vm._v("\n            " + _vm._s(recent.title) + "\n        ")
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "timeline-news-more",
-            attrs: { href: recent.source.url }
-          },
-          [_vm._v("\n            >> Mehr zum Thema <<\n        ")]
-        )
-      ])
-    })
-  )
+  return _c("div", { staticClass: "container" })
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "timeline-news-tap-to-play" }, [
-      _c("img", { staticClass: "tap-svg", attrs: { src: "/assets/tap.svg" } }),
-      _vm._v("\n                Tap to play!\n            ")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -56077,7 +56052,7 @@ var render = function() {
           _vm._v(" "),
           _vm._l(_vm.answers, function(answer, i) {
             return i < _vm.count
-              ? _c("div", [
+              ? _c("div", { key: i }, [
                   _c("input", {
                     directives: [
                       {
@@ -56172,10 +56147,12 @@ var render = function() {
               }
             }
           },
-          _vm._l(_vm.categories, function(category) {
-            return _c("option", { domProps: { value: category.name } }, [
-              _vm._v(_vm._s(category.name))
-            ])
+          _vm._l(_vm.categories, function(category, i) {
+            return _c(
+              "option",
+              { key: i, domProps: { value: category.name } },
+              [_vm._v(_vm._s(category.name))]
+            )
           })
         )
       ]),
@@ -56437,33 +56414,19 @@ if (false) {
 }
 
 /***/ }),
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(114)
+  __webpack_require__(105)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(116)
+var __vue_script__ = __webpack_require__(107)
 /* template */
-var __vue_template__ = __webpack_require__(117)
+var __vue_template__ = __webpack_require__(108)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56502,13 +56465,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 114 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(115);
+var content = __webpack_require__(106);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -56528,7 +56491,7 @@ if(false) {
 }
 
 /***/ }),
-/* 115 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -56536,13 +56499,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 116 */
+/* 107 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56572,7 +56535,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            leadership: [{ name: 'BearyBoy', score: 26 }, { name: 'beefster09', score: 23 }, { name: 'LeeFogg', score: 22 }, { name: 'KiranasOfRizon', score: 20 }, { name: 'MaggotDiggo1', score: 17 }, { name: 'mossywright1', score: 15 }, { name: 'TheCraftinator', score: 14 }, { name: 'pflynn12', score: 13 }, { name: 'deathkiller008', score: 11 }]
+            leadership: new Array({ name: "", score: "" })
         };
     },
 
@@ -56580,11 +56543,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         increment: function increment(i) {
             return i + 1;
         }
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        axios.get('/api/v1/leaderboard').then(function (r) {
+            _this.leadership = r.data;
+        });
     }
 });
 
 /***/ }),
-/* 117 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56598,7 +56568,7 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.leadership, function(user, i) {
-          return _c("tr", [
+          return _c("tr", { key: i }, [
             _c("th", { attrs: { scope: "row" } }, [
               _vm._v(_vm._s(_vm.increment(i)))
             ]),
@@ -56619,7 +56589,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Rang")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
         _vm._v(" "),
@@ -56636,6 +56606,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-43fd8194", module.exports)
   }
 }
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

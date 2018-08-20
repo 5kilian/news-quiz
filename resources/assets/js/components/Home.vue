@@ -4,10 +4,10 @@
             <div class="stats"></div>
 
             <div class="leaderboard">
-                <router-link to="/LeaderBoard" class="loaderboard-text">Du bist auf Platz 6</router-link>
+                <router-link to="/LeaderBoard" class="loaderboard-text">Du bist auf Rang {{rang}}</router-link>
             </div>
 
-            <router-link to="/quiz" class="big-btn">Start Quiz</router-link>
+            <div @click="getQuestion" class="big-btn">Start Quiz</div>
         </div>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     data() 
     {
         return {
-
+            rang: 1
         }
     }
 }
@@ -34,11 +34,21 @@ export default {
         flex-direction: column;
     }
     .stats {
-        width: 100%;
-        height: 50vh;
         background-image: url(/assets/cat.png);
         background-size: cover;
         position: relative;
+        height: 23em;
+        width: 21em;
+        margin: 0 auto;
+        background-position: center;
+    }
+
+    @media screen and (max-width: 23em)
+    {
+        .stats {
+            width: 100% !important;
+            height: 19em;
+        }
     }
     .leaderboard {
         width: 100%;

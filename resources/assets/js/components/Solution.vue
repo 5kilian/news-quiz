@@ -53,19 +53,20 @@
                 this.$store.state.demoCounter++;
             },
             next: function () {
-                console.log("Democounter: " + this.getDemoCounter);
-                if (this.getDemoCounter < 1) {
-                    if (this.getDemoCounter = 0) {
-                        this.demoCounterUp();
-                        this.$router.push("/quiz")
-                    } else {
-                        this.demoCounterUp();
-                        this.$router.push("/fakeornofake")
-                    }
-                }
-                else {
-                    this.$router.push("/thankyou")
-                }
+                this.getQuestion()
+                // console.log("Democounter: " + this.getDemoCounter);
+                // if (this.getDemoCounter < 1) {
+                //     if (this.getDemoCounter = 0) {
+                //         this.demoCounterUp();
+                //         this.$router.push("/quiz")
+                //     } else {
+                //         this.demoCounterUp();
+                //         this.$router.push("/fakeornofake")
+                //     }
+                // }
+                // else {
+                //     this.$router.push("/thankyou")
+                // }
             }
         },
         mounted() {
@@ -172,6 +173,7 @@
         z-index: 1;
         position: fixed;
         text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
     .solution-header.right {

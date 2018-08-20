@@ -13,7 +13,7 @@
             </div>
             <section class="form-group">
                 <label>Answers</label>
-                <div v-for="(answer, i) in answers" v-if="i<count">
+                <div v-for="(answer, i) in answers" v-if="i<count" :key="i">
                     <input type="radio" v-model="radio" :value="i" class="form-check-input">
                     <input class="form-control answer-input form-check-label" v-model="answer.text" :placeholder="'Answer ' + increase(i)" />
                 </div>
@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label>Category</label>
                 <select class="form-control" placeholder="Category" v-model="categoryselection">
-                    <option v-for="category in categories" :value="category.name">{{ category.name }}</option>
+                    <option v-for="(category, i) in categories" :value="category.name" :key="i">{{ category.name }}</option>
                 </select>
             </div>
             <div class="form-group">

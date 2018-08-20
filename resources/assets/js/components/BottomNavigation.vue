@@ -1,7 +1,7 @@
 <template>
     <div id="bottomNavigation" v-if="navigation">
         <router-link to="/category" class="material-icons">pages</router-link>
-        <router-link to="/news">
+        <router-link to="/leaderboard">
             <div class="bottom-navigation-stats">3</div>
             <i class="material-icons">poll</i>
         </router-link>
@@ -48,9 +48,5 @@ export default {
         background-color: white;
         color: #232323;
         font-size: 0.8em;
-    }
-
-    #bottomNavigation i {
-
     }
 </style>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -13,14 +14,13 @@ class GameController extends Controller
     //
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
     public function answerquestion(Request $request)
     {
-        //
         $json = json_decode($request->getContent());
 
-        $Fakeuser = User::where('id', 1)->firstorfail();
+        $Fakeuser = User::where('id', Auth::id())->firstorfail();
         $Fakeuser->score;
         $Rightanswer = null;
 

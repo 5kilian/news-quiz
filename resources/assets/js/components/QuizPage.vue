@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center quiz-container">
-            <div class="col-md-8" style="padding-left: 2em; padding-right: 2em;">
+    <div style="margin-top: -1em;">
+        <div class="quiz-container">
+            <div style="padding-left: 2em; padding-right: 2em;">
                 <div class="quiz-question">
                     <span>{{ response.QuestionText }}</span>
                 </div>
@@ -25,8 +25,8 @@
         name: 'QuizPage',
         data() {
             return {
-                response: {}
-            };
+                response: this.$route.query.response
+            }
         },
 
         methods: {
@@ -38,19 +38,20 @@
             }
         },
         created() {
-            const demoArray = [2];
-            let source = "/api/v1/questions/" + demoArray[this.$store.state.demoCounter];
-            axios
-                // .get('/api/v1/random')
-                .get(source)
-                .then(response => {
-                    this.response = response.data;
-                    document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
-                });
+            // const demoArray = [1];
+            // let source = "/api/v1/questions/" + demoArray[this.$store.state.demoCounter];
+            // axios
+            //     // .get('/api/v1/random')
+            //     .get(source)
+            //     .then(response => {
+            //         this.response = response.data;
+            //         document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
+            //     });
         },
         mounted() {
             this.$store.state.backButton = true;
             this.$store.state.navigation = false;
+            document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
         },
         computed: {
             demoCounter() {
@@ -120,7 +121,7 @@
     .quiz-answer {
         flex-grow: 1;
         margin: 10px;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, .6);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, .4);
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
@@ -128,7 +129,7 @@
         padding: 0.3em 0 0 0.5em;
         width: calc(100% * 1 / 2);
         border-radius: 10px;
-        background-color: white;
+        background-color: #eaeaea;
         color: #2d2d2d;
         display: flex;
         justify-content: center;

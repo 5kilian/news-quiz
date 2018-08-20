@@ -24,7 +24,14 @@ Route::get('/category/{name}/unsubscribe', 'CategoryController@unsubscribe');
 Route::post('/api/v1/question/create', 'QuestionController@createQuestion');
 
 // Route::redirect();
-
+Route::prefix('/api/v1')->group(function () {
+    Route::apiResource('questions', 'QuestionController');
+    Route::apiResource('category', 'CategoryController');
+    Route::get('random', 'QuestionController@random');
+    Route::get('getfive', 'QuestionController@getfive');
+    Route::post('game/answer', 'GameController@answerquestion');
+    Route::get('leaderboard', 'LeaderBoardController@leaderboard');
+});
 Route::get('/7', function (\Illuminate\Http\Request $request) {
     $categories = [ 'Schlagzeilen', 'Panorama', 'Unterhaltung', 'Wirtschaft', 'Sport', 'Technik', 'Digital', 'Politik', 'Fitness'];
 
@@ -213,7 +220,7 @@ Auch die als Beispiel angeführte Erhöhung der Krankenkassenbeiträge bei der W
 Tatsächlich ist die Zahl der Liegevermerke in Berlin stark angestiegen, wie aus einer Antwort des Senats hervorgeht - vor allem bei Betrugsdelikten und Fällen der organisierten Kriminalität. Missverständlich ist hingegen die Formulierung, diese Fälle würden in Statistiken nicht ausgewiesen. Denn die Fälle tauchen sehr wohl in den Statistiken auf - und zwar, wenn sie ausermittelt sind. Dies stellte die Polizei Berlin nun noch einmal klar.";
     $Quellen->save();
     $Fragen = new \App\Question();
-    $Fragen->questiontext = "Zahlen zur Kriminalität: Die Krux mit den Statistiken";
+    $Fragen->questiontext = "Die Krux mit den Statistiken: Die Zahlen zur Kriminalität sind nicht vollständig";
     $Fragen->sid = $Quellen->id;
     $Fragen->save();
     $Antworten = new \App\Answer();
@@ -268,6 +275,69 @@ Becker hatte zuletzt versucht, in einem in Großbritannien gegen ihn laufenden I
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
     $Antworten->isTrue = true;
+    $Antworten->save();
+
+    $Quellen = new \App\Source();
+    $Quellen->url = "http://faktenfinder.tagesschau.de/inland/zwangshypotheken-eurorettung-101.html";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/neubau-103~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Video = null;
+    $Quellen->Text = "Das Szenario klingt bedrohlich: Angeblich sind in Europa staatliche Verwertungsagenturen gegründet worden, die darauf warten, aktiviert zu werden. Ihr Ziel: Ein Gesetz umsetzen, das Politiker bereits im Verborgenen planen. Es geht um Zwangshypotheken auf private Immobilien. Mit den Einnahmen solle der Euro gerettet und die Staatshaushalte saniert werden.
+    Genau das behaupten selbsternannte \"Aufklärer\" und \"Querdenker\" im Netz. Entsprechende Videos auf YouTube werden zehntausendfach angesehen - und auch über E-Mails werden die Gerüchte verbreitet. Gezielt sollen Ängste geschürt werden - und auf entsprechenden Web-Seiten werden gleich vermeintliche Schutzmaßnahmen angeboten: so beispielsweise eine Daten-CD mit Informationen zu dem Thema für 13 Euro.";
+    $Quellen->save();
+    $Fragen = new \App\Question();
+    $Fragen->questiontext = "Politiker planen in der EU, Zwangshypotheken auf private Immobilien einzuführen. ";
+    $Fragen->sid = $Quellen->id;
+    $Fragen->save();
+    $Antworten = new \App\Answer();
+    $Antworten->qid = $Fragen->id;
+    $Antworten->isTrue = false;
+    $Antworten->save();
+
+    $Quellen = new \App\Source();
+    $Quellen->url = "http://faktenfinder.tagesschau.de/inland/trolle-btw17-ira-twitter-101.html";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/merkel-2349~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Video = null;
+    $Quellen->Text = "Russische Trolle haben versucht, die Diskussionen in sozialen Medien vor der Bundestagswahl zu manipulieren. Das zeigt eine Analyse aus den USA. Dort wird eine russische Einflussnahme auf den US-Wahlkampf 2016 untersucht.";
+    $Quellen->save();
+    $Fragen = new \App\Question();
+    $Fragen->questiontext = "Russische Trolle haben versucht, auf Twitter den Wahlkampf in Deutschland zu beeinflussen.";
+    $Fragen->sid = $Quellen->id;
+    $Fragen->save();
+    $Antworten = new \App\Answer();
+    $Antworten->qid = $Fragen->id;
+    $Antworten->isTrue = true;
+    $Antworten->save();
+
+    $Quellen = new \App\Source();
+    $Quellen->url = "http://faktenfinder.tagesschau.de/inland/visa-lotterie-101.html";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/grenze-deutschland-oesterreich-107~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Video = null;
+    $Quellen->Text = "Das Szenario klingt bedrohlich: Angeblich sind in Europa staatliche Verwertungsagenturen gegründet worden, die darauf warten, aktiviert zu werden. Ihr Ziel: Ein Gesetz umsetzen, das Politiker bereits im Verborgenen planen. Es geht um Zwangshypotheken auf private Immobilien. Mit den Einnahmen solle der Euro gerettet und die Staatshaushalte saniert werden.
+    Genau das behaupten selbsternannte \"Aufklärer\" und \"Querdenker\" im Netz. Entsprechende Videos auf YouTube werden zehntausendfach angesehen - und auch über E-Mails werden die Gerüchte verbreitet. Gezielt sollen Ängste geschürt werden - und auf entsprechenden Web-Seiten werden gleich vermeintliche Schutzmaßnahmen angeboten: so beispielsweise eine Daten-CD mit Informationen zu dem Thema für 13 Euro.";
+    $Quellen->save();
+    $Fragen = new \App\Question();
+    $Fragen->questiontext = " Es gibt im Internet eine Lotterie, bei der Visa für Deutschland verlost werden.";
+    $Fragen->sid = $Quellen->id;
+    $Fragen->save();
+    $Antworten = new \App\Answer();
+    $Antworten->qid = $Fragen->id;
+    $Antworten->isTrue = false;
+    $Antworten->save();
+
+    $Quellen = new \App\Source();
+    $Quellen->url = "http://faktenfinder.tagesschau.de/inland/gesetze-wahrend-wm-101.html";
+    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/fussball-502~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Video = null;
+    $Quellen->Text = "Das Szenario klingt bedrohlich: Angeblich sind in Europa staatliche Verwertungsagenturen gegründet worden, die darauf warten, aktiviert zu werden. Ihr Ziel: Ein Gesetz umsetzen, das Politiker bereits im Verborgenen planen. Es geht um Zwangshypotheken auf private Immobilien. Mit den Einnahmen solle der Euro gerettet und die Staatshaushalte saniert werden.
+    Genau das behaupten selbsternannte \"Aufklärer\" und \"Querdenker\" im Netz. Entsprechende Videos auf YouTube werden zehntausendfach angesehen - und auch über E-Mails werden die Gerüchte verbreitet. Gezielt sollen Ängste geschürt werden - und auf entsprechenden Web-Seiten werden gleich vermeintliche Schutzmaßnahmen angeboten: so beispielsweise eine Daten-CD mit Informationen zu dem Thema für 13 Euro.";
+    $Quellen->save();
+    $Fragen = new \App\Question();
+    $Fragen->questiontext = "Während der WM werden unpopuläre Gesetze verabschiedet.";
+    $Fragen->sid = $Quellen->id;
+    $Fragen->save();
+    $Antworten = new \App\Answer();
+    $Antworten->qid = $Fragen->id;
+    $Antworten->isTrue = false;
     $Antworten->save();
 
 });

@@ -1,10 +1,10 @@
 <template>
     <div id="fonf">
         <div class="fonf-controlls">
-            <div class="fonf-controll" @click="isfalse()">
+            <div class="fonf-controll" @click="isfalse()" draggable="true">
                 <i class="material-icons" style="color: #c53838;">block</i>
             </div>
-            <div class="fonf-controll"  @click="istrue()">
+            <div class="fonf-controll"  @click="istrue()" draggable="true">
                 <i class="material-icons" style="color: #186518;">done_all</i>
             </div>
         </div>
@@ -23,16 +23,16 @@ export default {
     data()
     {
         return {
-            response: new Object()
+            response: this.$route.query.response
         }
     },
     mounted()
     {
-        Axios.get('/api/v1/questions/10')
-        .then(response => {
-            this.response = response.data
-            document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
-        })
+        // Axios.get('/api/v1/questions/14')
+        // .then(response => {
+        //     this.response = response.data
+        //     document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
+        // })
 
         var bg = new Hammer(document.querySelector('body'), {})
         bg.on('swiperight', () => {
@@ -44,6 +44,8 @@ export default {
         });
         this.$store.state.backButton = true;
         this.$store.state.navigation = false;
+        document.querySelector('body').style.backgroundImage = `url(${this.response.PicURL})`
+        
     },
     methods: {
         istrue() 

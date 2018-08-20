@@ -1,6 +1,6 @@
 <template>
     <div class="category-list category-width">
-        <div v-for="category in categories" class="category-tile" @click="triggerCategory(category)">
+        <div v-for="(category, i) in categories" class="category-tile" :key="i" @click="triggerCategory(category)">
             <div class="category-name">
                 {{ category.name }}
             </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="card timeline-news" v-for="recent in news">
+        <!-- <div class="card timeline-news" v-for="recent in news">
             <div class="card-img-top">
                 <div class="timeline-news-tap-to-play">
                     <img class="tap-svg" src="/assets/tap.svg"/>
@@ -18,7 +18,7 @@
             <a :href="recent.source.url" class="timeline-news-more">
                 &gt;&gt; Mehr zum Thema &lt;&lt;
             </a>
-        </div>
+        </div> -->
     </div>
 </template>
 
