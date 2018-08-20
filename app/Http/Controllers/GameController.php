@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\User;
+use App\user_question;
 use Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
@@ -19,12 +20,9 @@ class GameController extends Controller
     public function answerquestion(Request $request)
     {
         $json = json_decode($request->getContent());
-
-        $Fakeuser = User::where('id', Auth::id())->firstorfail();
-        $Fakeuser->score;
+        $User = Auth::user();
         $Rightanswer = null;
 
-        $Userid = $Fakeuser->id;
 
         
         if(isset($json->isTrue))
@@ -33,23 +31,26 @@ class GameController extends Controller
             //dd($json->isTrue);
             $Answer = Answer::where('AID',$json->AID)->firstOrFail();
             $Quelle = $Answer->question->source;
-            $beantwortefragen = new user_question()
+            $beantworteFrage = new user_question;
+            $beantworteFrage->qid = $Answer->qid;
+            $beantworteFrage->uid = Auth::id();
+            $beantworteFrage->save();
 
 
             if($Answer->istrue == $json->isTrue)
             {
                 //return "Klasse, die Antwort war richtig!";
                 $Rightanswer = true;
-                $Fakeuser->score = $Fakeuser->score + 20;
+                $User->score = $User->score + 20;
             }
             else
             {
                 $Rightanswer = false;
-                $Fakeuser->score = $Fakeuser->score - 10;
+                $User->score = $User->score - 10;
 
             }
-            $Fakeuser->save();
-            return response()->json(['Result' => $Rightanswer, 'Score' => $Fakeuser->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
+            $User->save();
+            return response()->json(['Result' => $Rightanswer, 'Score' => $User->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
 
 
 
@@ -59,19 +60,23 @@ class GameController extends Controller
         {
             $Answer = Answer::where('AID',$json->AID)->firstOrFail();
             $Quelle = $Answer->question->source;
+            $beantworteFrage = new user_question;
+            $beantworteFrage->qid = $Answer->qid;
+            $beantworteFrage->uid = Auth::id();
+            $beantworteFrage->save();
             if($Answer->istrue == true)
             {
                 //return "Klasse, die Antwort war richtig!";
                 $Rightanswer = true;
-                $Fakeuser->score = $Fakeuser->score + 10;
+                $User->score = $User->score + 10;
             }
             else
             {
                 $Rightanswer = false;
-                $Fakeuser->score = $Fakeuser->score - 5;
+                $User->score = $User->score - 5;
             }
-            $Fakeuser->save();
-            return response()->json(['Result' => $Rightanswer, 'Score' => $Fakeuser->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
+            $User->save();
+            return response()->json(['Result' => $Rightanswer, 'Score' => $User->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
         }
         else
         {

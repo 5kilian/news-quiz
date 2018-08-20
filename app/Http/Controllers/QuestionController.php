@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Category;
+use App\Quiz_lock;
 use App\Source;
+use App\user_question;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Question;
 use App\Http\Resources\QuestionResource;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -67,11 +71,30 @@ class QuestionController extends Controller
     }
     public function getfive()
     {
-        //
 
-        $randomquestion = Question::orderBy(\DB::raw('RAND()'))->take(5)->get();
-        //dd($randomquestion);
-        //return new QuestionResource($randomquestion);
+        //Check if Quizlock
+        $Quizlock = Quiz_lock::where('uid', Auth::id())->first();
+        if($Quizlock != null)
+        {
+            return response()->json([
+                'Text' => 'Sorry heute gibt es keine Fragen mehr. Komm doch morgen wieder!',
+                'Unlock_Time' => $Quizlock->lock_timer
+            ]);
+        }
+
+        //GetQuestions
+        $Answered = user_question::where('uid', Auth::id())->get();
+        $AnsweredArray = $Answered->pluck('qid')->toArray();
+        $randomquestion = Question::whereNotin('id',$AnsweredArray)->orderBy(\DB::raw('RAND()'))->take(5)->get();
+
+        //Set Quizlock
+        $Quizlock = new Quiz_lock;
+        $Quizlock->uid = Auth::id();
+        $Quizlock->islooked = 1;
+        $Quizlock->lock_timer = Carbon::now()->addDays(1);
+        $Quizlock->save();
+
+
         return QuestionResource::collection(($randomquestion));
 
     }

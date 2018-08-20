@@ -13,7 +13,7 @@ class CreateQuizLockTable extends Migration
      */
     public function up()
     {
-        Schema::create('quiz_lock', function (Blueprint $table) {
+        Schema::create('quiz_locks', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('uid');
             $table->dateTime('lock_timer');
@@ -29,6 +29,6 @@ class CreateQuizLockTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quiz_lock');
+        Schema::dropIfExists('quiz_locks');
     }
 }
