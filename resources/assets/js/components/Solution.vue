@@ -24,7 +24,7 @@
             <span> {{ score }}</span>
         </div>
 
-        <div class="next-button" @click="next()">
+        <div class="next-button" @click="nextQuestion()">
             Continue
         </div>
     </div>
@@ -53,20 +53,7 @@
                 this.$store.state.demoCounter++;
             },
             next: function () {
-                this.getQuestion()
-                // console.log("Democounter: " + this.getDemoCounter);
-                // if (this.getDemoCounter < 1) {
-                //     if (this.getDemoCounter = 0) {
-                //         this.demoCounterUp();
-                //         this.$router.push("/quiz")
-                //     } else {
-                //         this.demoCounterUp();
-                //         this.$router.push("/fakeornofake")
-                //     }
-                // }
-                // else {
-                //     this.$router.push("/thankyou")
-                // }
+                this.nextQuestion()
             }
         },
         mounted() {
@@ -75,9 +62,15 @@
             document.querySelector('body').style.backgroundImage = ''
         },
         created() {
+            console.log(this.$route.query);
+            let fonf;
+            if(typeof this.$route.query.isTrue == "boolean")
+            {
+                fonf = Boolean(this.$route.query.isTrue)
+            }
             axios.post("/api/v1/game/answer", {
                     AID: this.answerID,
-                    isTrue: this.$route.query.nofake ? Boolean(this.$route.query.nofake) : null
+                    isTrue: fonf
             })
             .then(response => {
                 this.showTrue = response.data.Result;

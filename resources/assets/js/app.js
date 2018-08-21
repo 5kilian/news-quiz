@@ -54,30 +54,48 @@ const store = new Vuex.Store({
     state: {
         backButton: false,
         navigation: true,
-        demoCounter: 0,
+        counter: 0,
+        questions: new Array()
     }
 });
 
 const mix = Vue.mixin({
     methods: {
-        getQuestion: function()
+        startGame: function()
         {
-            Axios
-            .get("/api/v1/random")
-            .then(res => {
-                if(res.data.Answers.length > 1)
-                {
-                    this.$router.push({path: "/quiz", query: {
-                        response: res.data
-                    }})
-                }
-                else
-                {
-                    this.$router.push({path: "/fakeornofake", query: {
-                        response: res.data
-                    }})
-                }
+            Axios.get("/api/v1/getfive")
+            .then(res => {   
+                this.$store.state.counter = 0 
+                this.$store.state.questions = res.data
+                this.nextQuestion()
             })
+        },
+        nextQuestion() 
+        {
+            console.log(this.$store.state.questions);
+            
+            if(this.$store.state.questions['Unlock_Time'] != undefined)
+            {
+                this.$router.push("/thankyou")
+            }
+            else if(this.$store.state.questions[this.$store.state.counter] == undefined)
+            {
+                this.$router.push("/thankyou")
+            }
+            else if(this.$store.state.questions[this.$store.state.counter].Answers.length > 1)
+            {
+                this.$router.push({ path: "/quiz", query: { 
+                    response: this.$store.state.questions[this.$store.state.counter]
+                }})
+            }
+            else
+            {
+                this.$router.push({ path: "/fakeornofake", query: { 
+                    response: this.$store.state.questions[this.$store.state.counter]
+                }})
+            }
+
+            this.$store.state.counter++
         }
     }
 })

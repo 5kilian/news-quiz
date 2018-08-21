@@ -85,7 +85,7 @@ class QuestionController extends Controller
         //GetQuestions
         $Answered = user_question::where('uid', Auth::id())->get();
         $AnsweredArray = $Answered->pluck('qid')->toArray();
-        $randomquestion = Question::whereNotin('id',$AnsweredArray)->orderBy(\DB::raw('RAND()'))->take(5)->get();
+        $randomquestion = Question::whereNotin('QID',$AnsweredArray)->orderBy(\DB::raw('RAND()'))->take(5)->get();
 
         //Set Quizlock
         $Quizlock = new Quiz_lock;

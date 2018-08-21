@@ -50,11 +50,11 @@ export default {
     methods: {
         istrue() 
         {
-            this.$router.push({path: "/solution", query: {answerID: this.response.Answers[0].AID, nofake: true}})
+            this.$router.push({path: "/solution", query: {answerID: this.response.Answers[0].AID, isTrue: true}})
         },
         isfalse()
         {
-            this.$router.push({path: "/solution", query: {answerID: this.response.Answers[0].AID, nofake: false}})
+            this.$router.push({path: "/solution", query: {answerID: this.response.Answers[0].AID, isTrue: false}})
         }
     }
 }
