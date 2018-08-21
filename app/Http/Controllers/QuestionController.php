@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Answer;
 use App\Category;
 use App\Quiz_lock;
@@ -20,6 +21,10 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index() {
         return QuestionResource::collection((Question::all()));
     }
@@ -76,16 +81,29 @@ class QuestionController extends Controller
         $Quizlock = Quiz_lock::where('uid', Auth::id())->first();
         if($Quizlock != null)
         {
-            return response()->json([
-                'Text' => 'Sorry heute gibt es keine Fragen mehr. Komm doch morgen wieder!',
-                'Unlock_Time' => $Quizlock->lock_timer
-            ]);
+            //Check if Quizlock is still usable
+            if($Quizlock ->lock_timer < Carbon::Now())
+            {
+                //Der User kann wieder spielen.
+                $Quizlock->delete();
+            }
+            else
+            {
+                return response()->json([
+                    'Text' => 'Sorry heute gibt es keine Fragen mehr. Komm doch morgen wieder!',
+                    'Unlock_Time' => $Quizlock->lock_timer
+                ]);
+
+            }
+
         }
 
         //GetQuestions
+        $AllQuestions = Question::all();
+
         $Answered = user_question::where('uid', Auth::id())->get();
         $AnsweredArray = $Answered->pluck('qid')->toArray();
-        $randomquestion = Question::whereNotin('id',$AnsweredArray)->orderBy(\DB::raw('RAND()'))->take(5)->get();
+        $randomquestion = Question::whereNotin('QID',$AnsweredArray)->orderBy(\DB::raw('RAND()'))->take(5)->get();
 
         //Set Quizlock
         $Quizlock = new Quiz_lock;

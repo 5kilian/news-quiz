@@ -49,6 +49,10 @@ class GameController extends Controller
                 $User->score = $User->score - 10;
 
             }
+            if($User->score < 0)
+            {
+                $User->score = 0;
+            }
             $User->save();
             return response()->json(['Result' => $Rightanswer, 'Score' => $User->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
 
@@ -74,6 +78,10 @@ class GameController extends Controller
             {
                 $Rightanswer = false;
                 $User->score = $User->score - 5;
+            }
+            if($User->score < 0)
+            {
+                $User->score = 0;
             }
             $User->save();
             return response()->json(['Result' => $Rightanswer, 'Score' => $User->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
