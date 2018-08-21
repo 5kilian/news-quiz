@@ -17028,7 +17028,9 @@ var store = new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
         backButton: false,
         navigation: true,
         counter: 0,
-        questions: new Array()
+        questions: new Array(),
+        rang: 0,
+        points: 0
     }
 });
 
@@ -17069,7 +17071,17 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     components: { App: __WEBPACK_IMPORTED_MODULE_4__components_App___default.a },
     data: {},
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        var _this2 = this;
+
+        __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/rang").then(function (res) {
+            _this2.$store.state.rang = res.data;
+        });
+
+        __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/points").then(function (res) {
+            _this2.$store.state.points = res.data;
+        });
+    },
 
     store: store,
     router: router
@@ -54391,7 +54403,7 @@ var render = function() {
           _vm._v(" "),
           _c("router-link", { attrs: { to: "/leaderboard" } }, [
             _c("div", { staticClass: "bottom-navigation-stats" }, [
-              _vm._v("3")
+              _vm._v(_vm._s(_vm.$store.state.points))
             ]),
             _vm._v(" "),
             _c("i", { staticClass: "material-icons" }, [_vm._v("poll")])
@@ -54587,7 +54599,7 @@ var render = function() {
           _c(
             "router-link",
             { staticClass: "loaderboard-text", attrs: { to: "/LeaderBoard" } },
-            [_vm._v("Du bist auf Rang " + _vm._s(_vm.rang))]
+            [_vm._v("Du bist auf Rang " + _vm._s(_vm.$store.state.rang))]
           )
         ],
         1

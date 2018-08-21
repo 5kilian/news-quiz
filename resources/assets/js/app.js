@@ -55,7 +55,9 @@ const store = new Vuex.Store({
         backButton: false,
         navigation: true,
         counter: 0,
-        questions: new Array()
+        questions: new Array(),
+        rang: 0,
+        points: 0
     }
 });
 
@@ -105,7 +107,17 @@ const app = new Vue({
     components: { App },
     data: {},
     mounted() {
+        Axios
+        .get("/api/v1/rang")
+        .then(res => {
+            this.$store.state.rang = res.data
+        })
 
+        Axios
+        .get("/api/v1/points")
+        .then(res => {
+            this.$store.state.points = res.data
+        })
     },
     store,
     router
