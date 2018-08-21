@@ -17029,7 +17029,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
         navigation: true,
         counter: 0,
         questions: new Array(),
-        rang: 0,
+        rank: 0,
         points: 0
     }
 });
@@ -17046,8 +17046,6 @@ var mix = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin({
             });
         },
         nextQuestion: function nextQuestion() {
-            console.log(this.$store.state.questions);
-
             if (this.$store.state.questions['Unlock_Time'] != undefined) {
                 this.$router.push("/thankyou");
             } else if (this.$store.state.questions[this.$store.state.counter] == undefined) {
@@ -17062,7 +17060,15 @@ var mix = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin({
                     } });
             }
 
+            this.updatePoints();
             this.$store.state.counter++;
+        },
+        updatePoints: function updatePoints() {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/points").then(function (res) {
+                _this2.$store.state.points = res.data;
+            });
         }
     }
 });
@@ -17072,15 +17078,13 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     components: { App: __WEBPACK_IMPORTED_MODULE_4__components_App___default.a },
     data: {},
     mounted: function mounted() {
-        var _this2 = this;
+        var _this3 = this;
 
-        __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/rang").then(function (res) {
-            _this2.$store.state.rang = res.data;
+        __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/rank").then(function (res) {
+            _this3.$store.state.rank = res.data;
         });
 
-        __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/points").then(function (res) {
-            _this2.$store.state.points = res.data;
-        });
+        this.updatePoints();
     },
 
     store: store,
@@ -54599,7 +54603,7 @@ var render = function() {
           _c(
             "router-link",
             { staticClass: "loaderboard-text", attrs: { to: "/LeaderBoard" } },
-            [_vm._v("Du bist auf Rang " + _vm._s(_vm.$store.state.rang))]
+            [_vm._v("Du bist auf Rang " + _vm._s(_vm.$store.state.rank))]
           )
         ],
         1

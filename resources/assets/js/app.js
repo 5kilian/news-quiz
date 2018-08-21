@@ -56,7 +56,7 @@ const store = new Vuex.Store({
         navigation: true,
         counter: 0,
         questions: new Array(),
-        rang: 0,
+        rank: 0,
         points: 0
     }
 });
@@ -74,8 +74,6 @@ const mix = Vue.mixin({
         },
         nextQuestion() 
         {
-            console.log(this.$store.state.questions);
-            
             if(this.$store.state.questions['Unlock_Time'] != undefined)
             {
                 this.$router.push("/thankyou")
@@ -97,8 +95,16 @@ const mix = Vue.mixin({
                 }})
             }
 
+            this.updatePoints()
             this.$store.state.counter++
-        }
+        },
+        updatePoints() {
+            Axios
+            .get("/api/v1/points")
+            .then(res => {
+                this.$store.state.points = res.data
+            })
+        },
     }
 })
 
@@ -108,16 +114,12 @@ const app = new Vue({
     data: {},
     mounted() {
         Axios
-        .get("/api/v1/rang")
+        .get("/api/v1/rank")
         .then(res => {
-            this.$store.state.rang = res.data
+            this.$store.state.rank = res.data
         })
 
-        Axios
-        .get("/api/v1/points")
-        .then(res => {
-            this.$store.state.points = res.data
-        })
+        this.updatePoints()
     },
     store,
     router

@@ -4,7 +4,7 @@
             <div class="stats"></div>
 
             <div class="leaderboard">
-                <router-link to="/LeaderBoard" class="loaderboard-text">Du bist auf Rang {{ $store.state.rang }}</router-link>
+                <router-link to="/LeaderBoard" class="loaderboard-text">Du bist auf Rang {{ $store.state.rank }}</router-link>
             </div>
 
             <div @click="startGame()" class="big-btn">Start Quiz</div>

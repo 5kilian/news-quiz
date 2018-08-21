@@ -31,7 +31,7 @@ Route::prefix('/api/v1')->group(function () {
     Route::get('getfive', 'QuestionController@getfive');
     Route::post('game/answer', 'GameController@answerquestion');
     Route::get('leaderboard', 'LeaderBoardController@leaderboard');
-    Route::get('rang', 'LeaderBoardController@rang');
+    Route::get('rank', 'LeaderBoardController@rank');
     Route::get('points', 'LeaderBoardController@points');
 });
 Route::get('/7', function (\Illuminate\Http\Request $request) {

@@ -16,17 +16,29 @@ class LeaderBoardController extends Controller
     
     public function leaderboard()
     {
-        return User::orderBy('score', 'desc')->select('name', 'score')->get();
+        return  User::orderBy('score', 'desc')
+                    ->select('name', 'score')
+                    ->get();
     }
 
+    /**
+     * return score from authenticated user.
+     * @return int score
+     */
     public function points()
     {
-        return Auth::user()->score;
+        return  Auth::user()
+                    ->score;
     }
 
-    public function rang()
+    /**
+     * return rank from authenticated user.
+     * @return int rank
+     */
+    public function rank()
     {
-        $users = User::orderBy('score', 'desc')->get();
+        $users =    User::orderBy('score', 'desc')
+                        ->get();
      
         foreach($users as $index => $user)
         {
