@@ -17027,25 +17027,47 @@ var store = new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
     state: {
         backButton: false,
         navigation: true,
-        demoCounter: 0
+        counter: 0,
+        questions: new Array(),
+        rank: 0,
+        points: 0
     }
 });
 
 var mix = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin({
     methods: {
-        getQuestion: function getQuestion() {
+        startGame: function startGame() {
             var _this = this;
 
-            __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/random").then(function (res) {
-                if (res.data.Answers.length > 1) {
-                    _this.$router.push({ path: "/quiz", query: {
-                            response: res.data
-                        } });
-                } else {
-                    _this.$router.push({ path: "/fakeornofake", query: {
-                            response: res.data
-                        } });
-                }
+            __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/getfive").then(function (res) {
+                _this.$store.state.counter = 0;
+                _this.$store.state.questions = res.data;
+                _this.nextQuestion();
+            });
+        },
+        nextQuestion: function nextQuestion() {
+            if (this.$store.state.questions['Unlock_Time'] != undefined) {
+                this.$router.push("/thankyou");
+            } else if (this.$store.state.questions[this.$store.state.counter] == undefined) {
+                this.$router.push("/thankyou");
+            } else if (this.$store.state.questions[this.$store.state.counter].Answers.length > 1) {
+                this.$router.push({ path: "/quiz", query: {
+                        response: this.$store.state.questions[this.$store.state.counter]
+                    } });
+            } else {
+                this.$router.push({ path: "/fakeornofake", query: {
+                        response: this.$store.state.questions[this.$store.state.counter]
+                    } });
+            }
+
+            this.updatePoints();
+            this.$store.state.counter++;
+        },
+        updatePoints: function updatePoints() {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/points").then(function (res) {
+                _this2.$store.state.points = res.data;
             });
         }
     }
@@ -17055,7 +17077,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     components: { App: __WEBPACK_IMPORTED_MODULE_4__components_App___default.a },
     data: {},
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        var _this3 = this;
+
+        __WEBPACK_IMPORTED_MODULE_15_axios___default.a.get("/api/v1/rank").then(function (res) {
+            _this3.$store.state.rank = res.data;
+        });
+
+        this.updatePoints();
+    },
 
     store: store,
     router: router
@@ -54377,7 +54407,7 @@ var render = function() {
           _vm._v(" "),
           _c("router-link", { attrs: { to: "/leaderboard" } }, [
             _c("div", { staticClass: "bottom-navigation-stats" }, [
-              _vm._v("3")
+              _vm._v(_vm._s(_vm.$store.state.points))
             ]),
             _vm._v(" "),
             _c("i", { staticClass: "material-icons" }, [_vm._v("poll")])
@@ -54573,15 +54603,24 @@ var render = function() {
           _c(
             "router-link",
             { staticClass: "loaderboard-text", attrs: { to: "/LeaderBoard" } },
-            [_vm._v("Du bist auf Rang " + _vm._s(_vm.rang))]
+            [_vm._v("Du bist auf Rang " + _vm._s(_vm.$store.state.rank))]
           )
         ],
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "big-btn", on: { click: _vm.getQuestion } }, [
-        _vm._v("Start Quiz")
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "big-btn",
+          on: {
+            click: function($event) {
+              _vm.startGame()
+            }
+          }
+        },
+        [_vm._v("Start Quiz")]
+      )
     ])
   ])
 }
@@ -55083,10 +55122,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         istrue: function istrue() {
-            this.$router.push({ path: "/solution", query: { answerID: this.response.Answers[0].AID, nofake: true } });
+            this.$router.push({ path: "/solution", query: { answerID: this.response.Answers[0].AID, isTrue: true } });
         },
         isfalse: function isfalse() {
-            this.$router.push({ path: "/solution", query: { answerID: this.response.Answers[0].AID, nofake: false } });
+            this.$router.push({ path: "/solution", query: { answerID: this.response.Answers[0].AID, isTrue: false } });
         }
     }
 });
@@ -55318,20 +55357,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$store.state.demoCounter++;
         },
         next: function next() {
-            this.getQuestion();
-            // console.log("Democounter: " + this.getDemoCounter);
-            // if (this.getDemoCounter < 1) {
-            //     if (this.getDemoCounter = 0) {
-            //         this.demoCounterUp();
-            //         this.$router.push("/quiz")
-            //     } else {
-            //         this.demoCounterUp();
-            //         this.$router.push("/fakeornofake")
-            //     }
-            // }
-            // else {
-            //     this.$router.push("/thankyou")
-            // }
+            this.nextQuestion();
         }
     },
     mounted: function mounted() {
@@ -55342,9 +55368,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
+        console.log(this.$route.query);
+        var fonf = void 0;
+        if (typeof this.$route.query.isTrue == "boolean") {
+            fonf = Boolean(this.$route.query.isTrue);
+        }
         axios.post("/api/v1/game/answer", {
             AID: this.answerID,
-            isTrue: this.$route.query.nofake ? Boolean(this.$route.query.nofake) : null
+            isTrue: fonf
         }).then(function (response) {
             _this.showTrue = response.data.Result;
             _this.mediaVideo = response.data.Video;
@@ -55417,7 +55448,7 @@ var render = function() {
         staticClass: "next-button",
         on: {
           click: function($event) {
-            _vm.next()
+            _vm.nextQuestion()
           }
         }
       },

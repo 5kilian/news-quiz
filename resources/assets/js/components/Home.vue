@@ -4,10 +4,10 @@
             <div class="stats"></div>
 
             <div class="leaderboard">
-                <router-link to="/LeaderBoard" class="loaderboard-text">Du bist auf Rang {{rang}}</router-link>
+                <router-link to="/LeaderBoard" class="loaderboard-text">Du bist auf Rang {{ $store.state.rank }}</router-link>
             </div>
 
-            <div @click="getQuestion" class="big-btn">Start Quiz</div>
+            <div @click="startGame()" class="big-btn">Start Quiz</div>
         </div>
     </div>
 </template>

@@ -2,7 +2,7 @@
     <div id="bottomNavigation" v-if="navigation">
         <router-link to="/category" class="material-icons">pages</router-link>
         <router-link to="/leaderboard">
-            <div class="bottom-navigation-stats">3</div>
+            <div class="bottom-navigation-stats">{{ $store.state.points }}</div>
             <i class="material-icons">poll</i>
         </router-link>
         <router-link to="/home" class="material-icons">home</router-link>
