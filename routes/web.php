@@ -50,93 +50,96 @@ Route::get('/456', function (\Illuminate\Http\Request $request) {
 
 Route::get('/123', function () {
     $Quellen = new \App\Source();
-    $Quellen->url = "https://www.tagesschau.de/inland/einigung-asylstreit-101.html";
-    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/seehofer-657~_v-portraetgrossplus8x9.jpg";
-    $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0705/TV-20180705-2225-5101.webxl.h264.mp4";
-    $Quellen->Text = "Keine Lager, keine Zurückweisungen, keine nationalen Alleingänge - die Spitzen von CDU, CSU und SPD haben sich auf ein neues Asylpaket geeinigt. Von den \"Transitzentren\" ist keine Rede mehr - dennoch zeigte sich Seehofer zufrieden.
-Nach wochenlangem Streit hat die Große Koalition den Streit über die Zurückweisung von Flüchtlingen an der deutsch-österreichischen Grenze beigelegt. Die Spitzen von CDU, CSU und SPD einigten sich auf ein zweiseitiges Papier.
-Bundesinnenminister und CSU-Chef Horst Seehofer zeigte sich hochzufrieden: \"Das ist alles von A bis Z so, wie man sich das als zuständiger Minister wünscht.\" Angesprochen auf die umstrittenen \"Transitzentren\" sagte er: \"Sie wissen, dass unser Koalitionspartner Probleme mit dem Begriff 'Transitzentren' hat.\" Deshalb spreche man lieber von \"Transitverfahren in Einrichtungen der Polizei\".
-Dieses Verfahren sollen nur jene Flüchtlinge durchlaufen, die bereits einen Asylantrag in einem anderen EU-Staat gestellt haben. Sie sollen innerhalb von 48 Stunden überprüft werden, heißt es. Stattfinden solle dies in Grenznähe in Räumlichkeiten der Bundespolizei oder direkt nach einem Transport zum Flughafen München. Dabei handelt es sich laut Seehofer um höchstens fünf Fälle täglich.";
+    $Quellen->url = "https://www.tagesschau.de/inland/migranten-arbeitsmarkt-101.html";
+    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/ausbildung-107~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Text = "Immer mehr Flüchtlinge fassen auf dem deutschen Arbeitsmarkt Fuß. Vor allem für junge Asylbewerber sieht BA-Chef Scheele gute Aussichten. Auch die Debatte über die Fachkräfteeinwanderung geht weiter.
+    Die Bundesagentur für Arbeit (BA) hat eine positive Zwischenbilanz bei der Integration von Flüchtlingen auf dem deutschen Arbeitsmarkt gezogen. Die Erwartungen der BA seien knapp übertroffen worden, sagte BA-Vorstandschef Detlef Scheele der Deutschen Presse-Agentur.
+    Jüngsten Zahlen zufolge hatten im Mai mehr als 300.000 Menschen aus den acht Hauptherkunftsländern einen Job - und damit rund 100.000 mehr als im Vorjahresmonat. Sie kommen aus Syrien, Afghanistan, Eritrea, Irak, Iran, Nigeria, Pakistan und Somalia.
+    Schwarzmalerei unangebracht\n
+    \"Das läuft alles ganz gut\", sagte Scheele. Die Flüchtlingssituation auf dem Arbeitsmarkt gebe keine Veranlassung, schwarz zu malen. Knapp 240.000 der Geflüchteten mit Job - und damit der Großteil - seien sozialversicherungspflichtig beschäftigt. \"Das sind Zahlen, die sind gut - dafür, dass die Menschen aus humanitären Gründen gekommen sind und nicht, um hier einen Job zu finden\", sagte Scheele.
+    Gut 480.000 Flüchtlinge seien im Juli bei der BA arbeitssuchend gemeldet gewesen. Darin enthalten sind auch Menschen, die aktuell einen Integrations- und Sprachkurs absolvieren.";
     $Quellen->save();
     //dd($Quellen->id);
     $Fragen = new \App\Question();
-    $Fragen->questiontext = "Worauf haben sich CDU, CSU und SPD gestern Abend im Koalitionsauschuss geeinigt?";
+    $Fragen->questiontext = "Die Anzahl der Flüchtlinge, die im Mai 2018 einen Job hatten, ist im Vergleich zum April...";
     $Fragen->sid = $Quellen->id;
     $Fragen->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Neues Asylpaket";
+    $Antworten->answertext = "gestiegen";
     $Antworten->isTrue = true;
     $Antworten->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Neuwahlen";
+    $Antworten->answertext = "gesunken";
     $Antworten->isTrue = false;
     $Antworten->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Verlängerung der Sommerpause für Politiker";
+    $Antworten->answertext = "gleich geblieben";
     $Antworten->isTrue = false;
     $Antworten->save();
 
 
 
     $Quellen = new \App\Source();
-    $Quellen->url = "https://www.tagesschau.de/ausland/eu-plastikverbote-103.html";
-    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/strohhalme-101~_v-portraetgrossplus8x9.jpg";
-    $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0528/TV-20180528-2008-5601.webxl.h264.mp4";
-    $Quellen->Text = "Schätzungsweise 37 Kilogramm Plastikmüll verursacht allein jeder Deutsche jedes Jahr. EU-weit ist der Müllberg gut 26 Millionen Tonnen schwer. Und ein nicht geringer Teil davon landet in der Umwelt, vor allem in den Meeren in Form gigantischer Müllstrudel von sogenanntem Mikroplastik. Die Folgen für Fische und Vögel, aber letztlich auch für den Menschen seien verheerend, betont EU-Kommissionsvize Frans Timmermans.
-Plastik in der Luft, Plastik in den Ozeanen, in der Nahrung und auch in unseren Körpern - der Missstand, den der Niederländer anprangert, wird zu einem ernsten Problem. Deshalb sagte die EU-Kommission auch schon vor längerer Zeit dem Plastikmüll den Kampf an. Eine Richtlinie gegen Einweg-Plastiktüten gibt es bereits; nun legt die Behörde weitere konkrete Vorschläge auf den Tisch.
-\"Unsere Richtlinie deckt 70 Prozent des Plastikmülls ab, der an Europas Stränden zu finden ist\", so Timmermans. \"Wir zielen auf die zehn meistverbreiteten Einwegprodukte, die in der Umwelt landen und die sich nur sehr schwer recyceln lassen.\"";
+    $Quellen->url = "https://www.tagesschau.de/ausland/diciotti-sizilien-101.html";
+    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/diciotti-109~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0821/TV-20180821-1409-5701.webm.h264.mp4";
+    $Quellen->Text = "Tagelang saß die \"Diciotti\" mit 177 Migranten vor Lampedusa fest - nun hat das Schiff der italienischen Küstenwache Sizilien angelaufen. Von Bord gehen dürfen die Flüchtlinge dort allerdings noch nicht.
+
+    Nach mehreren Tagen im Mittelmeer ist ein Schiff der italienischen Küstenwache mit 177 Migranten an Bord im sizilianischen Catania eingelaufen. Allerdings dürfen die Geretteten das Schiff zunächst nicht verlassen, wie die Nachrichtenagentur Ansa in der Nacht zu Dienstag berichtete. Verkehrsminister Danilo Toninelli von der Fünf-Sterne-Bewegung hatte dem Schiff am Montag zwar die Erlaubnis für die Einfahrt in den Hafen gegeben. Innenminister Matteo Salvini von der rechten Lega will die Menschen allerdings nicht an Land gehen lassen, solange es keine \"Antworten von Europa\" gebe, verlautete aus Kreisen des Ministeriums.";
     $Quellen->save();
     $Fragen = new \App\Question();
-    $Fragen->questiontext = "Welches Produkt wollen Lidl und Rewe bis Ende kommendes Jahres aus ihren Geschäften verbannen?";
+    $Fragen->questiontext = "Wie heißt das Schiff, das zur Zeit mit 177 Flüchtlingen an Bord vor der Küste Italiens liegt?";
     $Fragen->sid = $Quellen->id;
     $Fragen->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Tiefkühlpizzen";
+    $Antworten->answertext = "Aquarius";
     $Antworten->isTrue = false;
     $Antworten->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Strohhalme";
+    $Antworten->answertext = "Diciotti";
     $Antworten->isTrue = true;
     $Antworten->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Kaugummi";
+    $Antworten->answertext = "Lifeline";
     $Antworten->isTrue = false;
     $Antworten->save();
 
 
 
     $Quellen = new \App\Source();
-    $Quellen->url = "https://www.tagesschau.de/wirtschaft/boerse/china-handelskrieg-101.html";
-    $Quellen->picURL = "https://www.tagesschau.de/ardimport/boerse/hr-boerse-image-8691~_v-portraetgrossplus8x9.jpg";
-    $Quellen->Video = null;
-    $Quellen->Text = "Handelskriege seien einfach zu gewinnen, twitterte US-Präsident Donald Trump im März. Er macht Ernst und versucht es. Morgen werden Zölle der USA von 25 Prozent auf chinesische Importe im Wert von 34 Milliarden US-Dollar in Kraft treten. Das ist nicht alles. Insgesamt will Trump zunächst Waren im Volumen von 50 Milliarden US-Dollar mit Zöllen belegen.
-Die erste Reaktion Chinas ist praktisch ein Spiegel der Trump-Politik: Die Regierung verhängte im Gegenzug Zölle auf US-Waren in ähnlicher Höhe. Aber Chinas Möglichkeiten einer direkten Antwort sind begrenzt, denn Daten und Fakten der Handelsbeziehungen zwischen China und den USA scheinen in der Tat dafür zu sprechen, dass Trump ins Schwarze trifft.
-Und Trump dreht die Eskalationsspirale weiter. Auf die Verkündung der chinesischen Antwort stellte er weitere Zölle in Höhe von zehn Prozent auf chinesische Waren im Wert von 200 Milliarden US-Dollar in Aussicht. Damit wäre fast die Hälfte der chinesischen Einfuhren mit Zöllen belastet. Könnte China auch darauf trotz der begrenzten US-Importe schlagkräftig reagieren?";
+    $Quellen->url = "https://www.tagesschau.de/wirtschaft/venezuela-waehrungsreform-101.html";
+    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/venezuela-waehrung-krise-115~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Video = "http://download.media.tagesschau.de/video/2017/0822/TV-20170822-0054-1801.webm.h264.mp4";
+    $Quellen->Text = "In Venezuela tritt heute eine Währungsreform in Kraft: Beim Bolivar werden kurzerhand fünf Nullen gestrichen. Die Ursachen der Hyperinflation werden damit jedoch nicht beseitigt.
+    
+    Lange Schlangen bilden sich in den vergangenen Tagen vor der Währungsreform um Bankgebäude in Caracas. Die Venezolaner versuchen an Bargeld zu kommen, damit sie immer knapper werdende Lebensmittel horten können und für das befürchtete Chaos nach der Reform gewappnet sind - denn Bargeld ist in der Hyperinflation Mangelware.
+    
+    Ein Mann stand schon an mehreren Banken an, weil es pro Person nur 500.000 Bolivares gibt. Das reicht nicht einmal für eine Flasche Mineralwasser. Weil es Bares schon seit langem nur noch auf Zuteilung gibt, haben Venezolaner wie er so viele verschiedene Konten wie möglich. \"Ich glaube nicht, dass die Währungsreform unsere Probleme löst\", sagt der Mann. \"Das wissen wir aus Erfahrung. Für einfache Leute wie mich wird es ein weiterer Reinfall sein. Es wird Chaos geben, bei Überweisungen zum Beispiel. Die Leute sind verunsichert und verwirrt, weil sie nicht wissen, was passieren wird.\"";
     $Quellen->save();
     $Fragen = new \App\Question();
-    $Fragen->questiontext = "Welches Land hat Zölle gegen US-Waren verhängt?";
+    $Fragen->questiontext = "In welchem Land findet auf Grund einer Hyperinflation gerade eine Währungsreform statt?";
     $Fragen->sid = $Quellen->id;
     $Fragen->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "China";
-    $Antworten->isTrue = true;
+    $Antworten->answertext = "Polen";
+    $Antworten->isTrue = false;
+    $Antworten->save();
+    $Antworten = new \App\Answer();
+    $Antworten->qid = $Fragen->id;
+    $Antworten->answertext = "Kuba";
+    $Antworten->isTrue = false;
     $Antworten->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
     $Antworten->answertext = "Venezuela";
-    $Antworten->isTrue = false;
-    $Antworten->save();
-    $Antworten = new \App\Answer();
-    $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Russland";
-    $Antworten->isTrue = false;
+    $Antworten->isTrue = true;
     $Antworten->save();
 
     $Quellen = new \App\Source();

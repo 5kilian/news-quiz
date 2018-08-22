@@ -12,7 +12,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Question;
 use App\Http\Resources\QuestionResource;
-use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
