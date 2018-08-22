@@ -54,7 +54,7 @@ class GameController extends Controller
                 $User->score = 0;
             }
             $User->save();
-            return response()->json(['Result' => $Rightanswer, 'Score' => $User->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
+            return response()->json(['Result' => $Rightanswer, 'Score' => $User->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL, 'url' => $Quelle->url]);
 
 
 
@@ -84,7 +84,7 @@ class GameController extends Controller
                 $User->score = 0;
             }
             $User->save();
-            return response()->json(['Result' => $Rightanswer, 'Score' => $User->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL]);
+            return response()->json(['Result' => $Rightanswer, 'Score' => $User->score, 'Text' => $Quelle->Text, 'Video' => $Quelle->Video, 'Picture' => $Quelle->picURL, 'url' => $Quelle->url]);
         }
         else
         {

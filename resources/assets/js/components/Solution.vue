@@ -14,11 +14,10 @@
         </div>
 
         <div class="solution-text">
-            <div class="solution-title">
-                {{ mediaTitle }}.
-            </div>
-                {{ mediaText }}
-            </div>
+            <div class="solution-title">{{ mediaTitle }}.</div>
+            {{ mediaText }}
+            <div class="artikel-btn"><a :href="mediaLink" target="__blank">zum Artikel</a></div>
+        </div>
 
         <div class="score-board">
             <span> {{ score }}</span>
@@ -45,7 +44,8 @@
                 mediaText: "",
                 mediaTitle: "",
                 mediaVideo: "",
-                mediaPicture: ""
+                mediaPicture: "",
+                mediaLink: ""
             }
         },
         methods: {
@@ -60,6 +60,7 @@
             this.$store.state.navigation = true;
             this.$store.state.backButton = false;
             document.querySelector('body').style.backgroundImage = ''
+            this.updatePoints()
         },
         created() {
             console.log(this.$route.query);
@@ -81,7 +82,7 @@
 
                 text.shift();
                 this.mediaText = text.join(".");
-
+                this.mediaLink = response.data.url
                 this.mediaPicture = response.data.Picture
             });
         },
@@ -95,6 +96,33 @@
 </script>
 
 <style scoped>
+    .artikel-btn {
+        display: flex;
+        justify-content: center;
+        background-color: #909090;
+        color: bisque;
+        padding: 0.5em;
+        margin-top: 1em;
+        width: 80%;
+        transform: translateX(-50%);
+        margin-left: 50%;
+        font-size: 0.9em;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.32);
+    }
+
+    .artikel-btn > a {
+        color: white;
+        width: 100%;
+        text-align: center;
+    }
+
+    .artikel-btn:hover {
+        background-color: #565656;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
     .bg {
         background-color: black;
         opacity: 0.6;

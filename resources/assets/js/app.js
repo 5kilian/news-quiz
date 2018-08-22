@@ -95,7 +95,6 @@ const mix = Vue.mixin({
                 }})
             }
 
-            this.updatePoints()
             this.$store.state.counter++
         },
         updatePoints() {

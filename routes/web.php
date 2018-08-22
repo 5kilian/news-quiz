@@ -143,59 +143,59 @@ Route::get('/123', function () {
     $Antworten->save();
 
     $Quellen = new \App\Source();
-    $Quellen->url = "https://www.tagesschau.de/inland/deutschlandtrend/index.html";
-    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/deutschlandtrend-149~_v-portraetgrossplus8x9.jpg";
-    $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0705/TV-20180705-2240-5001.webxl.h264.mp4";
-    $Quellen->Text = "Eine deutliche Mehrheit der Deutschen findet, dass die Bundesregierung ihren Job nicht ordentlich macht: 78 Prozent der Bürger sind weniger oder gar nicht zufrieden mit der Arbeit der Bundesregierung - das sind 15 Punkte mehr im Vergleich zum Vormonat. Zufrieden mit der Arbeit des Kabinetts sind aktuell nur 21 Prozent. Das hat eine Umfrage von Infratest dimap für den ARD-DeutschlandTrend diese Woche ergeben. Ein solcher Einbruch bei der Zufriedenheit mit der Bundesregierung, von einem Monat auf den anderen, ist im DeutschlandTrend sehr selten gemessen worden.
-Als die Bundesregierung Mitte März die Arbeit aufnahm, startete sie auf einem vergleichsweise niedrigen Zustimmungsniveau: Im April waren 32 Prozent der Befragten mit der Arbeit der Bundesregierung sehr zufrieden oder zufrieden; 64 Prozent waren weniger zufrieden oder gar nicht zufrieden.";
+    $Quellen->url = "https://www.tagesschau.de/ausland/facebook-propaganda-101.html";
+    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/zuckerberg-209~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0822/TV-20180822-1412-4001.webm.h264.mp4";
+    $Quellen->Text = "Facebook hat nach eigenen Angaben Desinformationskampagnen aus Russland und dem Iran gestoppt. Mehr als 650 Seiten, Gruppen und Konten seien gelöscht worden. Auch Twitter ging gegen Propaganda vor.
+    Facebook geht weiter gegen Propaganda auf seiner Plattform vor: Mehr als 650 Seiten, Gruppen und Konten seien als \"Netzwerke zur Irreführung von Menschen\" identifiziert und entfernt worden, erklärte Facebook-Chef Mark Zuckerberg. Damit seien Desinformationskampagnen aus Russland und dem Iran gestoppt worden. Die Maßnahme war demnach Teil des Kampfes gegen sogenannte Fake News vor den anstehenden Kongresswahlen in den USA und Wahlen andernorts. Die US-Strafverfolgungsbehörden seien eingeschaltet worden.
+    Auch Twitter geht gegen verdächtige Aktivitäten vor und blockierte mehr als 200 Accounts, die nach Unternehmensangaben politische Interessen des Irans verfolgten. Twitter zufolge sollten mit den Seiten Manipulationen koordiniert werden.";
     $Quellen->save();
     $Fragen = new \App\Question();
-    $Fragen->questiontext = "Wie viel Prozent der Deutschen sind mit der Regierung unzufrieden?";
+    $Fragen->questiontext = "Warum hat Facebook 650 Fake-Accounts und Gruppen hat gelöscht?";
     $Fragen->sid = $Quellen->id;
     $Fragen->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "23 %";
+    $Antworten->answertext = "Um mehr Platz auf seinen Servern zu schaffen";
     $Antworten->isTrue = false;
     $Antworten->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "41 %";
-    $Antworten->isTrue = false;
-    $Antworten->save();
-    $Antworten = new \App\Answer();
-    $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "78 %";
+    $Antworten->answertext = "Um gegen Propaganda und Fake-News vorzugehen ";
     $Antworten->isTrue = true;
+    $Antworten->save();
+    $Antworten = new \App\Answer();
+    $Antworten->qid = $Fragen->id;
+    $Antworten->answertext = "Um doppelte Accounts zu löschen";
+    $Antworten->isTrue = false;
     $Antworten->save();
 
     $Quellen = new \App\Source();
-    $Quellen->url = "https://www.sportschau.de/fifa-wm-2018/fifa-wm-ueberblick-viertelfinale-tag-eins-100.html";
-    $Quellen->picURL = "https://www.sportschau.de/fifa-wm-2018/wm-frankreich-peru-108~_v-ARDFotogalerie.jpg";
-    $Quellen->Video = null;
-    $Quellen->Text = "16 Uhr: Uruguay - Frankreich
-Knochenharte Defensive prallt auf Hochgeschwindigkeitsfußball: Im ersten Viertelfinale muss Uruguay gegen Frankreich ran. Besteht die starke Abwehr der Südamerikaner auch gegen die Stürmer der Equipe Tricolore?
-20 Uhr: Brasilien - Belgien
-Rekordweltmeister gegen Geheimfavorit: Brasilien trifft im zweiten Viertelfinale auf Belgien. Können die \"Roten Teufel\" die Selecao um Superstar Neymar überraschen?";
+    $Quellen->url = "https://www.tagesschau.de/ausland/trump-cohen-103.html";
+    $Quellen->picURL = "https://www.tagesschau.de/multimedia/bilder/cohen-137~_v-portraetgrossplus8x9.jpg";
+    $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0822/TV-20180822-0046-2901.webm.h264.mp4";
+    $Quellen->Text = "Illegale Wahlkampffinanzierung, Steuerhinterziehung und Schweigegeld: Trumps langjähriger Anwalt hat sich vor Gericht schuldig bekannt und belastet seinen Ex-Klienten schwer.
+    Der langjährige Anwalt von US-Präsident Donald Trump, Michael Cohen, hat mehrere Verstöße gegen Gesetze zur Wahlkampffinanzierung eingeräumt. Cohen sagte vor einem Gericht in New York aus, dass er dies im Auftrag eines Kandidaten getan habe, nannte dessen Namen aber nicht, wie eine dpa-Reporterin vor Ort berichtete. Seine Aussage wurde aber so interpretiert, dass er sich damit nur auf Trump beziehen konnte.
+    Insgesamt bekannte sich Cohen in mehreren Punkten schuldig, darunter Steuerhinterziehung und Falschaussage gegenüber einer Bank. Das Urteil gegen ihn soll am 12. Dezember folgen.";
     $Quellen->save();
     $Fragen = new \App\Question();
-    $Fragen->questiontext = "Welche Länder spielen heute im WM-Viertelfinale?";
+    $Fragen->questiontext = "In welchen Punkten hat sich der ehemalige Anwalt von US-Präsident Trump, Michael Cohen, schuldig bekannt?";
     $Fragen->sid = $Quellen->id;
     $Fragen->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Frankreich, Belgien, Brasilien, Uruguay";
+    $Antworten->answertext = "Illegale Wahlkampffinanzierung";
     $Antworten->isTrue = true;
     $Antworten->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Deutschland, Brasilien, Polen, Argentinien";
-    $Antworten->isTrue = false;
+    $Antworten->answertext = "Steuerhinterziehung";
+    $Antworten->isTrue = true;
     $Antworten->save();
     $Antworten = new \App\Answer();
     $Antworten->qid = $Fragen->id;
-    $Antworten->answertext = "Brasilien, Island, Kroatien, Deutschland";
-    $Antworten->isTrue = false;
+    $Antworten->answertext = "Schweigegeld";
+    $Antworten->isTrue = true;
     $Antworten->save();
 
     $Quellen = new \App\Source();
@@ -217,70 +217,54 @@ Auch die als Beispiel angeführte Erhöhung der Krankenkassenbeiträge bei der W
     $Antworten->save();
 
 
-    $Quellen = new \App\Source();
-    $Quellen->url = "http://faktenfinder.tagesschau.de/inland/kriminalstatistik-pks-berlin-101.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/pks-111~_v-portraetgrossplus8x9.jpg";
-    $Quellen->Video = null;
-    $Quellen->Text = "Die Diskussionen über die Entwicklung der Kriminalität in Deutschland stützt sich zumeist auf die Polizeiliche Kriminalstatistik (PKS). Doch allein in Berlin würden in dieser Statistik zehntausende Fälle fehlen, wird im Netz immer wieder behauptet. Grundlage für diese Behauptung ist unter anderem ein Bericht der \"Berliner Zeitung\" aus dem Februar 2018 über unbearbeitete Fälle beim Landeskriminalamt der Hauptstadt - Fälle, mit sogenannten Liegevermerken.
-Tatsächlich ist die Zahl der Liegevermerke in Berlin stark angestiegen, wie aus einer Antwort des Senats hervorgeht - vor allem bei Betrugsdelikten und Fällen der organisierten Kriminalität. Missverständlich ist hingegen die Formulierung, diese Fälle würden in Statistiken nicht ausgewiesen. Denn die Fälle tauchen sehr wohl in den Statistiken auf - und zwar, wenn sie ausermittelt sind. Dies stellte die Polizei Berlin nun noch einmal klar.";
-    $Quellen->save();
-    $Fragen = new \App\Question();
-    $Fragen->questiontext = "Die Krux mit den Statistiken: Die Zahlen zur Kriminalität sind nicht vollständig";
-    $Fragen->sid = $Quellen->id;
-    $Fragen->save();
-    $Antworten = new \App\Answer();
-    $Antworten->qid = $Fragen->id;
-    $Antworten->isTrue = false;
-    $Antworten->save();
+//     $Quellen = new \App\Source();
+//     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/kriminalstatistik-pks-berlin-101.html";
+//     $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/pks-111~_v-portraetgrossplus8x9.jpg";
+//     $Quellen->Video = null;
+//     $Quellen->Text = "Die Diskussionen über die Entwicklung der Kriminalität in Deutschland stützt sich zumeist auf die Polizeiliche Kriminalstatistik (PKS). Doch allein in Berlin würden in dieser Statistik zehntausende Fälle fehlen, wird im Netz immer wieder behauptet. Grundlage für diese Behauptung ist unter anderem ein Bericht der \"Berliner Zeitung\" aus dem Februar 2018 über unbearbeitete Fälle beim Landeskriminalamt der Hauptstadt - Fälle, mit sogenannten Liegevermerken.
+// Tatsächlich ist die Zahl der Liegevermerke in Berlin stark angestiegen, wie aus einer Antwort des Senats hervorgeht - vor allem bei Betrugsdelikten und Fällen der organisierten Kriminalität. Missverständlich ist hingegen die Formulierung, diese Fälle würden in Statistiken nicht ausgewiesen. Denn die Fälle tauchen sehr wohl in den Statistiken auf - und zwar, wenn sie ausermittelt sind. Dies stellte die Polizei Berlin nun noch einmal klar.";
+//     $Quellen->save();
+//     $Fragen = new \App\Question();
+//     $Fragen->questiontext = "Die Krux mit den Statistiken: Die Zahlen zur Kriminalität sind nicht vollständig";
+//     $Fragen->sid = $Quellen->id;
+//     $Fragen->save();
+//     $Antworten = new \App\Answer();
+//     $Antworten->qid = $Fragen->id;
+//     $Antworten->isTrue = false;
+//     $Antworten->save();
 
 
-    $Quellen = new \App\Source();
-    $Quellen->url = "http://faktenfinder.tagesschau.de/inland/fake-union-101.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/seehofer-merkel-175~_v-portraetgrossplus8x9.jpg";
-    $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0615/TV-20180615-1338-1001.webxl.h264.mp4";
-    $Quellen->Text = "\"CSU-Chef Horst Seehofer hat nach einem Bericht des Hessischen Rundfunks das Unionsbündnis mit der CDU aufgekündigt.\" Das meldete die Nachrichtenagentur Reuters erst um 12:19 Uhr auf Englisch und um 12:21 Uhr auf Deutsch. Sie bezog sich dabei auf einen vermeintlichen Bericht des Senders, der sich wiederum auf eine interne E-Mail des hessischen Ministerpräsidenten Volker Bouffier (CDU) berufen habe.
-Basis für diese Eilmeldung war ein Tweet, in der Bouffier angeblich verkündet, man müsse sich darauf vorbereiten, bald eine Bayern-CDU aufzubauen. Veröffentlicht wurde dieser Tweet auf einem Profil, das sich zwischenzeitlich \"hr Tagesgeschehen\" nannte.";
-    $Quellen->save();
-    $Fragen = new \App\Question();
-    $Fragen->questiontext = "Ende des Unionsbündnisses? Medien fallen auf Fake herein";
-    $Fragen->sid = $Quellen->id;
-    $Fragen->save();
-    $Antworten = new \App\Answer();
-    $Antworten->qid = $Fragen->id;
-    $Antworten->isTrue = false;
-    $Antworten->save();
+//     $Quellen = new \App\Source();
+//     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/fake-union-101.html";
+//     $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/seehofer-merkel-175~_v-portraetgrossplus8x9.jpg";
+//     $Quellen->Video = "http://download.media.tagesschau.de/video/2018/0615/TV-20180615-1338-1001.webxl.h264.mp4";
+//     $Quellen->Text = "\"CSU-Chef Horst Seehofer hat nach einem Bericht des Hessischen Rundfunks das Unionsbündnis mit der CDU aufgekündigt.\" Das meldete die Nachrichtenagentur Reuters erst um 12:19 Uhr auf Englisch und um 12:21 Uhr auf Deutsch. Sie bezog sich dabei auf einen vermeintlichen Bericht des Senders, der sich wiederum auf eine interne E-Mail des hessischen Ministerpräsidenten Volker Bouffier (CDU) berufen habe.
+// Basis für diese Eilmeldung war ein Tweet, in der Bouffier angeblich verkündet, man müsse sich darauf vorbereiten, bald eine Bayern-CDU aufzubauen. Veröffentlicht wurde dieser Tweet auf einem Profil, das sich zwischenzeitlich \"hr Tagesgeschehen\" nannte.";
+//     $Quellen->save();
+//     $Fragen = new \App\Question();
+//     $Fragen->questiontext = "Ende des Unionsbündnisses? Medien fallen auf Fake herein";
+//     $Fragen->sid = $Quellen->id;
+//     $Fragen->save();
+//     $Antworten = new \App\Answer();
+//     $Antworten->qid = $Fragen->id;
+//     $Antworten->isTrue = false;
+//     $Antworten->save();
 
-    $Quellen = new \App\Source();
-    $Quellen->url = "https://faktenfinder.tagesschau.de/inland/alkoholverbot-roth-ramadan-101.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/komasaufen104~_v-portraetgrossplus8x9.jpg";
-    $Quellen->Video = null;
-    $Quellen->Text = "Die Vizepräsidentin des Bundestags, Claudia Roth, fordere \"mehr Entgegenkommen der Gesellschaft hinsichtlich der Muslime im Land\" ein. \"Ein Verkaufsverbot für Alkohol während des Ramadans sei ein 'wichtiges Zeichen für die Toleranz'.\" So beginnt ein Artikel der Satire-Seite \"Berlin Express\". Die Überschrift lautet: \"Claudia Roth: Im Ramadan soll ein Verkaufsverbot für Alkohol bestehen\".
-Mit einem Klick auf die Rubrik \"Über uns\" ist der Hintergrund der Seite zu erkennen. Dort heißt es: \"Wir finden auch, dass es zu wenig Online-Satire gibt. Dem wollen wir mit unserem \"Berliner Express\" entgegentreten.\" Der Herausgeber von \"Berlin Express\" verantwortet auch ein anderes Online-Projekt, das sich als Magazin gegen \"postfaktische Mainstreammedien\" bezeichnet.";
-    $Quellen->save();
-    $Fragen = new \App\Question();
-    $Fragen->questiontext = "Grüne fordern kein Alkoholverbot im Ramadan";
-    $Fragen->sid = $Quellen->id;
-    $Fragen->save();
-    $Antworten = new \App\Answer();
-    $Antworten->qid = $Fragen->id;
-    $Antworten->isTrue = false;
-    $Antworten->save();
-
-    $Quellen = new \App\Source();
-    $Quellen->url = "http://www.tagesschau.de/ausland/becker-diplomat-105.html";
-    $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/becker-129~_v-portraetgrossplus8x9.jpg";
-    $Quellen->Video = null;
-    $Quellen->Text = "Der ehemalige Tennisstar Boris Becker hat auf der Echtheit seines Diplomatenpasses aus der Zentralafrikanischen Republik bestanden. \"Ich habe diesen Pass vom Botschafter erhalten, ich habe mit dem Präsidenten bei vielen Gelegenheiten gesprochen, es war eine offizielle Ernennung\", sagte Becker in einem Interview mit dem britischen Sender BBC.
-Becker hatte zuletzt versucht, in einem in Großbritannien gegen ihn laufenden Insolvenzverfahren diplomatische Immunität geltend zu machen, indem er auf seine Funktion als Sport-Attaché der Vertretung der Zentralafrikanischen Republik bei der EU in Brüssel verwies.";
-    $Quellen->save();
-    $Fragen = new \App\Question();
-    $Fragen->questiontext = "Boris Becker ist Attaché der Zentralafrikanischen Republik.";
-    $Fragen->sid = $Quellen->id;
-    $Fragen->save();
-    $Antworten = new \App\Answer();
-    $Antworten->qid = $Fragen->id;
-    $Antworten->isTrue = true;
-    $Antworten->save();
+//     $Quellen = new \App\Source();
+//     $Quellen->url = "https://faktenfinder.tagesschau.de/inland/alkoholverbot-roth-ramadan-101.html";
+//     $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/komasaufen104~_v-portraetgrossplus8x9.jpg";
+//     $Quellen->Video = null;
+//     $Quellen->Text = "Die Vizepräsidentin des Bundestags, Claudia Roth, fordere \"mehr Entgegenkommen der Gesellschaft hinsichtlich der Muslime im Land\" ein. \"Ein Verkaufsverbot für Alkohol während des Ramadans sei ein 'wichtiges Zeichen für die Toleranz'.\" So beginnt ein Artikel der Satire-Seite \"Berlin Express\". Die Überschrift lautet: \"Claudia Roth: Im Ramadan soll ein Verkaufsverbot für Alkohol bestehen\".
+// Mit einem Klick auf die Rubrik \"Über uns\" ist der Hintergrund der Seite zu erkennen. Dort heißt es: \"Wir finden auch, dass es zu wenig Online-Satire gibt. Dem wollen wir mit unserem \"Berliner Express\" entgegentreten.\" Der Herausgeber von \"Berlin Express\" verantwortet auch ein anderes Online-Projekt, das sich als Magazin gegen \"postfaktische Mainstreammedien\" bezeichnet.";
+//     $Quellen->save();
+//     $Fragen = new \App\Question();
+//     $Fragen->questiontext = "Grüne fordern kein Alkoholverbot im Ramadan";
+//     $Fragen->sid = $Quellen->id;
+//     $Fragen->save();
+//     $Antworten = new \App\Answer();
+//     $Antworten->qid = $Fragen->id;
+//     $Antworten->isTrue = false;
+//     $Antworten->save();
 
     $Quellen = new \App\Source();
     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/zwangshypotheken-eurorettung-101.html";

@@ -17060,7 +17060,6 @@ var mix = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin({
                     } });
             }
 
-            this.updatePoints();
             this.$store.state.counter++;
         },
         updatePoints: function updatePoints() {
@@ -55290,7 +55289,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg[data-v-52f80f70] {\n    background-color: black;\n    opacity: 0.6;\n    width: 100vw;\n    height: 100vh;\n    position: absolute;\n    margin-top: -1.2em;\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));\n    background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );\n}\n.solution-text[data-v-52f80f70] {\n    width: 80%;\n    margin: 0 auto 10em;\n}\n.video[data-v-52f80f70] {\n    width: 100%;\n    /*width: 30px;*/\n    /* padding: 0 10px 0 10px; */\n    height: auto;\n    max-height: 100%;\n    margin-top: -1.2em;\n}\nvideo[data-v-52f80f70] {\n    width: 100%;\n    height: auto;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n}\n.solution-result[data-v-52f80f70] {\n    text-align: center;\n}\n.next-button[data-v-52f80f70] {\n    /*width: auto;*/\n    text-align: center;\n    background-color: rgb(19, 92, 144);\n    padding: 0 5px 0 5px;\n    color: white;\n    bottom: 3.95em;\n    position: fixed;\n    width: 100%;\n    height: 5em;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.solution-header.wrong[data-v-52f80f70] {\n    /*position: absolute;*/\n    top: 0;\n    height: 3.7em;\n    background-color: #bb1b1b;\n    width: 100%;\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    z-index: 1;\n    position: fixed;\n    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n}\n.solution-header.right[data-v-52f80f70] {\n    background-color: #67bb1b;\n}\n.solution-title[data-v-52f80f70] {\n    font-weight: bold;\n    margin-bottom: 0.5em;\n}\n.solution-image[data-v-52f80f70] {\n    width: 100vw;\n    height: 30vh;\n    overflow: hidden;\n    margin-top: -1.2em;\n    margin-bottom: 1em;\n    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.4);\n            box-shadow: 0 3px 5px rgba(0,0,0,.4);\n}\n.solution-image img[data-v-52f80f70] {\n    width: 100%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    margin-top: 25%;\n}\n", ""]);
+exports.push([module.i, "\n.artikel-btn[data-v-52f80f70] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    background-color: #909090;\n    color: bisque;\n    padding: 0.5em;\n    margin-top: 1em;\n    width: 80%;\n    -webkit-transform: translateX(-50%);\n            transform: translateX(-50%);\n    margin-left: 50%;\n    font-size: 0.9em;\n    border-radius: 5px;\n    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.32);\n            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.32);\n}\n.artikel-btn > a[data-v-52f80f70] {\n    color: white;\n    width: 100%;\n    text-align: center;\n}\n.artikel-btn[data-v-52f80f70]:hover {\n    background-color: #565656;\n    -webkit-transition: 0.2s;\n    transition: 0.2s;\n    cursor: pointer;\n}\n.bg[data-v-52f80f70] {\n    background-color: black;\n    opacity: 0.6;\n    width: 100vw;\n    height: 100vh;\n    position: absolute;\n    margin-top: -1.2em;\n    background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));\n    background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );\n}\n.solution-text[data-v-52f80f70] {\n    width: 80%;\n    margin: 0 auto 10em;\n}\n.video[data-v-52f80f70] {\n    width: 100%;\n    /*width: 30px;*/\n    /* padding: 0 10px 0 10px; */\n    height: auto;\n    max-height: 100%;\n    margin-top: -1.2em;\n}\nvideo[data-v-52f80f70] {\n    width: 100%;\n    height: auto;\n    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);\n}\n.solution-result[data-v-52f80f70] {\n    text-align: center;\n}\n.next-button[data-v-52f80f70] {\n    /*width: auto;*/\n    text-align: center;\n    background-color: rgb(19, 92, 144);\n    padding: 0 5px 0 5px;\n    color: white;\n    bottom: 3.95em;\n    position: fixed;\n    width: 100%;\n    height: 5em;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.solution-header.wrong[data-v-52f80f70] {\n    /*position: absolute;*/\n    top: 0;\n    height: 3.7em;\n    background-color: #bb1b1b;\n    width: 100%;\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    z-index: 1;\n    position: fixed;\n    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);\n    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);\n}\n.solution-header.right[data-v-52f80f70] {\n    background-color: #67bb1b;\n}\n.solution-title[data-v-52f80f70] {\n    font-weight: bold;\n    margin-bottom: 0.5em;\n}\n.solution-image[data-v-52f80f70] {\n    width: 100vw;\n    height: 30vh;\n    overflow: hidden;\n    margin-top: -1.2em;\n    margin-bottom: 1em;\n    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.4);\n            box-shadow: 0 3px 5px rgba(0,0,0,.4);\n}\n.solution-image img[data-v-52f80f70] {\n    width: 100%;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    margin-top: 25%;\n}\n", ""]);
 
 // exports
 
@@ -55301,7 +55300,6 @@ exports.push([module.i, "\n.bg[data-v-52f80f70] {\n    background-color: black;\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -55348,7 +55346,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             mediaText: "",
             mediaTitle: "",
             mediaVideo: "",
-            mediaPicture: ""
+            mediaPicture: "",
+            mediaLink: ""
         };
     },
 
@@ -55364,6 +55363,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.$store.state.navigation = true;
         this.$store.state.backButton = false;
         document.querySelector('body').style.backgroundImage = '';
+        this.updatePoints();
     },
     created: function created() {
         var _this = this;
@@ -55385,7 +55385,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             text.shift();
             _this.mediaText = text.join(".");
-
+            _this.mediaLink = response.data.url;
             _this.mediaPicture = response.data.Picture;
         });
     },
@@ -55433,9 +55433,14 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "solution-text" }, [
       _c("div", { staticClass: "solution-title" }, [
-        _vm._v("\n            " + _vm._s(_vm.mediaTitle) + ".\n        ")
+        _vm._v(_vm._s(_vm.mediaTitle) + ".")
       ]),
-      _vm._v("\n            " + _vm._s(_vm.mediaText) + "\n        ")
+      _vm._v("\n        " + _vm._s(_vm.mediaText) + "\n        "),
+      _c("div", { staticClass: "artikel-btn" }, [
+        _c("a", { attrs: { href: _vm.mediaLink, target: "__blank" } }, [
+          _vm._v("zum Artikel")
+        ])
+      ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "score-board" }, [
