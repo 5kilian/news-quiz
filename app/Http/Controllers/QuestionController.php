@@ -77,25 +77,25 @@ class QuestionController extends Controller
     {
 
         //Check if Quizlock
-        $Quizlock = Quiz_lock::where('uid', Auth::id())->first();
-        if($Quizlock != null)
-        {
+        // $Quizlock = Quiz_lock::where('uid', Auth::id())->first();
+        // if($Quizlock != null)
+        // {
             //Check if Quizlock is still usable
-            if($Quizlock ->lock_timer < Carbon::Now())
-            {
-                //Der User kann wieder spielen.
-                $Quizlock->delete();
-            }
-            else
-            {
-                return response()->json([
-                    'Text' => 'Sorry heute gibt es keine Fragen mehr. Komm doch morgen wieder!',
-                    'Unlock_Time' => $Quizlock->lock_timer
-                ]);
+            // if($Quizlock ->lock_timer < Carbon::Now())
+            // {
+            //     //Der User kann wieder spielen.
+            //     $Quizlock->delete();
+            // }
+            // else
+            // {
+            //     return response()->json([
+            //         'Text' => 'Sorry heute gibt es keine Fragen mehr. Komm doch morgen wieder!',
+            //         'Unlock_Time' => $Quizlock->lock_timer
+            //     ]);
 
-            }
+            // }
 
-        }
+        // }
 
         //GetQuestions
 
@@ -106,42 +106,43 @@ class QuestionController extends Controller
 
 
         $AllQuestions = Question::whereNotin('QID',$AnsweredArray)->get();
-        $FakeornoFake = array();
-        $AndereFragen = array();
-        foreach($AllQuestions as $question)
-        {
-            if($question->FakeornoFake() == true)
-            {
-                $FakeornoFake[] = $question;
-            }
-            else
-            {
-                $AndereFragen[] = $question;
-            }
+        // $FakeornoFake = array();
+        // $AndereFragen = array();
+        // foreach($AllQuestions as $question)
+        // {
+        //     if($question->FakeornoFake() == true)
+        //     {
+        //         $FakeornoFake[] = $question;
+        //     }
+        //     else
+        //     {
+        //         $AndereFragen[] = $question;
+        //     }
 
-        }
-        shuffle($FakeornoFake);
-        shuffle($AndereFragen);
-        $AndereFragen = array_slice($AndereFragen,1,4);
+        // }
+        // shuffle($FakeornoFake);
+        // shuffle($AndereFragen);
+        // $AndereFragen = array_slice($AndereFragen,1,4);
 
-        foreach($AndereFragen as $Fragen)
-        {
-            $QuestionArray[] = $Fragen;
-        }
+        // foreach($AndereFragen as $Fragen)
+        // {
+        //     $QuestionArray[] = $Fragen;
+        // }
 
-        $QuestionArray[] = $FakeornoFake[0];
+        // $QuestionArray[] = $FakeornoFake[0];
 
-        $randomquestion = $QuestionArray;
+        // $randomquestion = $QuestionArray;
         //dd($randomquestion);
         //Set Quizlock
-        $Quizlock = new Quiz_lock;
-        $Quizlock->uid = Auth::id();
-        $Quizlock->islooked = 1;
-        $Quizlock->lock_timer = Carbon::now()->addDays(1);
-        $Quizlock->save();
+        // $Quizlock = new Quiz_lock;
+        // $Quizlock->uid = Auth::id();
+        // $Quizlock->islooked = 1;
+        // $Quizlock->lock_timer = Carbon::now()->addDays(1);
+        // $Quizlock->save();
 
-
-        return QuestionResource::collection((collect($randomquestion)));
+        $AllQuestions = collect($AllQuestions)->shuffle();
+        return QuestionResource::collection($AllQuestions);
+        // return QuestionResource::collection((collect($randomquestion)));
 
     }
     /**

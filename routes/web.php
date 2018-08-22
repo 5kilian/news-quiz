@@ -286,7 +286,7 @@ Auch die als Beispiel angeführte Erhöhung der Krankenkassenbeiträge bei der W
     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/trolle-btw17-ira-twitter-101.html";
     $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/merkel-2349~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = null;
-    $Quellen->Text = "Russische Trolle haben versucht, die Diskussionen in sozialen Medien vor der Bundestagswahl zu manipulieren. Das zeigt eine Analyse aus den USA. Dort wird eine russische Einflussnahme auf den US-Wahlkampf 2016 untersucht.";
+    $Quellen->Text = "Russische Trolle haben versucht, die Diskussionen in sozialen Medien vor der Bundestagswahl zu manipulieren. Das zeigt eine Analyse aus den USA. Dort wird eine russische Einflussnahme auf den US-Wahlkampf 2016 untersucht. In diesem Zusammenhang wurden dort Daten von Twitter-Profilen veröffentlicht, die als russische Trolle gesperrt worden waren. Twitter hatte zuvor durch Analysen Tausende Konten identifiziert, die mit der russischen Internet Research Agentur (IRA) in Verbindung stehen sollen. Der wissenschaftliche Dienst des Bundestags bezeichnet die IRA in St. Petersburg als \"staatliche Trollfabrik\". Aussteiger berichteten zudem über ihre Arbeit für die russische Propaganda.";
     $Quellen->save();
     $Fragen = new \App\Question();
     $Fragen->questiontext = "Russische Trolle haben versucht, auf Twitter den Wahlkampf in Deutschland zu beeinflussen.";
@@ -321,7 +321,7 @@ Auch die als Beispiel angeführte Erhöhung der Krankenkassenbeiträge bei der W
     Genau das behaupten selbsternannte \"Aufklärer\" und \"Querdenker\" im Netz. Entsprechende Videos auf YouTube werden zehntausendfach angesehen - und auch über E-Mails werden die Gerüchte verbreitet. Gezielt sollen Ängste geschürt werden - und auf entsprechenden Web-Seiten werden gleich vermeintliche Schutzmaßnahmen angeboten: so beispielsweise eine Daten-CD mit Informationen zu dem Thema für 13 Euro.";
     $Quellen->save();
     $Fragen = new \App\Question();
-    $Fragen->questiontext = "Während der WM werden unpopuläre Gesetze verabschiedet.";
+    $Fragen->questiontext = "Fake or no Fake: Während der WM werden unpopuläre Gesetze verabschiedet.";
     $Fragen->sid = $Quellen->id;
     $Fragen->save();
     $Antworten = new \App\Answer();
