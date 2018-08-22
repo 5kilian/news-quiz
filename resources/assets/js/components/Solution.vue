@@ -113,12 +113,6 @@
         margin: 0 auto 10em;
     }
 
-    .color-gradient {
-        /*width: 100%;*/
-        /*height: 100%;*/
-        /*background: linear-gradient(to bottom, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0.8))*/
-    }
-
     .video {
         width: 100%;
         /*width: 30px;*/
@@ -144,7 +138,7 @@
         background-color: rgb(19, 92, 144);
         padding: 0 5px 0 5px;
         color: white;
-        bottom: 4em;
+        bottom: 3.95em;
         position: fixed;
         width: 100%;
         height: 5em;
