@@ -301,8 +301,11 @@ Route::get('/123', function () {
     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/visa-lotterie-101.html";
     $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/grenze-deutschland-oesterreich-107~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = null;
-    $Quellen->Text = "Das Szenario klingt bedrohlich: Angeblich sind in Europa staatliche Verwertungsagenturen gegründet worden, die darauf warten, aktiviert zu werden. Ihr Ziel: Ein Gesetz umsetzen, das Politiker bereits im Verborgenen planen. Es geht um Zwangshypotheken auf private Immobilien. Mit den Einnahmen solle der Euro gerettet und die Staatshaushalte saniert werden.
-    Genau das behaupten selbsternannte \"Aufklärer\" und \"Querdenker\" im Netz. Entsprechende Videos auf YouTube werden zehntausendfach angesehen - und auch über E-Mails werden die Gerüchte verbreitet. Gezielt sollen Ängste geschürt werden - und auf entsprechenden Web-Seiten werden gleich vermeintliche Schutzmaßnahmen angeboten: so beispielsweise eine Daten-CD mit Informationen zu dem Thema für 13 Euro.";
+    $Quellen->Text = "Das Auswärtige Amt warnt vor Betrügern, die im Netz eine Lotterie für deutsche Visa versprechen. Um über solche Fakes aufzuklären, hat das Amt ein Projekt gestartet, das auch auf Kritik stößt.
+    
+    Es ist das Geschäft mit der Hoffnung: Verschiedene Internet-Seiten geben vor, Visa für Deutschland zu verlosen. Auf der Seite \"Welcome in Germany Lottery\" sind angeblich mehr als 300 \"Tickets\" zu gewinnen. In einem Countdown auf dieser Seite sinkt die Zahl allerdings rasant. Das soll signalisieren: Schnell bei der vermeintlichen Lotterie registrieren, die Fragen dort beantworten, um möglicherweise eines der Visa zu ergattern.
+    
+    Zunächst wird dafür auf der Seite die Altersgruppe abgefragt; danach wird Auskunft über den Familienstand verlangt. Und schließlich soll man noch angeben, ob man bereits Deutschland besucht habe. Testeingaben zeigen: Egal, welche Optionen man auswählt: angeblich ist der Besucher stets zu 100% geeignet, um an der vermeintlichen Verlosung teilzunehmen.";
     $Quellen->save();
     $Fragen = new \App\Question();
     $Fragen->questiontext = " Es gibt im Internet eine Lotterie, bei der Visa für Deutschland verlost werden.";
