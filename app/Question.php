@@ -21,4 +21,14 @@ class Question extends Model
     public function source() {
         return $this->hasOne('App\Source', 'SID','sid');
     }
+    public function FakeornoFake() {
+        if(count($this->answers) > 1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }

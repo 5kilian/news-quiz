@@ -12,7 +12,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Question;
 use App\Http\Resources\QuestionResource;
-use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -99,12 +98,41 @@ class QuestionController extends Controller
         }
 
         //GetQuestions
-        $AllQuestions = Question::all();
 
+
+        //Bereits beantworte Fragen
         $Answered = user_question::where('uid', Auth::id())->get();
         $AnsweredArray = $Answered->pluck('qid')->toArray();
-        $randomquestion = Question::whereNotin('QID',$AnsweredArray)->orderBy(\DB::raw('RAND()'))->take(5)->get();
 
+
+        $AllQuestions = Question::whereNotin('QID',$AnsweredArray)->get();
+        $FakeornoFake = array();
+        $AndereFragen = array();
+        foreach($AllQuestions as $question)
+        {
+            if($question->FakeornoFake() == true)
+            {
+                $FakeornoFake[] = $question;
+            }
+            else
+            {
+                $AndereFragen[] = $question;
+            }
+
+        }
+        shuffle($FakeornoFake);
+        shuffle($AndereFragen);
+        $AndereFragen = array_slice($AndereFragen,1,4);
+
+        foreach($AndereFragen as $Fragen)
+        {
+            $QuestionArray[] = $Fragen;
+        }
+
+        $QuestionArray[] = $FakeornoFake[0];
+
+        $randomquestion = $QuestionArray;
+        //dd($randomquestion);
         //Set Quizlock
         $Quizlock = new Quiz_lock;
         $Quizlock->uid = Auth::id();
@@ -113,7 +141,7 @@ class QuestionController extends Controller
         $Quizlock->save();
 
 
-        return QuestionResource::collection(($randomquestion));
+        return QuestionResource::collection((collect($randomquestion)));
 
     }
     /**
