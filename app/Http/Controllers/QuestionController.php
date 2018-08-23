@@ -76,6 +76,9 @@ class QuestionController extends Controller
     public function getfive()
     {
 
+        $AllQuestions = Question::all();
+        $AllQuestions = collect($AllQuestions)->shuffle();
+        return QuestionResource::collection($AllQuestions);
         //Check if Quizlock
         // $Quizlock = Quiz_lock::where('uid', Auth::id())->first();
         // if($Quizlock != null)
@@ -101,11 +104,11 @@ class QuestionController extends Controller
 
 
         //Bereits beantworte Fragen
-        $Answered = user_question::where('uid', Auth::id())->get();
-        $AnsweredArray = $Answered->pluck('qid')->toArray();
+        // $Answered = user_question::where('uid', Auth::id())->get();
+        // $AnsweredArray = $Answered->pluck('qid')->toArray();
 
 
-        $AllQuestions = Question::whereNotin('QID',$AnsweredArray)->get();
+        // $AllQuestions = Question::whereNotin('QID',$AnsweredArray)->get();
         // $FakeornoFake = array();
         // $AndereFragen = array();
         // foreach($AllQuestions as $question)
@@ -140,8 +143,6 @@ class QuestionController extends Controller
         // $Quizlock->lock_timer = Carbon::now()->addDays(1);
         // $Quizlock->save();
 
-        $AllQuestions = collect($AllQuestions)->shuffle();
-        return QuestionResource::collection($AllQuestions);
         // return QuestionResource::collection((collect($randomquestion)));
 
     }

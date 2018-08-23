@@ -15,7 +15,7 @@
 
         <div class="solution-text">
             <div class="solution-title">{{ mediaTitle }}.</div>
-            {{ mediaText }}
+            <span v-html="mediaText"></span>
             <div class="artikel-btn"><a :href="mediaLink" target="__blank">zum Artikel</a></div>
         </div>
 

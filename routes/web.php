@@ -320,15 +320,13 @@ Route::get('/123', function () {
     $Quellen->url = "http://faktenfinder.tagesschau.de/inland/gesetze-wahrend-wm-101.html";
     $Quellen->picURL = "http://www.tagesschau.de/multimedia/bilder/fussball-502~_v-portraetgrossplus8x9.jpg";
     $Quellen->Video = null;
-    $Quellen->Text = "Mehr Geld für die Parteien, schärfere Regeln beim Urheberrecht: Zur WM sind unpopuläre Gesetze verabschiedet worden. Steckt dahinter eine Strategie, um Diskussionen zu vermeiden?
-
-    Von Konstantin Kumpfmüller, MDR
+    $Quellen->Text = "Mehr Geld für die Parteien, schärfere Regeln beim Urheberrecht: Dass zur WM unpopuläre Gesetze verabschiedet worden sind, stimmt nicht. \n
     
-    Während der öffentliche Blick sich auf die Fußball-Weltmeisterschaft richtet, kann die Regierung unpopuläre Gesetze verabschieden, ohne eine öffentliche Diskussion befürchten zu müssen - so lautet eine weit verbreitete Behauptung.
+    Während der öffentliche Blick sich auf die Fußball-Weltmeisterschaft richtet, kann die Regierung unpopuläre Gesetze verabschieden, ohne eine öffentliche Diskussion befürchten zu müssen - so lautet eine weit verbreitete Behauptung.\n
     
-    Nachzulesen war sie beispielsweise beim \"Handelsblatt\", dem Deutschlandfunk, der \"Frankfurter Rundschau\", der \"Huffington Post\" und den \"Epoch Times\". Als Beispiele werden in vielen Artikeln die gleichen Fälle angeführt. Schlüssig sind aber nicht alle.
-    
-    Mehrwertsteuer und Sommermärchen
+    Nachzulesen war sie beispielsweise beim \"Handelsblatt\", dem Deutschlandfunk, der \"Frankfurter Rundschau\", der \"Huffington Post\" und den \"Epoch Times\". Als Beispiele werden in vielen Artikeln die gleichen Fälle angeführt. Schlüssig sind aber nicht alle.\n
+    <br>
+    <b>Mehrwertsteuer und Sommermärchen</b><br>
     Die umstrittene Erhöhung der Mehrwertsteuer wurde zwar am 16. Juni 2006 im Bundesrat beschlossen, dem zweiten Spieltag der WM in Deutschland. Sie stand als Ziel der großen Koalition aber schon im November 2005 fest. Ein entsprechender Gesetzesentwurf war bereits am 17. März 2006 veröffentlicht worden und der Bundestag stimmte am 19. Mai 2006 darüber ab - also 21 Tage vor Beginn der Fußball-WM.
     
     Auch die als Beispiel angeführte Erhöhung der Krankenkassenbeiträge bei der WM 2010 hatte eine lange Vorlaufzeit. Es stimmt zwar, dass die Koalition aus Union und FDP am Tag vor dem Halbfinale Deutschland gegen Spanien einen Gesetzesentwurf eingebracht hatte. Bis zur Verabschiedung des Gesetzes zur \"nachhaltigen und sozial ausgewogenen Finanzierung\" gesetzlicher Krankenversicherungen vergingen aber noch über vier Monate, in denen intensiv über die Gesundheitsreform diskutiert wurde.";

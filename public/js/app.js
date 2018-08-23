@@ -55435,7 +55435,9 @@ var render = function() {
       _c("div", { staticClass: "solution-title" }, [
         _vm._v(_vm._s(_vm.mediaTitle) + ".")
       ]),
-      _vm._v("\n        " + _vm._s(_vm.mediaText) + "\n        "),
+      _vm._v(" "),
+      _c("span", { domProps: { innerHTML: _vm._s(_vm.mediaText) } }),
+      _vm._v(" "),
       _c("div", { staticClass: "artikel-btn" }, [
         _c("a", { attrs: { href: _vm.mediaLink, target: "__blank" } }, [
           _vm._v("zum Artikel")
